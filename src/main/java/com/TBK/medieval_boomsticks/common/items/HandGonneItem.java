@@ -1,8 +1,10 @@
 package com.TBK.medieval_boomsticks.common.items;
 
+import com.TBK.medieval_boomsticks.client.renderer.HandGonneRenderers;
 import com.google.common.collect.Lists;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -27,9 +29,9 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
-import software.bernie.geckolib.GeckoLib;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
@@ -37,6 +39,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class HandGonneItem extends ProjectileWeaponItem implements GeoItem {
@@ -46,6 +49,19 @@ public class HandGonneItem extends ProjectileWeaponItem implements GeoItem {
 
     public HandGonneItem(Properties p_41383_) {
         super(p_41383_);
+    }
+
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        super.initializeClient(consumer);
+        consumer.accept(new IClientItemExtensions() {
+            private final BlockEntityWithoutLevelRenderer renderer = new HandGonneRenderers<>();
+
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                return renderer;
+            }
+        });
     }
     public Predicate<ItemStack> getSupportedHeldProjectiles() {
         return ARROW_OR_FIREWORK;
@@ -57,7 +73,7 @@ public class HandGonneItem extends ProjectileWeaponItem implements GeoItem {
 
     public InteractionResultHolder<ItemStack> use(Level p_40920_, Player p_40921_, InteractionHand p_40922_) {
         ItemStack itemstack = p_40921_.getItemInHand(p_40922_);
-        if (isCharged(itemstack)) {
+        if (isCharged(itemstack) && p_40921_.getItemInHand(InteractionHand.OFF_HAND).is(Items.FLINT_AND_STEEL)) {
             performShooting(p_40920_, p_40921_, p_40922_, itemstack, getShootingPower(itemstack), 1.0F);
             setCharged(itemstack, false);
             return InteractionResultHolder.consume(itemstack);
