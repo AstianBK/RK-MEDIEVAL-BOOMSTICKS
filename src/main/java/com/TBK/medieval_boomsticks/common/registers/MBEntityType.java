@@ -1,7 +1,8 @@
 package com.TBK.medieval_boomsticks.common.registers;
 
 import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
-import com.TBK.medieval_boomsticks.server.ThrownJavelin;
+import com.TBK.medieval_boomsticks.server.entity.RoundBallProyectile;
+import com.TBK.medieval_boomsticks.server.entity.ThrownJavelin;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.registries.DeferredRegister;
@@ -16,5 +17,9 @@ public class MBEntityType {
     public static final RegistryObject<EntityType<ThrownJavelin>> THROWN_JAVELIN = ENTITY_TYPES
             .register("thrown_javelin", () -> EntityType.Builder.<ThrownJavelin>of(ThrownJavelin::new, MobCategory.MISC)
                     .fireImmune().sized(0.2F, 0.2F).build(RKMedievalBoomStick.MODID + "thrown_javelin"));
+
+    public static final RegistryObject<EntityType<RoundBallProyectile>> ROUND_BALL = ENTITY_TYPES
+            .register("round_ball", () -> EntityType.Builder.<RoundBallProyectile>of(RoundBallProyectile::new, MobCategory.MISC)
+                    .fireImmune().sized(0.2F, 0.2F).build(RKMedievalBoomStick.MODID + "round_ball"));
 
 }
