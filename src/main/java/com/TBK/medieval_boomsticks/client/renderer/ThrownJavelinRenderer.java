@@ -1,7 +1,8 @@
 package com.TBK.medieval_boomsticks.client.renderer;
 
+import com.TBK.medieval_boomsticks.client.layers.ThrownJavelinClothLayers;
 import com.TBK.medieval_boomsticks.client.model.JavelinModel;
-import com.TBK.medieval_boomsticks.server.ThrownJavelin;
+import com.TBK.medieval_boomsticks.server.entity.ThrownJavelin;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -15,12 +16,15 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 public class ThrownJavelinRenderer<T extends ThrownJavelin> extends GeoEntityRenderer<T> {
     public ThrownJavelinRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager,new JavelinModel<>());
+        this.addRenderLayer(new ThrownJavelinClothLayers<>(this));
     }
 
     @Override
     public void preRender(PoseStack poseStack, T animatable, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTick,animatable.yRotO,animatable.getYRot())+180.0F));
-        poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick,animatable.xRotO,animatable.getXRot())));
+        if(!isReRender){
+            poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTick,animatable.yRotO,animatable.getYRot())+180.0F));
+            poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick,animatable.xRotO,animatable.getXRot())));
+        }
     }
 
     @Override

@@ -1,14 +1,12 @@
 package com.TBK.medieval_boomsticks;
 
 import com.TBK.medieval_boomsticks.client.renderer.ThrownJavelinRenderer;
+import com.TBK.medieval_boomsticks.common.registers.MBCreativeTabs;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.NoopRenderer;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,6 +29,7 @@ public class RKMedievalBoomStick
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         MBItems.ITEMS.register(modEventBus);
         MBEntityType.ENTITY_TYPES.register(modEventBus);
+        MBCreativeTabs.TABS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -44,6 +43,7 @@ public class RKMedievalBoomStick
     @OnlyIn(Dist.CLIENT)
     private void registerRenderers(FMLCommonSetupEvent event){
         EntityRenderers.register(MBEntityType.THROWN_JAVELIN.get(), ThrownJavelinRenderer::new);
+        EntityRenderers.register(MBEntityType.ROUND_BALL.get(), NoopRenderer::new);
     }
 
 

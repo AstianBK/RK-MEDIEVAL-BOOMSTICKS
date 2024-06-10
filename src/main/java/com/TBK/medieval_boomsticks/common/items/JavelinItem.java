@@ -1,12 +1,12 @@
 package com.TBK.medieval_boomsticks.common.items;
 
-import com.TBK.medieval_boomsticks.client.renderer.ArquebusRenderers;
 import com.TBK.medieval_boomsticks.client.renderer.JavelinRenderers;
-import com.TBK.medieval_boomsticks.server.ThrownJavelin;
+import com.TBK.medieval_boomsticks.server.entity.ThrownJavelin;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -22,7 +22,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
@@ -59,6 +58,11 @@ public class JavelinItem extends TridentItem implements DyeableLeatherItem, GeoI
                 return renderer;
             }
         });
+    }
+
+    public int getColor(ItemStack p_41122_) {
+        CompoundTag compoundtag = p_41122_.getTagElement("display");
+        return compoundtag != null && compoundtag.contains("color", 99) ? compoundtag.getInt("color") : 16777215;
     }
 
 

@@ -1,5 +1,6 @@
-package com.TBK.medieval_boomsticks.server;
+package com.TBK.medieval_boomsticks.server.entity;
 
+import com.TBK.medieval_boomsticks.common.items.JavelinItem;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
 import net.minecraft.core.BlockPos;
@@ -18,8 +19,8 @@ import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -34,10 +35,11 @@ import javax.annotation.Nullable;
 public class ThrownJavelin extends AbstractArrow implements GeoAnimatable {
     private final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(ThrownJavelin.class, EntityDataSerializers.BYTE);
-    private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(ThrownJavelin.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> ID_EFFECT_COLOR = SynchedEntityData.defineId(ThrownJavelin.class, EntityDataSerializers.INT);
     private ItemStack javelinItem = new ItemStack(MBItems.JAVELIN.get());
     private boolean dealtDamage;
     public int clientSideReturnTridentTickCount;
+    private boolean fixedColor;
 
     public ThrownJavelin(EntityType<? extends ThrownJavelin> p_37561_, Level p_37562_) {
         super(p_37561_, p_37562_);
@@ -47,14 +49,27 @@ public class ThrownJavelin extends AbstractArrow implements GeoAnimatable {
         super(MBEntityType.THROWN_JAVELIN.get(), p_37570_, p_37569_);
         this.javelinItem = p_37571_.copy();
         this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(p_37571_));
-        this.entityData.set(ID_FOIL, p_37571_.hasFoil());
+        this.setFixedColor(((JavelinItem)p_37571_.getItem()).getColor(p_37571_));
     }
 
+    public ItemStack getJavelinItem() {
+        return this.javelinItem;
+    }
 
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(ID_LOYALTY, (byte)0);
-        this.entityData.define(ID_FOIL, false);
+        this.entityData.define(ID_EFFECT_COLOR, -1);
+    }
+
+    public int getColor() {
+        return this.entityData.get(ID_EFFECT_COLOR);
+    }
+
+
+    public static int getCustomColor(ItemStack p_36885_) {
+        CompoundTag compoundtag = p_36885_.getTag();
+        return compoundtag != null && compoundtag.contains("CustomColor", 99) ? compoundtag.getInt("CustomColor") : -1;
     }
 
     public void tick() {
@@ -105,9 +120,6 @@ public class ThrownJavelin extends AbstractArrow implements GeoAnimatable {
         return this.javelinItem.copy();
     }
 
-    public boolean isFoil() {
-        return this.entityData.get(ID_FOIL);
-    }
     @Nullable
     protected EntityHitResult findHitEntity(Vec3 p_37575_, Vec3 p_37576_) {
         return this.dealtDamage ? null : super.findHitEntity(p_37575_, p_37576_);
@@ -178,11 +190,17 @@ public class ThrownJavelin extends AbstractArrow implements GeoAnimatable {
 
     }
 
+    private void setFixedColor(int p_36883_) {
+        this.fixedColor = true;
+        this.entityData.set(ID_EFFECT_COLOR, p_36883_);
+    }
+
     public void readAdditionalSaveData(CompoundTag p_37578_) {
         super.readAdditionalSaveData(p_37578_);
         if (p_37578_.contains("Trident", 10)) {
             this.javelinItem = ItemStack.of(p_37578_.getCompound("Trident"));
         }
+        this.setFixedColor(p_37578_.getInt("Color"));
 
         this.dealtDamage = p_37578_.getBoolean("DealtDamage");
         this.entityData.set(ID_LOYALTY, (byte)EnchantmentHelper.getLoyalty(this.javelinItem));
@@ -192,6 +210,9 @@ public class ThrownJavelin extends AbstractArrow implements GeoAnimatable {
         super.addAdditionalSaveData(p_37582_);
         p_37582_.put("Trident", this.javelinItem.save(new CompoundTag()));
         p_37582_.putBoolean("DealtDamage", this.dealtDamage);
+        if (this.fixedColor) {
+            p_37582_.putInt("Color", this.getColor());
+        }
     }
 
     public void tickDespawn() {

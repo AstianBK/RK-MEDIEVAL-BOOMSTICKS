@@ -4,6 +4,7 @@ import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
 import com.TBK.medieval_boomsticks.common.items.ArquebusItem;
 import com.TBK.medieval_boomsticks.common.items.HandGonneItem;
 import com.TBK.medieval_boomsticks.common.items.JavelinItem;
+import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,7 +18,7 @@ public class MBItems {
     public static final RegistryObject<Item> ARBALEST= ITEMS.register("arbalest",()->new Item(new Item.Properties()));
     public static final RegistryObject<Item> ARQUEBUS= ITEMS.register("arquebus",()->new ArquebusItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> HEAVY_BOLT= ITEMS.register("heavy_bolt",()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ROUND_BALL= ITEMS.register("round_ball",()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> HEAVY_BOLT= ITEMS.register("heavy_bolt",()->new ArrowItem(new Item.Properties()));
+    public static final RegistryObject<Item> ROUND_BALL= ITEMS.register("round_ball",()->new ArrowItem(new Item.Properties()));
 
 }
