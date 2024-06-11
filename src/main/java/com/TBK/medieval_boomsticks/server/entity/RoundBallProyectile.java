@@ -1,11 +1,12 @@
 package com.TBK.medieval_boomsticks.server.entity;
 
+import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
 import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
@@ -41,13 +42,7 @@ public class RoundBallProyectile extends AbstractArrow {
         return ItemStack.EMPTY;
     }
 
-    @Override
-    public void baseTick() {
-        if(this.level().isClientSide && this.firstTick){
 
-        }
-        super.baseTick();
-    }
 
     @Override
     protected void tickDespawn() {
@@ -59,7 +54,7 @@ public class RoundBallProyectile extends AbstractArrow {
 
     protected void onHitEntity(EntityHitResult p_36757_) {
         Entity entity = p_36757_.getEntity();
-        int i = Mth.ceil(Mth.clamp(this.getBaseDamage(), 0.0D, (double)Integer.MAX_VALUE));
+        int i = Mth.ceil(Mth.clamp(Config.roundBallDamage, 0.0D, (double)Integer.MAX_VALUE));
         if (this.getPierceLevel() > 0) {
             if (this.piercingIgnoreEntityIds == null) {
                 this.piercingIgnoreEntityIds = new IntOpenHashSet(5);

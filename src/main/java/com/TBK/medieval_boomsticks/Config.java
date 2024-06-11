@@ -18,10 +18,17 @@ public class Config
             .comment("A magic number")
             .defineInRange("heavy_bolt_damage", 2.0D, 0, Double.MAX_VALUE);
 
+    private static final ForgeConfigSpec.DoubleValue JAVELIN_SPEED = BUILDER
+            .comment("A magic number")
+            .defineInRange("javelin_speed", 2.5D, 0, Double.MAX_VALUE);
+
+
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
     public static double roundBallDamage;
     public static double heavyBoltDamage;
+    public static double javelinSpeed;
+
 
 
 
@@ -29,5 +36,6 @@ public class Config
     static void onLoad(final ModConfigEvent event) {
         roundBallDamage = ROUND_BALL_DAMAGE.get();
         heavyBoltDamage = HEAVY_BOLT_DAMAGE.get();
+        javelinSpeed = JAVELIN_SPEED.get();
     }
 }
