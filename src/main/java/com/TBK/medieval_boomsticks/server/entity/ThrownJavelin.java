@@ -154,25 +154,8 @@ public class ThrownJavelin extends AbstractArrow implements GeoAnimatable {
 
         this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
         float f1 = 1.0F;
-        if (this.level() instanceof ServerLevel && this.level().isThundering() && this.isChanneling()) {
-            BlockPos blockpos = entity.blockPosition();
-            if (this.level().canSeeSky(blockpos)) {
-                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
-                if (lightningbolt != null) {
-                    lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
-                    lightningbolt.setCause(entity1 instanceof ServerPlayer ? (ServerPlayer)entity1 : null);
-                    this.level().addFreshEntity(lightningbolt);
-                    soundevent = SoundEvents.TRIDENT_THUNDER;
-                    f1 = 5.0F;
-                }
-            }
-        }
 
         this.playSound(soundevent, f1, 1.0F);
-    }
-
-    public boolean isChanneling() {
-        return EnchantmentHelper.hasChanneling(this.javelinItem);
     }
 
     protected boolean tryPickup(Player p_150196_) {

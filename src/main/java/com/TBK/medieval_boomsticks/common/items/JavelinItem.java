@@ -1,5 +1,6 @@
 package com.TBK.medieval_boomsticks.common.items;
 
+import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.client.renderer.JavelinRenderers;
 import com.TBK.medieval_boomsticks.server.entity.ThrownJavelin;
 import com.google.common.collect.ImmutableMultimap;
@@ -90,7 +91,7 @@ public class JavelinItem extends TridentItem implements DyeableLeatherItem, GeoI
                         });
                         if (j == 0) {
                             ThrownJavelin throwntrident = new ThrownJavelin(p_43395_, player, p_43394_);
-                            throwntrident.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F + (float)j * 0.5F, 1.0F);
+                            throwntrident.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, (float) (Config.javelinSpeed + (float)j * 0.5F), 1.0F);
                             if (player.getAbilities().instabuild) {
                                 throwntrident.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                             }

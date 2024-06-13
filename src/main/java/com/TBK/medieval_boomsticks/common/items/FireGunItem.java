@@ -15,6 +15,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -38,7 +39,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class FireGunItem extends ProjectileWeaponItem implements GeoItem {
+public class FireGunItem extends CrossbowItem implements GeoItem {
     private boolean startSoundPlayed = false;
     private boolean midLoadSoundPlayed = false;
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
@@ -64,9 +65,6 @@ public class FireGunItem extends ProjectileWeaponItem implements GeoItem {
     public InteractionResultHolder<ItemStack> use(Level p_40920_, Player p_40921_, InteractionHand p_40922_) {
         ItemStack itemstack = p_40921_.getItemInHand(p_40922_);
         if (isCharged(itemstack) && p_40921_.getItemInHand(InteractionHand.OFF_HAND).is(Items.FLINT_AND_STEEL)) {
-            for(int i=0;i<5;i++){
-                p_40920_.addParticle(ParticleTypes.POOF,p_40921_.getX(),p_40921_.getEyeY()-0.15D,p_40921_.getZ(),0.0F,0.01F,0.0F);
-            }
             performShooting(p_40920_, p_40921_, p_40922_, itemstack, getShootingPower(itemstack), 1.0F);
             setCharged(itemstack, false);
             return InteractionResultHolder.consume(itemstack);
@@ -225,6 +223,13 @@ public class FireGunItem extends ProjectileWeaponItem implements GeoItem {
             });
             p_40895_.addFreshEntity(projectile);
             p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, p_40900_);
+        }else {
+            float f1 = p_40896_.getYHeadRot() * Mth.DEG_TO_RAD;
+            float f2 = Mth.sin(f1);
+            float f3 = Mth.cos(f1);
+            for(int i=0;i<5;i++){
+                p_40895_.addParticle(ParticleTypes.POOF,p_40896_.getX()-f2*1.5D,p_40896_.getEyeY()-0.15d,p_40896_.getZ()+f3*1.5D,0.0f,0.01f,0.0f);
+            }
         }
     }
 
