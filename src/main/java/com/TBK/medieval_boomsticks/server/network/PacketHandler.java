@@ -2,6 +2,7 @@ package com.TBK.medieval_boomsticks.server.network;
 
 import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
 import com.TBK.medieval_boomsticks.server.network.msg.PacketPosVec;
+import com.TBK.medieval_boomsticks.server.network.msg.PacketSmokeEffect;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -26,6 +27,10 @@ public class PacketHandler {
 
         channel.registerMessage(index++, PacketPosVec.class, PacketPosVec::write,
                 PacketPosVec::new, PacketPosVec::handle);
+
+        channel.registerMessage(index++, PacketSmokeEffect.class, PacketSmokeEffect::encode,
+                PacketSmokeEffect::new, PacketSmokeEffect::handle);
+
     }
 
     public static <MSG> void sendToPlayer(MSG message, ServerPlayer player) {
