@@ -2,6 +2,54 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"handgonne.idle": {
+			"loop": true,
+			"bones": {
+				"ammo": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"handgonne.shoot": {
+			"animation_length": 0.5833,
+			"bones": {
+				"main": {
+					"rotation": {
+						"0.0": {
+							"vector": ["-math.sin(query.anim_time*380)*15", 0, 0]
+						},
+						"0.5833": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, "-math.sin(query.anim_time*380)*-2.5"]
+						},
+						"0.5833": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"ammo": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"barrel": {
+					"scale": {
+						"0.0": {
+							"vector": ["math.sin(query.anim_time*380)*0.35+1", "math.sin(query.anim_time*380)*0.35+1", "math.sin(query.anim_time*380)*0.35+1"]
+						},
+						"0.5833": {
+							"vector": [1, 1, 1]
+						}
+					}
+				}
+			}
+		},
+		"handgonne.reload": {
 			"loop": true
 		}
 	},
