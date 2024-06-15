@@ -1,10 +1,16 @@
 package com.TBK.medieval_boomsticks.common.items;
 
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
-import com.TBK.medieval_boomsticks.server.entity.RoundBallProyectile;
+import com.TBK.medieval_boomsticks.server.entity.RoundBallProjectile;
+import com.TBK.medieval_boomsticks.server.network.PacketHandler;
+import com.TBK.medieval_boomsticks.server.network.msg.PacketPosVec;
+import com.TBK.medieval_boomsticks.server.network.msg.PacketSmokeEffect;
 import com.google.common.collect.Lists;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -209,27 +215,31 @@ public class FireGunItem extends CrossbowItem implements GeoItem {
     }
 
     private static void shootProjectile(Level p_40895_, LivingEntity p_40896_, InteractionHand p_40897_, ItemStack p_40898_, ItemStack p_40899_, float p_40900_, boolean p_40901_, float p_40902_, float p_40903_, float p_40904_) {
-        if (!p_40895_.isClientSide) {
-            boolean flag = p_40899_.is(Items.FIREWORK_ROCKET);
-            RoundBallProyectile projectile=new RoundBallProyectile(p_40895_,p_40896_,p_40898_);;
-            projectile.pickup = AbstractArrow.Pickup.DISALLOWED;
-            Vec3 vec31 = p_40896_.getUpVector(1.0F);
-            Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(p_40904_ * ((float)Math.PI / 180F)), vec31.x, vec31.y, vec31.z);
-            Vec3 vec3 = p_40896_.getViewVector(1.0F);
-            Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
-            projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), 8F, 1F);
-            p_40898_.hurtAndBreak(flag ? 3 : 1, p_40896_, (p_40858_) -> {
+        boolean isFail=p_40895_.random.nextFloat()<0.05F;
+        float f1 = p_40896_.getYHeadRot() * Mth.DEG_TO_RAD;
+        float f2 = Mth.sin(f1);
+        float f3 = Mth.cos(f1);
+        if (!p_40896_.level().isClientSide) {
+            RoundBallProjectile projectile=new RoundBallProjectile(p_40895_,p_40896_,p_40898_);;
+            if(!isFail){
+                projectile.pickup = AbstractArrow.Pickup.DISALLOWED;
+                Vec3 vec31 = p_40896_.getUpVector(1.0F);
+                Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(p_40904_ * ((float)Math.PI / 180F)), vec31.x, vec31.y, vec31.z);
+                Vec3 vec3 = p_40896_.getViewVector(1.0F);
+                Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
+                projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), 8F, 1F);
+
+            }else {
+                projectile.setPos(p_40896_.getX()-f2*1.5D,p_40896_.getEyeY()-0.15d,p_40896_.getZ()+f3*1.5D);
+                projectile.setDeltaMovement(new Vec3(0.0F,-1.0F,0.0F));
+            }
+            PacketHandler.sendToServer(new PacketPosVec(projectile,projectile.position()));
+            PacketHandler.sendToPlayer(new PacketSmokeEffect(p_40896_.getX()-f2*1.5D,p_40896_.getEyeY()-0.15d,p_40896_.getZ()+f3*1.5D,isFail), (ServerPlayer) p_40896_);
+            p_40898_.hurtAndBreak( 1, p_40896_, (p_40858_) -> {
                 p_40858_.broadcastBreakEvent(p_40897_);
             });
-            p_40895_.addFreshEntity(projectile);
             p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, p_40900_);
-        }else {
-            float f1 = p_40896_.getYHeadRot() * Mth.DEG_TO_RAD;
-            float f2 = Mth.sin(f1);
-            float f3 = Mth.cos(f1);
-            for(int i=0;i<5;i++){
-                p_40895_.addParticle(ParticleTypes.POOF,p_40896_.getX()-f2*1.5D,p_40896_.getEyeY()-0.15d,p_40896_.getZ()+f3*1.5D,0.0f,0.01f,0.0f);
-            }
+            p_40895_.addFreshEntity(projectile);
         }
     }
 

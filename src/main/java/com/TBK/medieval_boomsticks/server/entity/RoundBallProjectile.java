@@ -2,11 +2,11 @@ package com.TBK.medieval_boomsticks.server.entity;
 
 import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
+import com.TBK.medieval_boomsticks.server.network.PacketHandler;
+import com.TBK.medieval_boomsticks.server.network.msg.PacketPosVec;
 import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
@@ -22,18 +22,21 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.Arrays;
 
 
-public class RoundBallProyectile extends AbstractArrow {
-
-
-    public RoundBallProyectile(EntityType<? extends RoundBallProyectile> p_37561_, Level p_37562_) {
+public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
+    public final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
+    public RoundBallProjectile(EntityType<? extends RoundBallProjectile> p_37561_, Level p_37562_) {
         super(p_37561_, p_37562_);
     }
 
-    public RoundBallProyectile(Level p_37569_, LivingEntity p_37570_, ItemStack p_37571_) {
+    public RoundBallProjectile(Level p_37569_, LivingEntity p_37570_, ItemStack p_37571_) {
         super(MBEntityType.ROUND_BALL.get(), p_37570_, p_37569_);
     }
 
@@ -50,6 +53,19 @@ public class RoundBallProyectile extends AbstractArrow {
         if(this.onGround()){
             this.discard();
         }
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if(!this.level().isClientSide){
+            PacketHandler.sendToServer(new PacketPosVec(this,new Vec3(this.getX(),this.getY(),this.getZ())));
+        }
+    }
+
+    @Override
+    public void handleEntityEvent(byte p_19882_) {
+        super.handleEntityEvent(p_19882_);
     }
 
     protected void onHitEntity(EntityHitResult p_36757_) {
@@ -157,4 +173,13 @@ public class RoundBallProyectile extends AbstractArrow {
 
     }
 
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
+    }
 }
