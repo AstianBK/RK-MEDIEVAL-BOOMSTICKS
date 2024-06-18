@@ -132,5 +132,20 @@
         0.55
       ]
     }
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "medieval_boomsticks:aim": 1
+      },
+      "model": "medieval_boomsticks:item/javelin_aim"
+    },
+    {
+      "predicate": {
+        "medieval_boomsticks:aim": 1,
+        "medieval_boomsticks:epic_fight": 1
+      },
+      "model": "medieval_boomsticks:item/javelin_aim_ef"
+    }
+  ]
 }

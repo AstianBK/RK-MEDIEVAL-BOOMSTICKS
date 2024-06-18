@@ -18,6 +18,6 @@ public class HandGonneModel<T extends HandGonneItem> extends GeoModel<T> {
 
     @Override
     public ResourceLocation getAnimationResource(T animatable) {
-        return new ResourceLocation(RKMedievalBoomStick.MODID,"animations/handgonne.animations.json");
+        return new ResourceLocation(RKMedievalBoomStick.MODID,"animations/handgonne.animation.json");
     }
 }

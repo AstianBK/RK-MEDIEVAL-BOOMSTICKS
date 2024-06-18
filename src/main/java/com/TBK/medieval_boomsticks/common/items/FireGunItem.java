@@ -48,6 +48,7 @@ import java.util.function.Predicate;
 public class FireGunItem extends CrossbowItem implements GeoItem {
     private boolean startSoundPlayed = false;
     private boolean midLoadSoundPlayed = false;
+    public int fireTimer=0;
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
     public FireGunItem(Properties p_41383_) {
@@ -64,7 +65,12 @@ public class FireGunItem extends CrossbowItem implements GeoItem {
 
     @Override
     public void inventoryTick(ItemStack p_41404_, Level p_41405_, Entity p_41406_, int p_41407_, boolean p_41408_) {
-
+        if(isFire(p_41404_)){
+            this.fireTimer--;
+            if(this.fireTimer==0){
+                setFire(p_41404_,false);
+            }
+        }
         super.inventoryTick(p_41404_, p_41405_, p_41406_, p_41407_, p_41408_);
     }
 
@@ -73,6 +79,8 @@ public class FireGunItem extends CrossbowItem implements GeoItem {
         if (isCharged(itemstack) && p_40921_.getItemInHand(InteractionHand.OFF_HAND).is(Items.FLINT_AND_STEEL)) {
             performShooting(p_40920_, p_40921_, p_40922_, itemstack, getShootingPower(itemstack), 1.0F);
             setCharged(itemstack, false);
+            setFire(itemstack,true);
+            this.fireTimer=20;
             return InteractionResultHolder.consume(itemstack);
         } else if (!p_40921_.getProjectile(itemstack).isEmpty()) {
             if (!isCharged(itemstack)) {
@@ -157,6 +165,16 @@ public class FireGunItem extends CrossbowItem implements GeoItem {
         CompoundTag compoundtag = p_40885_.getOrCreateTag();
         compoundtag.putBoolean("Charged", p_40886_);
     }
+    public static boolean isFire(ItemStack p_40933_) {
+        CompoundTag compoundtag = p_40933_.getTag();
+        return compoundtag != null && compoundtag.getBoolean("fire");
+    }
+
+    public static void setFire(ItemStack p_40885_, boolean p_40886_) {
+        CompoundTag compoundtag = p_40885_.getOrCreateTag();
+        compoundtag.putBoolean("fire", p_40886_);
+    }
+
 
     public static boolean isReCharge(ItemStack p_40933_) {
         CompoundTag compoundtag = p_40933_.getTag();

@@ -19,6 +19,6 @@ public class ArquebusModel<T extends ArquebusItem> extends GeoModel<T> {
 
     @Override
     public ResourceLocation getAnimationResource(T animatable) {
-        return new ResourceLocation(RKMedievalBoomStick.MODID,"animations/arquebus.animations.json");
+        return new ResourceLocation(RKMedievalBoomStick.MODID,"animations/arquebus.animation.json");
     }
 }
