@@ -1,6 +1,7 @@
 package com.TBK.medieval_boomsticks;
 
-import com.TBK.medieval_boomsticks.client.renderer.RoundBallRenderers;
+import com.TBK.medieval_boomsticks.client.renderer.HeavyBoltRenderer;
+import com.TBK.medieval_boomsticks.client.renderer.RoundBallRenderer;
 import com.TBK.medieval_boomsticks.client.renderer.ThrownJavelinRenderer;
 import com.TBK.medieval_boomsticks.common.registers.MBCreativeTabs;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
@@ -8,7 +9,6 @@ import com.TBK.medieval_boomsticks.common.registers.MBItems;
 import com.TBK.medieval_boomsticks.server.network.PacketHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
@@ -46,7 +46,8 @@ public class RKMedievalBoomStick
     @OnlyIn(Dist.CLIENT)
     private void registerRenderers(FMLCommonSetupEvent event){
         EntityRenderers.register(MBEntityType.THROWN_JAVELIN.get(), ThrownJavelinRenderer::new);
-        EntityRenderers.register(MBEntityType.ROUND_BALL.get(), RoundBallRenderers::new);
+        EntityRenderers.register(MBEntityType.ROUND_BALL.get(), RoundBallRenderer::new);
+        EntityRenderers.register(MBEntityType.HEAVY_BOLT.get(), HeavyBoltRenderer::new);
     }
 
 

@@ -2,6 +2,7 @@ package com.TBK.medieval_boomsticks.server.entity;
 
 import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
+import com.TBK.medieval_boomsticks.common.registers.MBItems;
 import com.TBK.medieval_boomsticks.server.network.PacketHandler;
 import com.TBK.medieval_boomsticks.server.network.msg.PacketPosVec;
 import com.google.common.collect.Lists;
@@ -17,6 +18,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
@@ -30,34 +32,36 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.Arrays;
 
 
-public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
+public class HeavyBoltProjectile extends AbstractArrow implements GeoEntity {
     public final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
-    public RoundBallProjectile(EntityType<? extends RoundBallProjectile> p_37561_, Level p_37562_) {
+    public HeavyBoltProjectile(EntityType<? extends HeavyBoltProjectile> p_37561_, Level p_37562_) {
         super(p_37561_, p_37562_);
     }
 
-    public RoundBallProjectile(Level p_37569_, LivingEntity p_37570_, ItemStack p_37571_) {
-        super(MBEntityType.ROUND_BALL.get(), p_37570_, p_37569_);
+    public HeavyBoltProjectile(Level p_37569_, LivingEntity p_37570_,ItemStack p_37571_) {
+        super(MBEntityType.HEAVY_BOLT.get(), p_37570_, p_37569_);
     }
+
 
     @Override
     protected ItemStack getPickupItem() {
-        return ItemStack.EMPTY;
+        return new ItemStack(MBItems.HEAVY_BOLT.get());
     }
 
+
+
+    @Override
+    protected void tickDespawn() {
+        super.tickDespawn();
+        if(this.onGround()){
+            this.discard();
+        }
+    }
 
     @Override
     public void tick() {
         super.tick();
-        if(!this.level().isClientSide && this.onGround()){
-            this.discard();
-        }
-        if(!this.level().isClientSide && !this.onGround()){
-            PacketHandler.sendToServer(new PacketPosVec(this,new Vec3(this.getX(),this.getY(),this.getZ())));
-        }
     }
-
-
 
     @Override
     public void handleEntityEvent(byte p_19882_) {
@@ -66,7 +70,7 @@ public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
 
     protected void onHitEntity(EntityHitResult p_36757_) {
         Entity entity = p_36757_.getEntity();
-        int i = Mth.ceil(Mth.clamp(Config.roundBallDamage, 0.0D, (double)Integer.MAX_VALUE));
+        int i = Mth.ceil(Mth.clamp(Config.heavyBoltDamage, 0.0D, (double)Integer.MAX_VALUE));
         if (this.getPierceLevel() > 0) {
             if (this.piercingIgnoreEntityIds == null) {
                 this.piercingIgnoreEntityIds = new IntOpenHashSet(5);
@@ -159,7 +163,7 @@ public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
             this.setYRot(this.getYRot() + 180.0F);
             this.yRotO += 180.0F;
             if (!this.level().isClientSide && this.getDeltaMovement().lengthSqr() < 1.0E-7D) {
-                if (this.pickup == AbstractArrow.Pickup.ALLOWED) {
+                if (this.pickup == Pickup.ALLOWED) {
                     this.spawnAtLocation(this.getPickupItem(), 0.1F);
                 }
 

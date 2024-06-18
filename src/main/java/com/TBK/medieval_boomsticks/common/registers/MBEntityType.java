@@ -1,6 +1,7 @@
 package com.TBK.medieval_boomsticks.common.registers;
 
 import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
+import com.TBK.medieval_boomsticks.server.entity.HeavyBoltProjectile;
 import com.TBK.medieval_boomsticks.server.entity.RoundBallProjectile;
 import com.TBK.medieval_boomsticks.server.entity.ThrownJavelin;
 import net.minecraft.world.entity.EntityType;
@@ -21,5 +22,9 @@ public class MBEntityType {
     public static final RegistryObject<EntityType<RoundBallProjectile>> ROUND_BALL = ENTITY_TYPES
             .register("round_ball", () -> EntityType.Builder.<RoundBallProjectile>of(RoundBallProjectile::new, MobCategory.MISC)
                     .fireImmune().sized(0.2F, 0.2F).build(RKMedievalBoomStick.MODID + "round_ball"));
+
+    public static final RegistryObject<EntityType<HeavyBoltProjectile>> HEAVY_BOLT = ENTITY_TYPES
+            .register("heavy_bolt", () -> EntityType.Builder.<HeavyBoltProjectile>of(HeavyBoltProjectile::new, MobCategory.MISC)
+                    .fireImmune().sized(0.2F, 0.2F).build(RKMedievalBoomStick.MODID + "heavy_bolt"));
 
 }

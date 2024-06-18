@@ -1,7 +1,7 @@
 package com.TBK.medieval_boomsticks.common.items;
 
 import com.TBK.medieval_boomsticks.Config;
-import com.TBK.medieval_boomsticks.client.renderer.JavelinRenderers;
+import com.TBK.medieval_boomsticks.client.renderer.JavelinRenderer;
 import com.TBK.medieval_boomsticks.server.entity.ThrownJavelin;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -52,7 +52,7 @@ public class JavelinItem extends TridentItem implements DyeableLeatherItem, GeoI
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private final BlockEntityWithoutLevelRenderer renderer = new JavelinRenderers<>();
+            private final BlockEntityWithoutLevelRenderer renderer = new JavelinRenderer<>();
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {

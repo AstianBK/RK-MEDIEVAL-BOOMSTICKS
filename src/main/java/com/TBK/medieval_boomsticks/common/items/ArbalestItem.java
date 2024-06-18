@@ -1,7 +1,7 @@
 package com.TBK.medieval_boomsticks.common.items;
 
 import com.TBK.medieval_boomsticks.Config;
-import com.TBK.medieval_boomsticks.client.renderer.HandGonneRenderer;
+import com.TBK.medieval_boomsticks.client.renderer.ArbalestRenderer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
@@ -13,16 +13,15 @@ import software.bernie.geckolib.core.object.PlayState;
 
 import java.util.function.Consumer;
 
-public class HandGonneItem extends RechargeItem {
-
-    public HandGonneItem(Properties p_41383_) {
+public class ArbalestItem extends RechargeItem {
+    public ArbalestItem(Properties p_41383_) {
         super(p_41383_);
     }
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private final BlockEntityWithoutLevelRenderer renderer = new HandGonneRenderer<>();
+            private final BlockEntityWithoutLevelRenderer renderer = new ArbalestRenderer<>();
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
@@ -30,14 +29,21 @@ public class HandGonneItem extends RechargeItem {
             }
         });
     }
+
+    @Override
+    public boolean isFireGun() {
+        return false;
+    }
+
+
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController(this,"controller",0,e->{
+        controllers.add(new AnimationController(this,"controller",0, e->{
             ItemStack stack= (ItemStack) e.getData(DataTickets.ITEMSTACK);
-            if (isReCharge(stack)) {
-                e.getController().setAnimation(RawAnimation.begin().thenPlayAndHold("handgonne.shoot"));
+            if (isFire(stack)) {
+                e.getController().setAnimation(RawAnimation.begin().thenPlayAndHold("arbalest.shoot"));
             }else{
-                e.getController().setAnimation(RawAnimation.begin().thenLoop("handgonne.idle"));
+                e.getController().setAnimation(RawAnimation.begin().thenLoop("arbalest.idle"));
             }
             return PlayState.CONTINUE;
         }));

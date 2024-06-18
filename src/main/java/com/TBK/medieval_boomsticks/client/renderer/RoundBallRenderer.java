@@ -5,8 +5,8 @@ import com.TBK.medieval_boomsticks.server.entity.RoundBallProjectile;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class RoundBallRenderers<T extends RoundBallProjectile> extends GeoEntityRenderer<T> {
-    public RoundBallRenderers(EntityRendererProvider.Context renderManager) {
+public class RoundBallRenderer<T extends RoundBallProjectile> extends GeoEntityRenderer<T> {
+    public RoundBallRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager,new RoundBallModel<>());
     }
 }

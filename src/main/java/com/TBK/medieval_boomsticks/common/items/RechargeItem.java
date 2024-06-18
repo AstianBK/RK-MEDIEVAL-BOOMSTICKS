@@ -1,6 +1,8 @@
 package com.TBK.medieval_boomsticks.common.items;
 
+import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
+import com.TBK.medieval_boomsticks.server.entity.HeavyBoltProjectile;
 import com.TBK.medieval_boomsticks.server.entity.RoundBallProjectile;
 import com.TBK.medieval_boomsticks.server.network.PacketHandler;
 import com.TBK.medieval_boomsticks.server.network.msg.PacketPosVec;
@@ -8,10 +10,6 @@ import com.TBK.medieval_boomsticks.server.network.msg.PacketSmokeEffect;
 import com.google.common.collect.Lists;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.Particle;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.CommonComponents;
@@ -45,42 +43,59 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class FireGunItem extends CrossbowItem implements GeoItem {
+public class RechargeItem extends CrossbowItem implements GeoItem {
+    public static final Predicate<ItemStack> BALL_ONLY = (p_43017_) -> {
+        return p_43017_.is(MBItems.ROUND_BALL.get());
+    };
     private boolean startSoundPlayed = false;
     private boolean midLoadSoundPlayed = false;
-    public int fireTimer=0;
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
-    public FireGunItem(Properties p_41383_) {
+    public RechargeItem(Properties p_41383_) {
         super(p_41383_);
     }
 
     public Predicate<ItemStack> getSupportedHeldProjectiles() {
-        return ARROW_OR_FIREWORK;
+        return isFireGun() ? BALL_ONLY : ARROW_ONLY;
     }
 
     public Predicate<ItemStack> getAllSupportedProjectiles() {
-        return ARROW_ONLY;
+        return isFireGun() ? BALL_ONLY : ARROW_ONLY;
     }
 
     @Override
     public void inventoryTick(ItemStack p_41404_, Level p_41405_, Entity p_41406_, int p_41407_, boolean p_41408_) {
-        if(isFire(p_41404_)){
-            this.fireTimer--;
-            if(this.fireTimer==0){
+        if(p_41406_ instanceof Player player && isFire(p_41404_)){
+            if(!player.getCooldowns().isOnCooldown(p_41404_.getItem())){
                 setFire(p_41404_,false);
             }
         }
         super.inventoryTick(p_41404_, p_41405_, p_41406_, p_41407_, p_41408_);
     }
 
+    public boolean isFireGun(){
+        return true;
+    }
+
+    public static boolean isFireGun(ItemStack stack){
+        return !(stack.getItem() instanceof ArbalestItem) && (stack.getItem() instanceof ArquebusItem || stack.getItem() instanceof HandGonneItem);
+    }
+
+    public static ItemStack getAmmo(boolean isFireGun){
+        return isFireGun ? new ItemStack(MBItems.ROUND_BALL.get()) : new ItemStack(MBItems.HEAVY_BOLT.get());
+    }
+
+    public boolean canShoot(Player player){
+        return player.getItemInHand(InteractionHand.OFF_HAND).is(Items.FLINT_AND_STEEL) || (!isFireGun());
+    }
+
     public InteractionResultHolder<ItemStack> use(Level p_40920_, Player p_40921_, InteractionHand p_40922_) {
         ItemStack itemstack = p_40921_.getItemInHand(p_40922_);
-        if (isCharged(itemstack) && p_40921_.getItemInHand(InteractionHand.OFF_HAND).is(Items.FLINT_AND_STEEL)) {
+        if (isCharged(itemstack) && canShoot(p_40921_)) {
             performShooting(p_40920_, p_40921_, p_40922_, itemstack, getShootingPower(itemstack), 1.0F);
             setCharged(itemstack, false);
+            p_40921_.getCooldowns().addCooldown(itemstack.getItem(),5);
             setFire(itemstack,true);
-            this.fireTimer=20;
             return InteractionResultHolder.consume(itemstack);
         } else if (!p_40921_.getProjectile(itemstack).isEmpty()) {
             if (!isCharged(itemstack)) {
@@ -97,6 +112,17 @@ public class FireGunItem extends CrossbowItem implements GeoItem {
 
     private static float getShootingPower(ItemStack p_40946_) {
         return containsChargedProjectile(p_40946_, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
+    }
+
+    public static Double getModifySpeedRecharge(ItemStack stack){
+        if(stack.is(MBItems.ARQUEBUS.get())){
+            return Config.rechargeSpeedArquebus;
+        }else if(stack.is(MBItems.ARBALEST.get())){
+            return Config.rechargeSpeedArbalest;
+        }else if (stack.is(MBItems.HANDGONNE.get())){
+            return Config.rechargeSpeedHandgonne;
+        }
+        return 1.0D;
     }
 
     public void releaseUsing(ItemStack p_40875_, Level p_40876_, LivingEntity p_40877_, int p_40878_) {
@@ -124,7 +150,7 @@ public class FireGunItem extends CrossbowItem implements GeoItem {
             }
 
             if (itemstack.isEmpty() && flag) {
-                itemstack = new ItemStack(MBItems.ROUND_BALL.get());
+                itemstack = getAmmo(isFireGun(p_40861_));
                 itemstack1 = itemstack.copy();
             }
 
@@ -136,11 +162,14 @@ public class FireGunItem extends CrossbowItem implements GeoItem {
         return true;
     }
 
+
     private static boolean loadProjectile(LivingEntity p_40863_, ItemStack p_40864_, ItemStack p_40865_, boolean p_40866_, boolean p_40867_) {
         if (p_40865_.isEmpty()) {
             return false;
         } else {
-            boolean flag = p_40867_ && p_40865_.is(MBItems.ROUND_BALL.get());
+            boolean isFireGun=isFireGun(p_40864_);
+            boolean flag = p_40867_ && ((isFireGun && p_40865_.is(MBItems.ROUND_BALL.get())) ||
+                    (!isFireGun && p_40865_.is(MBItems.HEAVY_BOLT.get()))) ;
             ItemStack itemstack;
             if (!flag && !p_40867_ && !p_40866_) {
                 itemstack = p_40865_.split(1);
@@ -233,30 +262,41 @@ public class FireGunItem extends CrossbowItem implements GeoItem {
     }
 
     private static void shootProjectile(Level p_40895_, LivingEntity p_40896_, InteractionHand p_40897_, ItemStack p_40898_, ItemStack p_40899_, float p_40900_, boolean p_40901_, float p_40902_, float p_40903_, float p_40904_) {
-        boolean isFail=p_40895_.random.nextFloat()<0.05F;
+        boolean isArrow = p_40899_.is(MBItems.HEAVY_BOLT.get());
+        boolean isFail=p_40895_.random.nextFloat() < Config.probabilityFail/100.0F && !isArrow;
         float f1 = p_40896_.getYHeadRot() * Mth.DEG_TO_RAD;
         float f2 = Mth.sin(f1);
         float f3 = Mth.cos(f1);
+        float f5 = p_40896_.getViewXRot(1.0F);
+        float f4 = (float) ((f5+90.0F) * (double) Mth.DEG_TO_RAD);
+        if(f5<0.0F){
+            f5 =-f5;
+        }
+        float f6 =Mth.lerp(f5/90.0F,1.5F,0.0F);
+        f4 = Mth.cos(f4);
+        f2 = f2*f6;
+        f3 = f3*f6;
         if (!p_40896_.level().isClientSide) {
-            RoundBallProjectile projectile=new RoundBallProjectile(p_40895_,p_40896_,p_40898_);;
+            AbstractArrow projectile= isArrow ? new HeavyBoltProjectile(p_40895_,p_40896_,p_40898_) : new RoundBallProjectile(p_40895_,p_40896_,p_40898_);
+            projectile.pickup = AbstractArrow.Pickup.DISALLOWED;
+            Vec3 vec31 = p_40896_.getUpVector(1.0F);
+            Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(p_40904_ * ((float)Math.PI / 180F)), vec31.x, vec31.y, vec31.z);
+            Vec3 vec3 = p_40896_.getViewVector(1.0F);
+            Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
             if(!isFail){
-                projectile.pickup = AbstractArrow.Pickup.DISALLOWED;
-                Vec3 vec31 = p_40896_.getUpVector(1.0F);
-                Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(p_40904_ * ((float)Math.PI / 180F)), vec31.x, vec31.y, vec31.z);
-                Vec3 vec3 = p_40896_.getViewVector(1.0F);
-                Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
-                projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), 8F, 1F);
-
+                projectile.shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), isArrow ? p_40902_  : 8F, 1F);
             }else {
-                projectile.setPos(p_40896_.getX()-f2*1.5D,p_40896_.getEyeY()-0.15d,p_40896_.getZ()+f3*1.5D);
+                projectile.setPos(p_40896_.getX()-f2*1.5D,p_40896_.getEyeY()-0.15d+f4,p_40896_.getZ()+f3*1.5D);
                 projectile.setDeltaMovement(new Vec3(0.0F,-1.0F,0.0F));
             }
-            PacketHandler.sendToServer(new PacketPosVec(projectile,projectile.position()));
-            PacketHandler.sendToPlayer(new PacketSmokeEffect(p_40896_.getX()-f2*1.5D,p_40896_.getEyeY()-0.15d,p_40896_.getZ()+f3*1.5D,isFail), (ServerPlayer) p_40896_);
+            if(!isArrow){
+                PacketHandler.sendToServer(new PacketPosVec(projectile,projectile.getPosition(1.0F)));
+                PacketHandler.sendToPlayer(new PacketSmokeEffect(p_40896_.getX()-f2,p_40896_.getEyeY()-0.15d+f4,p_40896_.getZ()+f3,isFail), (ServerPlayer) p_40896_);
+            }
             p_40898_.hurtAndBreak( 1, p_40896_, (p_40858_) -> {
                 p_40858_.broadcastBreakEvent(p_40897_);
             });
-            p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, p_40900_);
+            p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), isArrow ? SoundEvents.CROSSBOW_SHOOT : SoundEvents.CHICKEN_DEATH, SoundSource.PLAYERS, 1.0F, p_40900_);
             p_40895_.addFreshEntity(projectile);
         }
     }
@@ -330,12 +370,11 @@ public class FireGunItem extends CrossbowItem implements GeoItem {
     }
 
     public int getUseDuration(ItemStack p_40938_) {
-        return getChargeDuration(p_40938_) + 3;
+        return (int) ((getChargeDuration(p_40938_) + 3));
     }
 
     public static int getChargeDuration(ItemStack p_40940_) {
-        int i = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.QUICK_CHARGE, p_40940_);
-        return i == 0 ? 25 : 25 - 5 * i;
+        return (int) (25*(1.0F/getModifySpeedRecharge(p_40940_)));
     }
 
     public UseAnim getUseAnimation(ItemStack p_40935_) {
@@ -356,7 +395,7 @@ public class FireGunItem extends CrossbowItem implements GeoItem {
     }
 
     private static float getPowerForTime(int p_40854_, ItemStack p_40855_) {
-        float f = (float)p_40854_ / (float)getChargeDuration(p_40855_);
+        float f = (float) ((float)p_40854_ / (float)getChargeDuration(p_40855_));
         if (f > 1.0F) {
             f = 1.0F;
         }
