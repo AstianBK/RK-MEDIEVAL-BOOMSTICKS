@@ -290,7 +290,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
                 projectile.setDeltaMovement(new Vec3(0.0F,-1.0F,0.0F));
             }
             if(!isArrow){
-                PacketHandler.sendToServer(new PacketPosVec(projectile,projectile.getPosition(1.0F)));
+                PacketHandler.sendToChunk(new PacketPosVec(projectile,projectile.getPosition(1.0F)),projectile);
                 PacketHandler.sendToPlayer(new PacketSmokeEffect(p_40896_.getX()-f2,p_40896_.getEyeY()-0.15d+f4,p_40896_.getZ()+f3,isFail), (ServerPlayer) p_40896_);
             }
             p_40898_.hurtAndBreak( 1, p_40896_, (p_40858_) -> {

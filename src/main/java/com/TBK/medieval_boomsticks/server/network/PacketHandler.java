@@ -5,6 +5,7 @@ import com.TBK.medieval_boomsticks.server.network.msg.PacketPosVec;
 import com.TBK.medieval_boomsticks.server.network.msg.PacketSmokeEffect;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
@@ -39,6 +40,10 @@ public class PacketHandler {
 
     public static <MSG> void sendToServer(MSG message) {
         MOD_CHANNEL.sendToServer(message);
+    }
+
+    public static <MSG> void sendToChunk(MSG message, Entity entity) {
+        MOD_CHANNEL.send(PacketDistributor.TRACKING_CHUNK.with(()->entity.level().getChunkAt(entity.getOnPos())), message);
     }
 
     public static <MSG> void sendToAllTracking(MSG message, LivingEntity entity) {

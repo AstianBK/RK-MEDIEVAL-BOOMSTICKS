@@ -8,6 +8,7 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.EasingType;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 
@@ -35,7 +36,9 @@ public class HandGonneItem extends RechargeItem {
         controllers.add(new AnimationController(this,"controller",0,e->{
             ItemStack stack= (ItemStack) e.getData(DataTickets.ITEMSTACK);
             if (isReCharge(stack)) {
-                e.getController().setAnimation(RawAnimation.begin().thenPlayAndHold("handgonne.shoot"));
+                e.getController().setOverrideEasingType(EasingType.EASE_IN_ELASTIC);
+                e.getController().setAnimationSpeed(1.0D*Config.rechargeSpeedHandgonne);
+                e.getController().setAnimation(RawAnimation.begin().thenPlayAndHold("handgonne.reload"));
             }else{
                 e.getController().setAnimation(RawAnimation.begin().thenLoop("handgonne.idle"));
             }
