@@ -1,7 +1,7 @@
 package com.TBK.medieval_boomsticks.common.items;
 
-import com.TBK.medieval_boomsticks.client.renderer.ArquebusRenderers;
-import com.TBK.medieval_boomsticks.client.renderer.HandGonneRenderers;
+import com.TBK.medieval_boomsticks.Config;
+import com.TBK.medieval_boomsticks.client.renderer.ArquebusRenderer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
@@ -13,7 +13,7 @@ import software.bernie.geckolib.core.object.PlayState;
 
 import java.util.function.Consumer;
 
-public class ArquebusItem extends FireGunItem{
+public class ArquebusItem extends RechargeItem {
     public ArquebusItem(Properties p_41383_) {
         super(p_41383_);
     }
@@ -21,7 +21,7 @@ public class ArquebusItem extends FireGunItem{
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private final BlockEntityWithoutLevelRenderer renderer = new ArquebusRenderers<>();
+            private final BlockEntityWithoutLevelRenderer renderer = new ArquebusRenderer<>();
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {

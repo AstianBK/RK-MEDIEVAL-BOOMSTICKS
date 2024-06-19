@@ -1,6 +1,7 @@
 package com.TBK.medieval_boomsticks.common.registers;
 
 import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
+import com.TBK.medieval_boomsticks.common.items.ArbalestItem;
 import com.TBK.medieval_boomsticks.common.items.ArquebusItem;
 import com.TBK.medieval_boomsticks.common.items.HandGonneItem;
 import com.TBK.medieval_boomsticks.common.items.JavelinItem;
@@ -15,7 +16,7 @@ public class MBItems {
 
     public static final RegistryObject<Item> HANDGONNE= ITEMS.register("handgonne",()->new HandGonneItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> JAVELIN= ITEMS.register("javelin",()->new JavelinItem(new Item.Properties().stacksTo(1).durability(250)));
-    public static final RegistryObject<Item> ARBALEST= ITEMS.register("arbalest",()->new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> ARBALEST= ITEMS.register("arbalest",()->new ArbalestItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> ARQUEBUS= ITEMS.register("arquebus",()->new ArquebusItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> HEAVY_BOLT= ITEMS.register("heavy_bolt",()->new ArrowItem(new Item.Properties()));
