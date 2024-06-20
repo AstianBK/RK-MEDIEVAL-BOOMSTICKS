@@ -49,6 +49,32 @@
 							"vector": [0, 0, 0]
 						}
 					}
+				},
+				"fuselower": {
+					"rotation": {
+						"0.0": {
+							"vector": ["math.sin(query.anim_time*380)*-15", 0, 0]
+						},
+						"0.5417": {
+							"vector": ["math.sin(query.anim_time*380)*-15", 0, 0]
+						},
+						"0.5833": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"fuseupper": {
+					"rotation": {
+						"0.0": {
+							"vector": ["math.sin(query.anim_time*380)*-15", 0, 0]
+						},
+						"0.5417": {
+							"vector": ["math.sin(query.anim_time*380)*-15", 0, 0]
+						},
+						"0.5833": {
+							"vector": [0, 0, 0]
+						}
+					}
 				}
 			}
 		},
