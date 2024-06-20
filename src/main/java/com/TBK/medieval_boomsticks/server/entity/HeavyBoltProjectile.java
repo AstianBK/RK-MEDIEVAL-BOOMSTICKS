@@ -51,14 +51,6 @@ public class HeavyBoltProjectile extends AbstractArrow implements GeoEntity {
 
 
     @Override
-    protected void tickDespawn() {
-        super.tickDespawn();
-        if(this.onGround()){
-            this.discard();
-        }
-    }
-
-    @Override
     public void tick() {
         super.tick();
     }
