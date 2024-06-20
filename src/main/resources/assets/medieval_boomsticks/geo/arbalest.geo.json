@@ -22,11 +22,7 @@
 						{"origin": [-4, 0.5, 6.25], "size": [8, 1, 1], "inflate": 0.15, "uv": [46, 8]},
 						{"origin": [-4, 1.5, 8.25], "size": [8, 1, 1], "inflate": 0.15, "uv": [46, 2]},
 						{"origin": [3, 0.25, 6.75], "size": [0, 3, 4], "uv": [54, 11]},
-						{"origin": [-3, 0.25, 6.75], "size": [0, 3, 4], "uv": [54, 11]},
-						{"origin": [3, 1.25, 1], "size": [0, 2, 6], "uv": [19, -1]},
-						{"origin": [3, 1.25, -5], "size": [0, 2, 6], "uv": [19, -5]},
-						{"origin": [-3, 1.25, 1], "size": [0, 2, 6], "uv": [19, -1]},
-						{"origin": [-3, 1.25, -5], "size": [0, 2, 6], "uv": [19, -5]}
+						{"origin": [-3, 0.25, 6.75], "size": [0, 3, 4], "uv": [54, 11]}
 					]
 				},
 				{
@@ -63,12 +59,12 @@
 				{
 					"name": "shootstring",
 					"parent": "main",
-					"pivot": [0, 0, 0]
+					"pivot": [0, 1.75, -4.5]
 				},
 				{
 					"name": "string2",
 					"parent": "shootstring",
-					"pivot": [0, 0, 0],
+					"pivot": [-5, 1.75, -4.58],
 					"cubes": [
 						{"origin": [-5, 1.75, -6.08], "size": [6, 0, 2], "uv": [-1, 15], "mirror": true}
 					]
@@ -76,7 +72,7 @@
 				{
 					"name": "string1",
 					"parent": "shootstring",
-					"pivot": [4.5, 1, -5],
+					"pivot": [5, 1.75, -4.58],
 					"cubes": [
 						{"origin": [-1, 1.75, -6.08], "size": [6, 0, 2], "uv": [-1, 15]}
 					]
@@ -85,6 +81,24 @@
 					"name": "string3",
 					"parent": "shootstring",
 					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "stretchstringupper",
+					"parent": "main",
+					"pivot": [0, 3.25, -4.5],
+					"cubes": [
+						{"origin": [3, 1.25, -5], "size": [0, 2, 6], "uv": [19, -5]},
+						{"origin": [-3, 1.25, -5], "size": [0, 2, 6], "uv": [19, -5]}
+					]
+				},
+				{
+					"name": "stretchstringlower",
+					"parent": "main",
+					"pivot": [0, 3.25, 4],
+					"cubes": [
+						{"origin": [3, 1.25, 1], "size": [0, 2, 6], "uv": [19, -1]},
+						{"origin": [-3, 1.25, 1], "size": [0, 2, 6], "uv": [19, -1]}
+					]
 				},
 				{
 					"name": "ammo",
