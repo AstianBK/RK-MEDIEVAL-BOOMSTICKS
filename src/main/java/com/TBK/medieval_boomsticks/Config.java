@@ -12,11 +12,11 @@ public class Config
 
     private static final ForgeConfigSpec.DoubleValue ROUND_BALL_DAMAGE = BUILDER
             .comment("A magic number")
-            .defineInRange("round_ball_damage", 2.0D, 0, Double.MAX_VALUE);
+            .defineInRange("round_ball_damage", 10.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue HEAVY_BOLT_DAMAGE = BUILDER
             .comment("A magic number")
-            .defineInRange("heavy_bolt_damage", 2.0D, 0, Double.MAX_VALUE);
+            .defineInRange("heavy_bolt_damage", 4.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue JAVELIN_SPEED = BUILDER
             .comment("A magic number")
@@ -32,11 +32,11 @@ public class Config
 
     private static final ForgeConfigSpec.DoubleValue RECHARGE_SPEED_ARBALEST = BUILDER
             .comment("A magic number")
-            .defineInRange("recharge_speed_arbalest", 1.0D, 0, 2.0D);
+            .defineInRange("recharge_speed_arbalest", 1.0D, 0.0D, 2.0D);
 
     private static final ForgeConfigSpec.DoubleValue RECHARGE_SPEED_HANDGONNE = BUILDER
             .comment("A magic number")
-            .defineInRange("recharge_speed_handgonne", 1.0D, 0, 2.0D);
+            .defineInRange("recharge_speed_handgonne", 1.0D, 0.0D, 2.0D);
 
 
 

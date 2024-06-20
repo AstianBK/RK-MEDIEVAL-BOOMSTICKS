@@ -40,10 +40,13 @@ public class ArbalestItem extends RechargeItem {
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController(this,"controller",0, e->{
             ItemStack stack= (ItemStack) e.getData(DataTickets.ITEMSTACK);
-            if (isFire(stack)) {
+            if(isReCharge(stack)){
+                e.getController().setAnimationSpeed(1.0D*Config.rechargeSpeedArbalest);
+                e.getController().setAnimation(RawAnimation.begin().thenPlayAndHold("arbalest.reload"));
+            } else if (isFire(stack)) {
                 e.getController().setAnimation(RawAnimation.begin().thenPlayAndHold("arbalest.shoot"));
             }else{
-                e.getController().setAnimation(RawAnimation.begin().thenLoop("arbalest.idle"));
+                e.getController().setAnimation(RawAnimation.begin().thenLoop(isCharged(stack) ? "arbalest.idlecharged" : "arbalest.idle"));
             }
             return PlayState.CONTINUE;
         }));

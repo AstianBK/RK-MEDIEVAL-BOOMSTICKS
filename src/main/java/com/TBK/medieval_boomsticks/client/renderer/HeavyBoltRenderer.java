@@ -1,20 +1,35 @@
 package com.TBK.medieval_boomsticks.client.renderer;
 
+import com.TBK.medieval_boomsticks.client.layers.ThrownJavelinClothLayers;
+import com.TBK.medieval_boomsticks.client.model.HeavyBoltModel;
+import com.TBK.medieval_boomsticks.client.model.JavelinModel;
 import com.TBK.medieval_boomsticks.server.entity.HeavyBoltProjectile;
-import net.minecraft.client.renderer.entity.ArrowRenderer;
+import com.TBK.medieval_boomsticks.server.entity.ThrownJavelin;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.resources.ResourceLocation;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.util.Mth;
+import software.bernie.geckolib.cache.object.BakedGeoModel;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class HeavyBoltRenderer extends ArrowRenderer<HeavyBoltProjectile> {
 
-    private final ResourceLocation TEXTURE=new ResourceLocation("textures/entity/projectiles/arrow.png");
-
-    public HeavyBoltRenderer(EntityRendererProvider.Context p_173917_) {
-        super(p_173917_);
+public class HeavyBoltRenderer<T extends HeavyBoltProjectile> extends GeoEntityRenderer<T> {
+    public HeavyBoltRenderer(EntityRendererProvider.Context renderManager) {
+        super(renderManager,new HeavyBoltModel<>());
     }
 
-    public ResourceLocation getTextureLocation(@NotNull HeavyBoltProjectile pEntity) {
-        return TEXTURE;
+    @Override
+    public void preRender(PoseStack poseStack, T animatable, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        if(!isReRender){
+            poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTick,animatable.yRotO,animatable.getYRot())+180.0F));
+            poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick,animatable.xRotO,animatable.getXRot())));
+        }
+    }
+
+    @Override
+    protected void applyRotations(T animatable, PoseStack poseStack, float ageInTicks, float rotationYaw, float partialTick) {
+
     }
 }

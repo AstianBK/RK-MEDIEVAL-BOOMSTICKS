@@ -48,13 +48,6 @@ public class HeavyBoltProjectile extends AbstractArrow implements GeoEntity {
         return new ItemStack(MBItems.HEAVY_BOLT.get());
     }
 
-
-
-    @Override
-    public void tick() {
-        super.tick();
-    }
-
     @Override
     public void handleEntityEvent(byte p_19882_) {
         super.handleEntityEvent(p_19882_);
@@ -62,7 +55,8 @@ public class HeavyBoltProjectile extends AbstractArrow implements GeoEntity {
 
     protected void onHitEntity(EntityHitResult p_36757_) {
         Entity entity = p_36757_.getEntity();
-        int i = Mth.ceil(Mth.clamp(Config.heavyBoltDamage, 0.0D, (double)Integer.MAX_VALUE));
+        float f = (float)this.getDeltaMovement().length();
+        int i = Mth.ceil(Mth.clamp(Config.heavyBoltDamage*f, 0.0D, (double)Integer.MAX_VALUE));
         if (this.getPierceLevel() > 0) {
             if (this.piercingIgnoreEntityIds == null) {
                 this.piercingIgnoreEntityIds = new IntOpenHashSet(5);

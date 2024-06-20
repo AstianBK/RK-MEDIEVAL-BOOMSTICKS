@@ -9,8 +9,10 @@ import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -64,7 +66,9 @@ public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
 
     protected void onHitEntity(EntityHitResult p_36757_) {
         Entity entity = p_36757_.getEntity();
-        int i = Mth.ceil(Mth.clamp(Config.roundBallDamage, 0.0D, (double)Integer.MAX_VALUE));
+        int damage= (int) Config.roundBallDamage;
+        int d = (int)((float)damage/5.0F);
+        int i = damage-d;
         if (this.getPierceLevel() > 0) {
             if (this.piercingIgnoreEntityIds == null) {
                 this.piercingIgnoreEntityIds = new IntOpenHashSet(5);
@@ -80,11 +84,6 @@ public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
             }
 
             this.piercingIgnoreEntityIds.add(entity.getId());
-        }
-
-        if (this.isCritArrow()) {
-            long j = (long)this.random.nextInt(i / 2 + 2);
-            i = (int)Math.min(j + (long)i, 2147483647L);
         }
 
         Entity entity1 = this.getOwner();
@@ -104,13 +103,19 @@ public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
             entity.setSecondsOnFire(5);
         }
 
-        if (entity.hurt(damagesource, (float)i)) {
+        if(entity instanceof Player player && player.isBlocking()){
+            player.disableShield(true);
+            this.discard();
+        }else if (entity.hurt(damagesource, (float)i)) {
             if (flag) {
                 return;
             }
-
+            System.out.print("\n"+((LivingEntity)entity).getHealth()+"\n");
+            entity.invulnerableTime = 0;
+            entity.hurt(damageSources().generic(),d);
             if (entity instanceof LivingEntity) {
                 LivingEntity livingentity = (LivingEntity)entity;
+                System.out.print("\n"+livingentity.getHealth()+"\n");
                 if (!this.level().isClientSide && this.getPierceLevel() <= 0) {
                     livingentity.setArrowCount(livingentity.getArrowCount() + 1);
                 }

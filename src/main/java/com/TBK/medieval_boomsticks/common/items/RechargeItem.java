@@ -47,6 +47,9 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     public static final Predicate<ItemStack> BALL_ONLY = (p_43017_) -> {
         return p_43017_.is(MBItems.ROUND_BALL.get());
     };
+    public static final Predicate<ItemStack> HEAVY_BOLT_ONLY = (p_43017_) -> {
+        return p_43017_.is(MBItems.HEAVY_BOLT.get());
+    };
     private boolean startSoundPlayed = false;
     private boolean midLoadSoundPlayed = false;
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
@@ -56,11 +59,11 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     }
 
     public Predicate<ItemStack> getSupportedHeldProjectiles() {
-        return isFireGun() ? BALL_ONLY : ARROW_ONLY;
+        return isFireGun() ? BALL_ONLY : HEAVY_BOLT_ONLY;
     }
 
     public Predicate<ItemStack> getAllSupportedProjectiles() {
-        return isFireGun() ? BALL_ONLY : ARROW_ONLY;
+        return isFireGun() ? BALL_ONLY : HEAVY_BOLT_ONLY;
     }
 
     @Override
@@ -94,7 +97,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
         if (isCharged(itemstack) && canShoot(p_40921_)) {
             performShooting(p_40920_, p_40921_, p_40922_, itemstack, getShootingPower(itemstack), 1.0F);
             setCharged(itemstack, false);
-            p_40921_.getCooldowns().addCooldown(itemstack.getItem(),5);
+            p_40921_.getCooldowns().addCooldown(itemstack.getItem(),7);
             setFire(itemstack,true);
             return InteractionResultHolder.consume(itemstack);
         } else if (!p_40921_.getProjectile(itemstack).isEmpty()) {
@@ -111,7 +114,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     }
 
     private static float getShootingPower(ItemStack p_40946_) {
-        return containsChargedProjectile(p_40946_, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
+        return 1.6F;
     }
 
     public static Double getModifySpeedRecharge(ItemStack stack){
@@ -374,7 +377,8 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     }
 
     public static int getChargeDuration(ItemStack p_40940_) {
-        return (int) (25*(1.0F/getModifySpeedRecharge(p_40940_)));
+        int i=isFireGun(p_40940_) ? 25 : 50;
+        return (int) (i*(1.0F/getModifySpeedRecharge(p_40940_)));
     }
 
     public UseAnim getUseAnimation(ItemStack p_40935_) {

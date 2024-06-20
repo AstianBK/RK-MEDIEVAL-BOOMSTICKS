@@ -7,6 +7,7 @@
   ],
   "display": {
     "thirdperson_righthand": {
+
       "scale": [
         0.8,
         0.85,
@@ -14,6 +15,7 @@
       ]
     },
     "thirdperson_lefthand": {
+
       "scale": [
         0.8,
         0.85,
@@ -21,28 +23,12 @@
       ]
     },
     "firstperson_righthand": {
-      "translation": [
-        0,
-        1.75,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        0.7
-      ]
+      "rotation": [0, -7.75, 0],
+      "translation": [1.5, 1.75, 0]
     },
     "firstperson_lefthand": {
-      "translation": [
-        0,
-        1.75,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        0.7
-      ]
+      "rotation": [0, 1.25, 0],
+      "translation": [-7.25, 1.75, 0]
     },
     "ground": {
       "scale": [
@@ -85,13 +71,5 @@
         0.8
       ]
     }
-  },
-  "overrides": [
-    {
-      "predicate": {
-        "medieval_boomsticks:charged": 1
-      },
-      "model": "medieval_boomsticks:item/arbalest_aim"
-    }
-  ]
+  }
 }

@@ -5,6 +5,7 @@ import com.TBK.medieval_boomsticks.common.items.RechargeItem;
 import com.TBK.medieval_boomsticks.common.registers.MBItemProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingGetProjectileEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -17,4 +18,5 @@ public class ServerEvent {
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(MBItemProperties::register);
     }
+
 }

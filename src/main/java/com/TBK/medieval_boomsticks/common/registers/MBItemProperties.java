@@ -14,6 +14,9 @@ public class MBItemProperties {
         ItemProperties.register(MBItems.HANDGONNE.get(), new ResourceLocation(RKMedievalBoomStick.MODID, "recharge"), (p_239425_0_, p_239425_1_, p_239425_2_, intIn) -> {
             return p_239425_2_ != null && RechargeItem.isReCharge(p_239425_0_) ? 1.0F : 0.0F;
         });
+        ItemProperties.register(MBItems.ARBALEST.get(), new ResourceLocation(RKMedievalBoomStick.MODID, "charged"), (p_239425_0_, p_239425_1_, p_239425_2_, intIn) -> {
+            return p_239425_2_ != null && RechargeItem.isCharged(p_239425_0_) ?  1.0F : 0.0F;
+        });
         ItemProperties.register(MBItems.ARQUEBUS.get(), new ResourceLocation(RKMedievalBoomStick.MODID, "charged"), (p_239425_0_, p_239425_1_, p_239425_2_, intIn) -> {
             return p_239425_2_ != null && RechargeItem.isCharged(p_239425_0_) ?  1.0F : 0.0F;
         });
