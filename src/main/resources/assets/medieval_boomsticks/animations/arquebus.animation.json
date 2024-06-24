@@ -8,6 +8,11 @@
 					"scale": {
 						"vector": [0, 0, 0]
 					}
+				},
+				"rod": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
 				}
 			}
 		},
@@ -74,6 +79,11 @@
 						"0.5833": {
 							"vector": [0, 0, 0]
 						}
+					}
+				},
+				"rod": {
+					"scale": {
+						"vector": [0, 0, 0]
 					}
 				}
 			}
@@ -142,12 +152,12 @@
 							"vector": [0, 0, 8]
 						},
 						"1.0833": {
-							"vector": [0, 12, 26],
+							"vector": [0, 12, 27.25],
 							"easing": "easeOutElastic",
 							"easingArgs": [1]
 						},
 						"1.5": {
-							"vector": [0, 4.51545, 27.89108],
+							"vector": [0, 4.51545, 28.64108],
 							"easing": "easeInElastic"
 						}
 					},
@@ -156,14 +166,71 @@
 							"vector": [0, 0, 0]
 						},
 						"1.0": {
-							"vector": [1.1, 1.1, 1.1],
-							"easing": "easeInElastic"
+							"vector": [0.66, 0.66, 0.66],
+							"easing": "easeInElastic",
+							"easingArgs": [1]
 						},
 						"1.2083": {
-							"vector": [1.05, 1.05, 1.05],
-							"easing": "easeInElastic"
+							"vector": [0.66, 0.66, 0.66],
+							"easing": "easeInElastic",
+							"easingArgs": [1]
 						},
 						"1.5": {
+							"vector": [0, 0, 0],
+							"easing": "easeOutElastic"
+						}
+					}
+				},
+				"rod": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0833": {
+							"vector": [-70, 0, 0],
+							"easing": "easeInElastic"
+						},
+						"1.4583": {
+							"vector": [-77.5, 0, 0],
+							"easing": "easeInElastic"
+						},
+						"1.75": {
+							"vector": [-5, 0, 0],
+							"easing": "easeOutElastic"
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0833": {
+							"vector": [-15.75, 28.33211, 14.38348],
+							"easing": "easeOutElastic"
+						},
+						"1.4583": {
+							"vector": [-15.75, 11.72945, 20.42185],
+							"easing": "easeInElastic"
+						},
+						"1.75": {
+							"vector": [9.25, 26.42444, 17.42341],
+							"easing": "easeInElastic"
+						}
+					},
+					"scale": {
+						"0.4167": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [1, 1, 2],
+							"easing": "easeInElastic",
+							"easingArgs": [0.2]
+						},
+						"1.4583": {
+							"vector": [1, 1, 2],
+							"easing": "easeInElastic",
+							"easingArgs": [0.2]
+						},
+						"1.875": {
 							"vector": [0, 0, 0],
 							"easing": "easeOutElastic"
 						}
