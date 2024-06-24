@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#SS",
+        "SC ",
+        "S W"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_block"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "C": {
+            "item": "minecraft:crossbow"
+        },
+        "W": {
+            "item": "minecraft:stripped_dark_oak_log"
+        }
+    },
+    "result": {
+        "item": "medieval_boomsticks:arbalest",
+        "count": 1
+    }
+}
