@@ -52,7 +52,7 @@
 				"string2": {
 					"rotation": {
 						"0.0": {
-							"vector": [0, -30, 0]
+							"vector": [0, -20, 0]
 						},
 						"0.25": {
 							"vector": [0, 0, 0],
@@ -64,7 +64,7 @@
 				"string1": {
 					"rotation": {
 						"0.0": {
-							"vector": [0, 30, 0]
+							"vector": [0, 20, 0]
 						},
 						"0.25": {
 							"vector": [0, 0, 0],
@@ -84,12 +84,11 @@
 				"stretchstringupper": {
 					"position": {
 						"0.0": {
-							"vector": [0, 0, 1]
+							"vector": [0, 0, 0.75]
 						},
 						"0.25": {
 							"vector": [0, 0, 0],
-							"easing": "easeInElastic",
-							"easingArgs": [0.5]
+							"easing": "easeInElastic"
 						}
 					}
 				}
@@ -104,12 +103,12 @@
 							"vector": [0, 0, 0]
 						},
 						"0.75": {
-							"vector": [-55, 0, 0],
+							"vector": [55, 0, 0],
 							"easing": "easeInElastic",
 							"easingArgs": [1.2]
 						},
 						"1.4167": {
-							"vector": [-55, 0, 0],
+							"vector": [55, 0, 0],
 							"easing": "easeInElastic",
 							"easingArgs": [1.2]
 						},
@@ -222,33 +221,32 @@
 							"vector": [0, 0, 0]
 						},
 						"0.75": {
-							"vector": [-60, 0, 0],
+							"vector": [55, 0, 0],
 							"easing": "easeInElastic"
 						},
-						"1.4167": {
-							"vector": [-60, 0, 0],
+						"1.25": {
+							"vector": [55, 0, 0],
 							"easing": "easeInElastic"
 						},
 						"2.0": {
 							"vector": [0, 0, 0],
-							"easing": "easeInElastic",
-							"easingArgs": [1]
+							"easing": "easeInElastic"
 						}
 					},
 					"position": {
 						"0.0": {
-							"vector": [0, 7.1, -9.02]
+							"vector": [0, -12, -12]
 						},
 						"0.75": {
-							"vector": [0, 1.10289, -1.01795],
+							"vector": [0, -14.86788, -7.90424],
 							"easing": "easeInElastic"
 						},
-						"1.4167": {
-							"vector": [0, -1.28157, 0.355],
+						"1.25": {
+							"vector": [0, -7.52888, -2.20062],
 							"easing": "easeInOutElastic"
 						},
 						"2.0": {
-							"vector": [0, -4.28, -2.64],
+							"vector": [0, -4.28, -2.2],
 							"easing": "easeInElastic"
 						}
 					},
@@ -256,7 +254,7 @@
 						"0.0": {
 							"vector": [0, 0, 0]
 						},
-						"0.625": {
+						"0.75": {
 							"vector": [0.55, 0.55, 0.55],
 							"easing": "easeInElastic"
 						}
