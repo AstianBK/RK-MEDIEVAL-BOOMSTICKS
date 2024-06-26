@@ -36,10 +36,14 @@ public class ArquebusRenderer<T extends ArquebusItem> extends GeoItemRenderer<T>
                 this.model.addAdditionalStateData(animatable, instanceId, animationState::setData);
                 this.model.handleAnimations(animatable, instanceId, animationState);
             }else {
-                if (this.model.getBone("ammo").isPresent() && this.model.getBone("main").isPresent()){
+                if (this.model.getBone("rod").isPresent() && this.model.getBone("ammo").isPresent()
+                        && this.model.getBone("main").isPresent()){
                     this.model.getBone("ammo").get().setScaleX(0.0F);
                     this.model.getBone("ammo").get().setScaleY(0.0F);
                     this.model.getBone("ammo").get().setScaleZ(0.0F);
+                    this.model.getBone("rod").get().setScaleX(0.0F);
+                    this.model.getBone("rod").get().setScaleY(0.0F);
+                    this.model.getBone("rod").get().setScaleZ(0.0F);
                     GeoBone main=this.model.getBone("main").get();
                     BoneSnapshot initial=main.getInitialSnapshot();
                     AnimationVanillaG.setRotBone(main,initial.getRotX(), initial.getRotY(), initial.getRotZ());

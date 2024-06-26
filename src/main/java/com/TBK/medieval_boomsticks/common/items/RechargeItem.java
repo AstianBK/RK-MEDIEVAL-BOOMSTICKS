@@ -217,6 +217,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
         CompoundTag compoundtag = p_40885_.getOrCreateTag();
         compoundtag.putBoolean("recharge", p_40886_);
     }
+
     private static void addChargedProjectile(ItemStack p_40929_, ItemStack p_40930_) {
         CompoundTag compoundtag = p_40929_.getOrCreateTag();
         ListTag listtag;
@@ -281,7 +282,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
         f3 = f3*f6;
         if (!p_40896_.level().isClientSide) {
             AbstractArrow projectile= isArrow ? new HeavyBoltProjectile(p_40895_,p_40896_,p_40898_) : new RoundBallProjectile(p_40895_,p_40896_,p_40898_);
-            projectile.pickup = AbstractArrow.Pickup.DISALLOWED;
+            projectile.pickup = isArrow ? AbstractArrow.Pickup.ALLOWED  :AbstractArrow.Pickup.DISALLOWED;
             Vec3 vec31 = p_40896_.getUpVector(1.0F);
             Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(p_40904_ * ((float)Math.PI / 180F)), vec31.x, vec31.y, vec31.z);
             Vec3 vec3 = p_40896_.getViewVector(1.0F);
@@ -364,8 +365,9 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
                 this.midLoadSoundPlayed = true;
                 p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
             }
+
             if (f >= 1.0F && soundevent1 != null && !this.midLoadSoundPlayed) {
-                p_40911_.stopUsingItem();
+                p_40911_.releaseUsingItem();
                 p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
             }
         }

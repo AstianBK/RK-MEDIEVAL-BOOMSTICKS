@@ -37,7 +37,7 @@ public class ArquebusItem extends RechargeItem {
             ItemStack stack= (ItemStack) e.getData(DataTickets.ITEMSTACK);
             e.getController().setAnimationSpeed(1.0D);
             if(isReCharge(stack)){
-                e.getController().setAnimationSpeed(1.0D*Config.rechargeSpeedArquebus);
+                e.getController().setAnimationSpeed(1.5D*Config.rechargeSpeedArquebus);
                 e.getController().setAnimation(RawAnimation.begin().thenPlayAndHold("arquebus.reload"));
             }else if (isFire(stack)) {
                 e.getController().setAnimation(RawAnimation.begin().thenPlayAndHold("arquebus.shoot"));
