@@ -1,0 +1,14 @@
+{
+  "arquebus_shoot": {
+    "subtitle": "sounds.medieval_boomsticks.arquebus_shoot",
+    "sounds": [
+      "medieval_boomsticks:arquebus_shoot"
+    ]
+  },
+  "handgonne_shoot": {
+    "subtitle": "sounds.medieval_boomsticks.handgonne_shoot",
+    "sounds": [
+      "medieval_boomsticks:handgonne_shoot"
+    ]
+  }
+}
