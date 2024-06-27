@@ -5,5 +5,11 @@
   "item.medieval_boomsticks.handgonne": "Handgonne",
 
   "item.medieval_boomsticks.heavy_bolt": "Heavy Bolt",
-  "item.medieval_boomsticks.round_ball": "Round Ball"
+  "item.medieval_boomsticks.round_ball": "Round Ball",
+
+  "entity.medieval_boomsticks.heavy_bolt": "Heavy Bolt",
+  "entity.medieval_boomsticks.round_ball": "Round Ball",
+  "entity.medieval_boomsticks.throw_javelin": "Javelin",
+
+  "itemGroup.medieval_boomstick": "RK Medieval Boomsticks"
 }
