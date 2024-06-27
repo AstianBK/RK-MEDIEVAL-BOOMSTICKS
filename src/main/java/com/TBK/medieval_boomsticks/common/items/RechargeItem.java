@@ -2,6 +2,7 @@ package com.TBK.medieval_boomsticks.common.items;
 
 import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
+import com.TBK.medieval_boomsticks.common.registers.MBSounds;
 import com.TBK.medieval_boomsticks.server.entity.HeavyBoltProjectile;
 import com.TBK.medieval_boomsticks.server.entity.RoundBallProjectile;
 import com.TBK.medieval_boomsticks.server.network.PacketHandler;
@@ -94,24 +95,37 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
 
     public InteractionResultHolder<ItemStack> use(Level p_40920_, Player p_40921_, InteractionHand p_40922_) {
         ItemStack itemstack = p_40921_.getItemInHand(p_40922_);
-        if (isCharged(itemstack) && canShoot(p_40921_)) {
-            performShooting(p_40920_, p_40921_, p_40922_, itemstack, getShootingPower(itemstack), 1.0F);
-            setCharged(itemstack, false);
-            p_40921_.getCooldowns().addCooldown(itemstack.getItem(),7);
-            setFire(itemstack,true);
-            return InteractionResultHolder.consume(itemstack);
-        } else if (!p_40921_.getProjectile(itemstack).isEmpty()) {
-            if (!isCharged(itemstack)) {
-                this.startSoundPlayed = false;
-                this.midLoadSoundPlayed = false;
-                setReCharge(itemstack,true);
-                p_40921_.startUsingItem(p_40922_);
+        if(!p_40921_.getCooldowns().isOnCooldown(itemstack.getItem())){
+            if (isCharged(itemstack) && canShoot(p_40921_)) {
+                setCharged(itemstack, false);
+                performShooting(p_40920_, p_40921_, p_40922_, itemstack, getShootingPower(itemstack), 1.0F);
+                p_40921_.getCooldowns().addCooldown(itemstack.getItem(),isFireGun() ? this.getCooldownForWeapon(itemstack)  : 7);
+                setFire(itemstack,true);
+                return InteractionResultHolder.consume(itemstack);
+            } else if (!p_40921_.getProjectile(itemstack).isEmpty()) {
+                if (!isCharged(itemstack)) {
+                    this.startSoundPlayed = false;
+                    this.midLoadSoundPlayed = false;
+                    setReCharge(itemstack,true);
+                    p_40921_.startUsingItem(p_40922_);
+                }
+                return InteractionResultHolder.consume(itemstack);
+            } else {
+                return InteractionResultHolder.fail(itemstack);
             }
-            return InteractionResultHolder.consume(itemstack);
-        } else {
-            return InteractionResultHolder.fail(itemstack);
         }
+        return InteractionResultHolder.fail(itemstack);
     }
+
+    private int getCooldownForWeapon(ItemStack itemstack) {
+        if(itemstack.getItem() instanceof ArquebusItem){
+            return Config.cooldownArquebus*20;
+        }else if(itemstack.getItem() instanceof HandGonneItem){
+            return Config.cooldownHandgonne*20;
+        }
+        return 20;
+    }
+
 
     private static float getShootingPower(ItemStack p_40946_) {
         return 1.6F;
@@ -259,12 +273,6 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
 
     }
 
-    public static boolean containsChargedProjectile(ItemStack p_40872_, Item p_40873_) {
-        return getChargedProjectiles(p_40872_).stream().anyMatch((p_40870_) -> {
-            return p_40870_.is(p_40873_);
-        });
-    }
-
     private static void shootProjectile(Level p_40895_, LivingEntity p_40896_, InteractionHand p_40897_, ItemStack p_40898_, ItemStack p_40899_, float p_40900_, boolean p_40901_, float p_40902_, float p_40903_, float p_40904_) {
         boolean isArrow = p_40899_.is(MBItems.HEAVY_BOLT.get());
         boolean isFail=p_40895_.random.nextFloat() < Config.probabilityFail/100.0F && !isArrow;
@@ -293,15 +301,25 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
                 projectile.setPos(p_40896_.getX()-f2*1.5D,p_40896_.getEyeY()-0.15d+f4,p_40896_.getZ()+f3*1.5D);
                 projectile.setDeltaMovement(new Vec3(0.0F,-1.0F,0.0F));
             }
-            if(!isArrow){
+            if(isFireGun(p_40898_)){
                 PacketHandler.sendToChunk(new PacketPosVec(projectile,projectile.getPosition(1.0F)),projectile);
                 PacketHandler.sendToPlayer(new PacketSmokeEffect(p_40896_.getX()-f2,p_40896_.getEyeY()-0.15d+f4,p_40896_.getZ()+f3,isFail), (ServerPlayer) p_40896_);
             }
             p_40898_.hurtAndBreak( 1, p_40896_, (p_40858_) -> {
                 p_40858_.broadcastBreakEvent(p_40897_);
             });
-            p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), isArrow ? SoundEvents.CROSSBOW_SHOOT : SoundEvents.CHICKEN_DEATH, SoundSource.PLAYERS, 1.0F, p_40900_);
+            p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), isFail ? SoundEvents.GENERIC_EXTINGUISH_FIRE : getSoundShoot(p_40898_), SoundSource.PLAYERS, 1.0F, p_40900_);
             p_40895_.addFreshEntity(projectile);
+        }
+    }
+
+    private static SoundEvent getSoundShoot(ItemStack stack) {
+        if(stack.getItem() instanceof HandGonneItem){
+            return MBSounds.HANDGONNE_SHOOT.get();
+        }else if(stack.getItem() instanceof ArquebusItem){
+            return MBSounds.ARQUEBUS_SHOOT.get();
+        }else {
+            return SoundEvents.CROSSBOW_SHOOT;
         }
     }
 
@@ -351,24 +369,26 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
             SoundEvent soundevent = this.getStartSound(i);
             SoundEvent soundevent1 = i == 0 ? SoundEvents.CROSSBOW_LOADING_MIDDLE : null;
             float f = (float)(p_40912_.getUseDuration() - p_40913_) / (float)getChargeDuration(p_40912_);
-            if (f < 0.2F) {
-                this.startSoundPlayed = false;
-                this.midLoadSoundPlayed = false;
-            }
+            if(!this.isFireGun()){
+                if (f < 0.2F) {
+                    this.startSoundPlayed = false;
+                    this.midLoadSoundPlayed = false;
+                }
 
-            if (f >= 0.2F && !this.startSoundPlayed) {
-                this.startSoundPlayed = true;
-                p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent, SoundSource.PLAYERS, 0.5F, 1.0F);
-            }
+                if (f >= 0.2F && !this.startSoundPlayed) {
+                    this.startSoundPlayed = true;
+                    p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent, SoundSource.PLAYERS, 0.5F, 1.0F);
+                }
 
-            if (f >= 0.5F && soundevent1 != null && !this.midLoadSoundPlayed) {
-                this.midLoadSoundPlayed = true;
-                p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
-            }
+                if (f >= 0.5F && soundevent1 != null && !this.midLoadSoundPlayed) {
+                    this.midLoadSoundPlayed = true;
+                    p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
+                }
 
-            if (f >= 1.0F && soundevent1 != null && !this.midLoadSoundPlayed) {
-                p_40911_.releaseUsingItem();
-                p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
+                if (f >= 1.0F && soundevent1 != null && !this.midLoadSoundPlayed) {
+                    p_40911_.releaseUsingItem();
+                    p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
+                }
             }
         }
 

@@ -26,6 +26,14 @@ public class Config
             .comment("A magic number")
             .defineInRange("probability_fail_firegun", 5, 0, Integer.MAX_VALUE);
 
+    private static final ForgeConfigSpec.IntValue COOLDOWN_ARQUEBUS = BUILDER
+            .comment("A magic number")
+            .defineInRange("cooldown_arquebus", 15, 0, Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.IntValue COOLDOWN_HANDGONNE = BUILDER
+            .comment("A magic number")
+            .defineInRange("cooldown_handgonne", 15, 0, Integer.MAX_VALUE);
+
+
     private static final ForgeConfigSpec.DoubleValue RECHARGE_SPEED_ARQUEBUS = BUILDER
             .comment("A magic number")
             .defineInRange("recharge_speed_arquebus", 1.0D, 0, 2.0D);
@@ -48,6 +56,10 @@ public class Config
 
     public static int probabilityFail;
 
+    public static int cooldownArquebus;
+
+    public static int cooldownHandgonne;
+
     public static Double rechargeSpeedArquebus;
     public static Double rechargeSpeedArbalest;
     public static Double rechargeSpeedHandgonne;
@@ -61,5 +73,7 @@ public class Config
         rechargeSpeedArquebus = RECHARGE_SPEED_ARQUEBUS.get();
         rechargeSpeedArbalest = RECHARGE_SPEED_ARBALEST.get();
         rechargeSpeedHandgonne = RECHARGE_SPEED_HANDGONNE.get();
+        cooldownArquebus = COOLDOWN_ARQUEBUS.get();
+        cooldownHandgonne = COOLDOWN_HANDGONNE.get();
     }
 }

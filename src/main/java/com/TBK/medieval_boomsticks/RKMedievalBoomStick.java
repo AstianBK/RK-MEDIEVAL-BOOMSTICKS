@@ -6,6 +6,7 @@ import com.TBK.medieval_boomsticks.client.renderer.ThrownJavelinRenderer;
 import com.TBK.medieval_boomsticks.common.registers.MBCreativeTabs;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
+import com.TBK.medieval_boomsticks.common.registers.MBSounds;
 import com.TBK.medieval_boomsticks.server.network.PacketHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -32,6 +33,7 @@ public class RKMedievalBoomStick
         MBItems.ITEMS.register(modEventBus);
         MBEntityType.ENTITY_TYPES.register(modEventBus);
         MBCreativeTabs.TABS.register(modEventBus);
+        MBSounds.register(modEventBus);
 
         PacketHandler.registerMessages();
         MinecraftForge.EVENT_BUS.register(this);
