@@ -67,7 +67,8 @@ public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
     protected void onHitEntity(EntityHitResult p_36757_) {
         Entity entity = p_36757_.getEntity();
         int damage= (int) Config.roundBallDamage;
-        int d = (int)((float)damage/5.0F);
+        float penetrationPercentage = Config.armorPenetrationPercentage*0.01F;
+        int d = (int)((float)damage*penetrationPercentage);
         int i = damage-d;
         if (this.getPierceLevel() > 0) {
             if (this.piercingIgnoreEntityIds == null) {

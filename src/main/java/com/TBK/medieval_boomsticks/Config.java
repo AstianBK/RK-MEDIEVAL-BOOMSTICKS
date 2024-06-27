@@ -21,6 +21,10 @@ public class Config
     private static final ForgeConfigSpec.DoubleValue JAVELIN_SPEED = BUILDER
             .comment("A magic number")
             .defineInRange("javelin_speed", 2.5D, 0, Double.MAX_VALUE);
+    private static final ForgeConfigSpec.IntValue ARMOR_PENETRATION_PERCENTAGE = BUILDER
+            .comment("A magic number")
+            .defineInRange("armor_penetration_percentage", 50, 0, 100);
+
 
     private static final ForgeConfigSpec.IntValue PROBABILITY_FAIL_FIREGUN = BUILDER
             .comment("A magic number")
@@ -53,8 +57,10 @@ public class Config
     public static double roundBallDamage;
     public static double heavyBoltDamage;
     public static double javelinSpeed;
-
     public static int probabilityFail;
+
+    public static int armorPenetrationPercentage;
+
 
     public static int cooldownArquebus;
 
@@ -75,5 +81,6 @@ public class Config
         rechargeSpeedHandgonne = RECHARGE_SPEED_HANDGONNE.get();
         cooldownArquebus = COOLDOWN_ARQUEBUS.get();
         cooldownHandgonne = COOLDOWN_HANDGONNE.get();
+        armorPenetrationPercentage = ARMOR_PENETRATION_PERCENTAGE.get();
     }
 }
