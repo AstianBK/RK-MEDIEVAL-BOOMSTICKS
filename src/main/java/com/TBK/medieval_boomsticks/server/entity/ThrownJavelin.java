@@ -1,5 +1,6 @@
 package com.TBK.medieval_boomsticks.server.entity;
 
+import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.common.items.JavelinItem;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
@@ -127,7 +128,7 @@ public class ThrownJavelin extends AbstractArrow implements GeoAnimatable {
 
     protected void onHitEntity(EntityHitResult p_37573_) {
         Entity entity = p_37573_.getEntity();
-        float f = 8.0F;
+        float f = (float) Config.javelinDamage;
         if (entity instanceof LivingEntity livingentity) {
             f += EnchantmentHelper.getDamageBonus(this.javelinItem, livingentity.getMobType());
         }
