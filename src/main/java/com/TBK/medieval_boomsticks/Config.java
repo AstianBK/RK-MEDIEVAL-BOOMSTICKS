@@ -11,48 +11,48 @@ public class Config
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
     private static final ForgeConfigSpec.DoubleValue ROUND_BALL_DAMAGE = BUILDER
-            .comment("A magic number")
+            .comment("Round Ball ammo damage value")
             .defineInRange("round_ball_damage", 10.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue HEAVY_BOLT_DAMAGE = BUILDER
-            .comment("A magic number")
+            .comment("Heavy Bolt ammo damage value")
             .defineInRange("heavy_bolt_damage", 4.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue JAVELIN_DAMAGE = BUILDER
-            .comment("A magic number")
+            .comment("Javelin damage value")
             .defineInRange("javelin_damage", 8.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue JAVELIN_SPEED = BUILDER
-            .comment("A magic number")
+            .comment("Javelin Projectile Speed")
             .defineInRange("javelin_speed", 2.5D, 0, Double.MAX_VALUE);
     private static final ForgeConfigSpec.IntValue ARMOR_PENETRATION_PERCENTAGE = BUILDER
-            .comment("A magic number")
+            .comment("FireArm armor penetration percentage")
             .defineInRange("armor_penetration_percentage", 50, 0, 100);
 
 
     private static final ForgeConfigSpec.IntValue PROBABILITY_FAIL_FIREGUN = BUILDER
-            .comment("A magic number")
+            .comment("Arquebus & Handgonne chance to fail a shot")
             .defineInRange("probability_fail_firegun", 5, 0, Integer.MAX_VALUE);
 
     private static final ForgeConfigSpec.IntValue COOLDOWN_ARQUEBUS = BUILDER
-            .comment("A magic number")
+            .comment("Arquebus cooldown in seconds")
             .defineInRange("cooldown_arquebus", 15, 0, Integer.MAX_VALUE);
     private static final ForgeConfigSpec.IntValue COOLDOWN_HANDGONNE = BUILDER
-            .comment("A magic number")
+            .comment("Handgonne cooldown in seconds")
             .defineInRange("cooldown_handgonne", 15, 0, Integer.MAX_VALUE);
 
 
     private static final ForgeConfigSpec.DoubleValue RECHARGE_SPEED_ARQUEBUS = BUILDER
-            .comment("A magic number")
-            .defineInRange("recharge_speed_arquebus", 1.0D, 0, 2.0D);
+            .comment("Arquebus Recharge Speed")
+            .defineInRange("recharge_speed_arquebus", 0.5D, 0, 2.0D);
 
     private static final ForgeConfigSpec.DoubleValue RECHARGE_SPEED_ARBALEST = BUILDER
-            .comment("A magic number")
+            .comment("Arbalest Recharge Speed")
             .defineInRange("recharge_speed_arbalest", 1.0D, 0.0D, 2.0D);
 
     private static final ForgeConfigSpec.DoubleValue RECHARGE_SPEED_HANDGONNE = BUILDER
-            .comment("A magic number")
-            .defineInRange("recharge_speed_handgonne", 1.0D, 0.0D, 2.0D);
+            .comment("Handgonne Recharge Speed")
+            .defineInRange("recharge_speed_handgonne", 0.5D, 0.0D, 2.0D);
 
 
 
