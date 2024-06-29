@@ -90,7 +90,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     }
 
     public boolean canShoot(Player player){
-        return player.getItemInHand(InteractionHand.OFF_HAND).is(Items.FLINT_AND_STEEL) || (!isFireGun());
+        return true;
     }
 
     public InteractionResultHolder<ItemStack> use(Level p_40920_, Player p_40921_, InteractionHand p_40922_) {
