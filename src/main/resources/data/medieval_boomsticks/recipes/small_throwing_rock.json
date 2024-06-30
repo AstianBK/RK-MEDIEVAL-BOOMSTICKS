@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#C",
+        "CC"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:wooden_pickaxe"
+        },
+        "C": {
+            "item": "minecraft:cobblestone"
+        }
+    },
+    "result": {
+        "item": "minecraft:bone",
+        "count": 3
+    }
+}

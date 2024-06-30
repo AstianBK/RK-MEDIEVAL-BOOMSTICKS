@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        " L ",
+        "///"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_axe"
+        },
+        "L": {
+            "item": "minecraft:leather"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "minecraft:bone",
+        "count": 3
+    }
+}

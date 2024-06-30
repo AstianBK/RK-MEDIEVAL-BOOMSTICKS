@@ -6,6 +6,7 @@ import com.TBK.medieval_boomsticks.common.items.ArquebusItem;
 import com.TBK.medieval_boomsticks.common.items.HandGonneItem;
 import com.TBK.medieval_boomsticks.common.items.JavelinItem;
 import net.minecraft.world.item.ArrowItem;
+import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -21,5 +22,14 @@ public class MBItems {
 
     public static final RegistryObject<Item> HEAVY_BOLT= ITEMS.register("heavy_bolt",()->new ArrowItem(new Item.Properties()));
     public static final RegistryObject<Item> ROUND_BALL= ITEMS.register("round_ball",()->new ArrowItem(new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> IRON_THROWING_KNIFE= ITEMS.register("iron_throwing_knife",()->new ArrowItem(new Item.Properties()));
+    public static final RegistryObject<Item> IRON_THROWING_AXE= ITEMS.register("iron_throwing_axe",()->new ArrowItem(new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> SMALL_THROWING_ROCK= ITEMS.register("small_throwing_rock",()->new ArrowItem(new Item.Properties()));
+    public static final RegistryObject<Item> LARGE_THROWING_ROCK= ITEMS.register("large_throwing_rock",()->new ArrowItem(new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> RECURVE_BOW= ITEMS.register("recurve_bow",()->new BowItem(new Item.Properties()));
+    public static final RegistryObject<Item> THROWING_WARDART= ITEMS.register("throwing_wardart",()->new ArrowItem(new Item.Properties().stacksTo(16)));
 
 }
