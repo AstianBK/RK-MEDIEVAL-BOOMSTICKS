@@ -23,7 +23,7 @@ public class Config
             .defineInRange("javelin_damage", 8.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue JAVELIN_SPEED = BUILDER
-            .comment("Javelin Projectile Speed")
+            .comment("Javelin Projectile Speed Value")
             .defineInRange("javelin_speed", 2.5D, 0, Double.MAX_VALUE);
     private static final ForgeConfigSpec.IntValue ARMOR_PENETRATION_PERCENTAGE = BUILDER
             .comment("FireArm armor penetration percentage")

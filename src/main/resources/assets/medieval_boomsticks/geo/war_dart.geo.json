@@ -1,0 +1,60 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.war_dart",
+				"texture_width": 128,
+				"texture_height": 32,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 3,
+				"visible_bounds_offset": [0, 0.5, 0]
+			},
+			"bones": [
+				{
+					"name": "main",
+					"pivot": [0.03256, 1, -10.55111]
+				},
+				{
+					"name": "tip",
+					"parent": "main",
+					"pivot": [0.03256, 1, -10.55111],
+					"cubes": [
+						{"origin": [-1.04022, 0, -11.57903], "size": [2.08043, 2, 4.25], "inflate": -0.35, "uv": [5, 14]},
+						{"origin": [0, -4, -20.32903], "size": [0, 10, 10], "pivot": [0, 1, -15.32903], "rotation": [-45, 0, 90], "uv": [1, -8]},
+						{"origin": [0, -4, -20.32903], "size": [0, 10, 10], "pivot": [0, 1, -15.32903], "rotation": [-45, 0, 0], "uv": [1, -8]}
+					]
+				},
+				{
+					"name": "stick",
+					"parent": "main",
+					"pivot": [0.04022, 0, -4.82903],
+					"cubes": [
+						{"origin": [-1.04022, 0, -8.07903], "size": [2.08043, 2, 25.25], "inflate": -0.25, "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "feathers",
+					"parent": "main",
+					"pivot": [0, 1, 15]
+				},
+				{
+					"name": "1",
+					"parent": "feathers",
+					"pivot": [0, 1, 15],
+					"cubes": [
+						{"origin": [0, -9, 5], "size": [0, 20, 20], "pivot": [0, 1, 15], "rotation": [-90, 0, 0], "uv": [31, -18]}
+					]
+				},
+				{
+					"name": "2",
+					"parent": "feathers",
+					"pivot": [0, 1, 15],
+					"cubes": [
+						{"origin": [-10, 1, 5], "size": [20, 0, 20], "uv": [11, 2]}
+					]
+				}
+			]
+		}
+	]
+}
