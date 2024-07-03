@@ -24,6 +24,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -105,36 +106,6 @@ public class JavelinItem extends TridentItem implements DyeableLeatherItem, GeoI
                     }
 
                     player.awardStat(Stats.ITEM_USED.get(this));
-                    if (j > 0) {
-                        float f7 = player.getYRot();
-                        float f = player.getXRot();
-                        float f1 = -Mth.sin(f7 * ((float)Math.PI / 180F)) * Mth.cos(f * ((float)Math.PI / 180F));
-                        float f2 = -Mth.sin(f * ((float)Math.PI / 180F));
-                        float f3 = Mth.cos(f7 * ((float)Math.PI / 180F)) * Mth.cos(f * ((float)Math.PI / 180F));
-                        float f4 = Mth.sqrt(f1 * f1 + f2 * f2 + f3 * f3);
-                        float f5 = 3.0F * ((1.0F + (float)j) / 4.0F);
-                        f1 *= f5 / f4;
-                        f2 *= f5 / f4;
-                        f3 *= f5 / f4;
-                        player.push((double)f1, (double)f2, (double)f3);
-                        player.startAutoSpinAttack(20);
-                        if (player.onGround()) {
-                            float f6 = 1.1999999F;
-                            player.move(MoverType.SELF, new Vec3(0.0D, (double)1.1999999F, 0.0D));
-                        }
-
-                        SoundEvent soundevent;
-                        if (j >= 3) {
-                            soundevent = SoundEvents.TRIDENT_RIPTIDE_3;
-                        } else if (j == 2) {
-                            soundevent = SoundEvents.TRIDENT_RIPTIDE_2;
-                        } else {
-                            soundevent = SoundEvents.TRIDENT_RIPTIDE_1;
-                        }
-
-                        p_43395_.playSound((Player)null, player, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    }
-
                 }
             }
         }
@@ -167,6 +138,16 @@ public class JavelinItem extends TridentItem implements DyeableLeatherItem, GeoI
         }
 
         return true;
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack p_41456_) {
+        return false;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return false;
     }
 
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot p_43383_) {

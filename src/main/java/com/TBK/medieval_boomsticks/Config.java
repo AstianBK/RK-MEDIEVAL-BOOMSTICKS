@@ -22,9 +22,52 @@ public class Config
             .comment("Javelin damage value")
             .defineInRange("javelin_damage", 8.0D, 0, Double.MAX_VALUE);
 
+    private static final ForgeConfigSpec.DoubleValue SMALL_ROCK_DAMAGE = BUILDER
+            .comment("Round Ball ammo damage value")
+            .defineInRange("small_rock_damage", 10.0D, 0, Double.MAX_VALUE);
+
+    private static final ForgeConfigSpec.DoubleValue WARDART_DAMAGE = BUILDER
+            .comment("Round Ball ammo damage value")
+            .defineInRange("wardart_damage", 10.0D, 0, Double.MAX_VALUE);
+
+
+    private static final ForgeConfigSpec.DoubleValue THROWN_WARDART_DAMAGE = BUILDER
+            .comment("Round Ball ammo damage value")
+            .defineInRange("thrown_wardart_damage", 10.0D, 0, Double.MAX_VALUE);
+
+
+    private static final ForgeConfigSpec.DoubleValue LARGE_ROCK_DAMAGE = BUILDER
+            .comment("Heavy Bolt ammo damage value")
+            .defineInRange("large_rock_damage", 4.0D, 0, Double.MAX_VALUE);
+
+    private static final ForgeConfigSpec.DoubleValue THROWN_KNIFE_DAMAGE = BUILDER
+            .comment("Knife Projectile damage value")
+            .defineInRange("thrown_knife_damage", 8.0D, 0, Double.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue THROWN_AXE_DAMAGE = BUILDER
+            .comment("Axe Projectile damage value")
+            .defineInRange("thrown_axe_damage", 8.0D, 0, Double.MAX_VALUE);
+
+    private static final ForgeConfigSpec.DoubleValue KNIFE_DAMAGE = BUILDER
+            .comment("Knife damage value")
+            .defineInRange("knife_damage", 8.0D, 0, Double.MAX_VALUE);
+
+    private static final ForgeConfigSpec.DoubleValue AXE_DAMAGE = BUILDER
+            .comment("Knife damage value")
+            .defineInRange("knife_damage", 8.0D, 0, Double.MAX_VALUE);
+
+
+    private static final ForgeConfigSpec.DoubleValue SMALL_ROCK_SPEED = BUILDER
+            .comment("Small Rock Projectile Speed")
+            .defineInRange("small_rock_speed", 2.5D, 0, Double.MAX_VALUE);
+
+    private static final ForgeConfigSpec.DoubleValue LARGE_ROCK_SPEED = BUILDER
+            .comment("Large Rock Projectile Speed")
+            .defineInRange("large_rock_speed", 2.5D, 0, Double.MAX_VALUE);
+
     private static final ForgeConfigSpec.DoubleValue JAVELIN_SPEED = BUILDER
             .comment("Javelin Projectile Speed Value")
             .defineInRange("javelin_speed", 2.5D, 0, Double.MAX_VALUE);
+
     private static final ForgeConfigSpec.IntValue ARMOR_PENETRATION_PERCENTAGE = BUILDER
             .comment("FireArm armor penetration percentage")
             .defineInRange("armor_penetration_percentage", 50, 0, 100);
@@ -62,7 +105,18 @@ public class Config
     public static double heavyBoltDamage;
     public static double javelinDamage;
 
+    public static double axeDamage;
+    public static double knifeDamage;
+    public static double thrownKnifeDamage;
+    public static double thrownAxeDamage;
+    public static double smallRockDamage;
+    public static double largeRockDamage;
+
     public static double javelinSpeed;
+    public static double smallRockSpeed;
+
+    public static double largeRockSpeed;
+
     public static int probabilityFail;
 
     public static int armorPenetrationPercentage;

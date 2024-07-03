@@ -29,6 +29,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -90,7 +91,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     }
 
     public boolean canShoot(Player player){
-        return player.getItemInHand(InteractionHand.OFF_HAND).is(Items.FLINT_AND_STEEL) || (!isFireGun());
+        return true;
     }
 
     public InteractionResultHolder<ItemStack> use(Level p_40920_, Player p_40921_, InteractionHand p_40922_) {
@@ -230,6 +231,16 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     public static void setReCharge(ItemStack p_40885_, boolean p_40886_) {
         CompoundTag compoundtag = p_40885_.getOrCreateTag();
         compoundtag.putBoolean("recharge", p_40886_);
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack p_41456_) {
+        return false;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return false;
     }
 
     private static void addChargedProjectile(ItemStack p_40929_, ItemStack p_40930_) {

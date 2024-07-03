@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#",
+        "L"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:bow"
+        },
+        "L": {
+            "item": "minecraft:leather"
+        }
+    },
+    "result": {
+        "item": "minecraft:bone",
+        "count": 1
+    }
+}
