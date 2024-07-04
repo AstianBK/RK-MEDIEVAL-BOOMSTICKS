@@ -22,9 +22,17 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.util.GeckoLibUtil;
+
 import javax.annotation.Nullable;
 
-public class ThrowableWeapon extends AbstractArrow {
+public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
+    private final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
+
+
     private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(ThrowableWeapon.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Integer> ID_EFFECT_COLOR = SynchedEntityData.defineId(ThrowableWeapon.class, EntityDataSerializers.INT);
     protected ItemStack javelinItem = new ItemStack(MBItems.JAVELIN.get());
@@ -40,7 +48,6 @@ public class ThrowableWeapon extends AbstractArrow {
         super(pType, p_37570_, p_37569_);
         this.javelinItem = p_37571_.copy();
         this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(p_37571_));
-        this.setFixedColor(((JavelinItem)p_37571_.getItem()).getColor(p_37571_));
     }
 
     public ItemStack getJavelinItem() {
@@ -207,6 +214,21 @@ public class ThrowableWeapon extends AbstractArrow {
 
     public boolean shouldRender(double p_37588_, double p_37589_, double p_37590_) {
         return true;
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
+    }
+
+    @Override
+    public double getTick(Object object) {
+        return 0;
     }
 
 }

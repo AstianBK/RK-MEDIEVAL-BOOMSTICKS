@@ -42,9 +42,6 @@ public class ThrowingItem extends Item {
             case AXE -> {
                 return MBEntityType.THROWN_AXE.get();
             }
-            case WARDART -> {
-                return MBEntityType.THROWN_WARDART.get();
-            }
             case LARGE_ROCK -> {
                 return MBEntityType.THROWN_LARGE_ROCK.get();
             }

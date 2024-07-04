@@ -26,7 +26,7 @@ public class MBItems {
     public static final RegistryObject<Item> SMALL_THROWING_ROCK= ITEMS.register("small_throwing_rock",()->new ThrowingItem(new Item.Properties(),ThrowableItems.SMALL_ROCK));
     public static final RegistryObject<Item> LARGE_THROWING_ROCK= ITEMS.register("large_throwing_rock",()->new ThrowingItem(new Item.Properties(),ThrowableItems.LARGE_ROCK));
 
+    public static final RegistryObject<Item> THROWING_WARDART= ITEMS.register("war_dart",()->new WarDartItem(new Item.Properties().durability(16)));
     public static final RegistryObject<Item> RECURVE_BOW= ITEMS.register("recurve_bow",()->new BowItem(new Item.Properties()));
-    public static final RegistryObject<Item> THROWING_WARDART= ITEMS.register("throwing_wardart",()->new ThrowingItem(new Item.Properties(),ThrowableItems.WARDART));
 
 }

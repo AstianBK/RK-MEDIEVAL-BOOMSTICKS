@@ -15,6 +15,9 @@ public class MBCreativeTabs {
             .icon(()->new ItemStack(MBItems.ARQUEBUS.get()))
             .title(Component.translatable("itemGroup.medieval_boomstick"))
             .displayItems((s,a)-> {
+                a.accept(MBItems.SMALL_THROWING_ROCK.get());
+                a.accept(MBItems.LARGE_THROWING_ROCK.get());
+                a.accept(MBItems.THROWING_WARDART.get());
                 a.accept(MBItems.ARQUEBUS.get());
                 a.accept(MBItems.HANDGONNE.get());
                 a.accept(MBItems.ARBALEST.get());
