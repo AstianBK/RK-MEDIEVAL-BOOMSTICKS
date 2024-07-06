@@ -1,7 +1,10 @@
 package com.TBK.medieval_boomsticks.common.items;
 
+import com.TBK.medieval_boomsticks.client.renderer.ArquebusRenderer;
+import com.TBK.medieval_boomsticks.client.renderer.KnifeRenderer;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
 import com.TBK.medieval_boomsticks.server.entity.ThrowableWeapon;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -12,13 +15,37 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.renderer.GeoItemRenderer;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class ThrowingItem extends Item {
+import java.util.function.Consumer;
+
+public class ThrowingItem extends Item implements GeoItem {
+    private final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
+
     public ThrowableItems type;
     public ThrowingItem(Properties p_40512_,ThrowableItems type) {
         super(p_40512_);
         this.type=type;
     }
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        if(this.type!=ThrowableItems.SMALL_ROCK && this.type!=ThrowableItems.LARGE_ROCK){
+            consumer.accept(new IClientItemExtensions() {
+                private final BlockEntityWithoutLevelRenderer renderer = new KnifeRenderer<>();
+
+                @Override
+                public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                    return renderer;
+                }
+            });
+        }
+    }
+
 
     public InteractionResultHolder<ItemStack> use(Level p_43142_, Player p_43143_, InteractionHand p_43144_) {
         ItemStack itemstack = p_43143_.getItemInHand(p_43144_);
@@ -53,5 +80,15 @@ public class ThrowingItem extends Item {
             }
         }
 
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 }

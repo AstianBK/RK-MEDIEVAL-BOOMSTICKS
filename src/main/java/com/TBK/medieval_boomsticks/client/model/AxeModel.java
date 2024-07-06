@@ -5,19 +5,19 @@ import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.model.GeoModel;
 
-public class RockModel<T extends GeoAnimatable> extends GeoModel<T> {
+public class AxeModel<T extends GeoAnimatable> extends GeoModel<T> {
     @Override
     public ResourceLocation getModelResource(T animatable) {
-        return new ResourceLocation(RKMedievalBoomStick.MODID,"geo/rock.geo.json");
+        return new ResourceLocation(RKMedievalBoomStick.MODID,"geo/axe.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(T animatable) {
-        return new ResourceLocation("textures/block/cobblestone.png");
+        return new ResourceLocation(RKMedievalBoomStick.MODID,"textures/item/axe.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(T animatable) {
-        return new ResourceLocation(RKMedievalBoomStick.MODID,"animations/rock.animations.json");
+        return new ResourceLocation(RKMedievalBoomStick.MODID,"animations/axe.animations.json");
     }
 }
