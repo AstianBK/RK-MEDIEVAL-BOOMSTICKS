@@ -1,10 +1,9 @@
 package com.TBK.medieval_boomsticks.client.renderer;
 
-import com.TBK.medieval_boomsticks.client.layers.ThrownJavelinClothLayers;
-import com.TBK.medieval_boomsticks.client.model.JavelinModel;
+import com.TBK.medieval_boomsticks.client.model.AxeModel;
 import com.TBK.medieval_boomsticks.client.model.KnifeModel;
+import com.TBK.medieval_boomsticks.server.entity.ThrowableAxe;
 import com.TBK.medieval_boomsticks.server.entity.ThrowableKnife;
-import com.TBK.medieval_boomsticks.server.entity.ThrownJavelin;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -16,13 +15,14 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 
-public class ThrownKnifeRenderer<T extends ThrowableKnife> extends GeoEntityRenderer<T> {
-    public ThrownKnifeRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager,new KnifeModel<>());
+public class ThrownAxeRenderer<T extends ThrowableAxe> extends GeoEntityRenderer<T> {
+    public ThrownAxeRenderer(EntityRendererProvider.Context renderManager) {
+        super(renderManager,new AxeModel<>());
     }
 
     @Override
     public void render(T entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
+        poseStack.scale(0.3F,0.3F,0.3F);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 
@@ -31,7 +31,7 @@ public class ThrownKnifeRenderer<T extends ThrowableKnife> extends GeoEntityRend
         if(!isReRender){
             poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTick,animatable.yRotO,animatable.getYRot())+180.0F));
             if(!animatable.level().noCollision((new AABB(animatable.position(), animatable.position())).inflate(0.06D))){
-                poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick,animatable.xRotO,animatable.getXRot())+30.0F));
+                poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick,animatable.xRotO,animatable.getXRot())));
             }else {
                 poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick,animatable.xRotO,animatable.getXRot())+(Mth.sin(180*animatable.tickCount)*360F)));
             }

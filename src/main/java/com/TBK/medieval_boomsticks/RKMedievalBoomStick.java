@@ -47,6 +47,7 @@ public class RKMedievalBoomStick
     private void registerRenderers(FMLCommonSetupEvent event){
         EntityRenderers.register(MBEntityType.THROWN_JAVELIN.get(), ThrownJavelinRenderer::new);
         EntityRenderers.register(MBEntityType.THROWN_KNIFE.get(), ThrownKnifeRenderer::new);
+        EntityRenderers.register(MBEntityType.THROWN_AXE.get(), ThrownAxeRenderer::new);
         EntityRenderers.register(MBEntityType.THROWN_WARDART.get(), ThrownWarDartRenderer::new);
         EntityRenderers.register(MBEntityType.THROWN_SMALL_ROCK.get(), ThrownSmallRockRenderer::new);
         EntityRenderers.register(MBEntityType.THROWN_LARGE_ROCK.get(), ThrownLargeRockRenderer::new);
