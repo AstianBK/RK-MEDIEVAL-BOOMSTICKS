@@ -2,24 +2,7 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"wardart.idle": {
-			"loop": true,
-			"bones": {
-				"2": {
-					"scale": {
-						"vector": [0.775, 1, 1]
-					}
-				},
-				"stick": {
-					"scale": {
-						"vector": [1, 1, 1.025]
-					}
-				},
-				"feathers": {
-					"scale": {
-						"vector": [1, 0.775, 1]
-					}
-				}
-			}
+			"loop": true
 		}
 	},
 	"geckolib_format_version": 2
