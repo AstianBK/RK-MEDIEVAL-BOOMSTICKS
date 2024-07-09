@@ -23,7 +23,7 @@ public class MBItems {
     public static final RegistryObject<Item> HEAVY_BOLT= ITEMS.register("heavy_bolt",()->new ArrowItem(new Item.Properties()));
     public static final RegistryObject<Item> ROUND_BALL= ITEMS.register("round_ball",()->new ArrowItem(new Item.Properties().stacksTo(16)));
 
-    public static final RegistryObject<Item> IRON_THROWING_KNIFE= ITEMS.register("iron_throwing_knife",()->new ThrowingItem(new Item.Properties(),ThrowableItems.KNIFE));
+    public static final RegistryObject<Item> IRON_THROWING_KNIFE= ITEMS.register("iron_throwing_knife",()->new ThrowingKnifeItem(new Item.Properties()));
     public static final RegistryObject<Item> IRON_THROWING_AXE= ITEMS.register("iron_throwing_axe",()->new ThrowingAxeItem(new Item.Properties()));
 
     public static final RegistryObject<Item> SMALL_THROWING_ROCK= ITEMS.register("small_throwing_rock",()->new ThrowingItem(new Item.Properties(),ThrowableItems.SMALL_ROCK));

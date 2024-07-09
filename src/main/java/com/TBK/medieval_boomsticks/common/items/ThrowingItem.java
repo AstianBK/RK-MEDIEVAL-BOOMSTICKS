@@ -33,20 +33,6 @@ public class ThrowingItem extends Item implements GeoItem {
         super(p_40512_);
         this.type=type;
     }
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        if(this.type!=ThrowableItems.SMALL_ROCK && this.type!=ThrowableItems.LARGE_ROCK){
-            consumer.accept(new IClientItemExtensions() {
-                private final BlockEntityWithoutLevelRenderer renderer = new KnifeRenderer<>();
-
-                @Override
-                public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                    return renderer;
-                }
-            });
-        }
-    }
-
 
     public InteractionResultHolder<ItemStack> use(Level p_43142_, Player p_43143_, InteractionHand p_43144_) {
         ItemStack itemstack = p_43143_.getItemInHand(p_43144_);
