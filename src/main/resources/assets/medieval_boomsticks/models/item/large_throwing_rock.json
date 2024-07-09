@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "medieval_boomsticks:item/rock_large_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "medieval_boomsticks:item/rock_large_gui"
+    },
+    "ground": {
+      "parent": "medieval_boomsticks:item/rock_large_gui"
+    },
+    "fixed": {
+      "parent": "medieval_boomsticks:item/rock_large_gui"
+    }
+  }
+}

@@ -4,6 +4,7 @@ import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
 import com.TBK.medieval_boomsticks.common.items.RechargeItem;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.fml.ModList;
 
 public class MBItemProperties {
@@ -12,6 +13,12 @@ public class MBItemProperties {
             return p_239425_2_ != null && RechargeItem.isCharged(p_239425_0_) ?  1.0F : 0.0F;
         });
         ItemProperties.register(MBItems.HANDGONNE.get(), new ResourceLocation(RKMedievalBoomStick.MODID, "recharge"), (p_239425_0_, p_239425_1_, p_239425_2_, intIn) -> {
+            return p_239425_2_ != null && RechargeItem.isReCharge(p_239425_0_) ? 1.0F : 0.0F;
+        });
+        ItemProperties.register(MBItems.SPIKEHANDGONNE.get(), new ResourceLocation(RKMedievalBoomStick.MODID, "charged"), (p_239425_0_, p_239425_1_, p_239425_2_, intIn) -> {
+            return p_239425_2_ != null && RechargeItem.isCharged(p_239425_0_) ?  1.0F : 0.0F;
+        });
+        ItemProperties.register(MBItems.SPIKEHANDGONNE.get(), new ResourceLocation(RKMedievalBoomStick.MODID, "recharge"), (p_239425_0_, p_239425_1_, p_239425_2_, intIn) -> {
             return p_239425_2_ != null && RechargeItem.isReCharge(p_239425_0_) ? 1.0F : 0.0F;
         });
         ItemProperties.register(MBItems.ARBALEST.get(), new ResourceLocation(RKMedievalBoomStick.MODID, "charged"), (p_239425_0_, p_239425_1_, p_239425_2_, intIn) -> {
@@ -34,6 +41,17 @@ public class MBItemProperties {
         });
         ItemProperties.register(MBItems.ARQUEBUS.get(), new ResourceLocation(RKMedievalBoomStick.MODID, "fire"), (p_239425_0_, p_239425_1_, p_239425_2_, intIn) -> {
             return p_239425_2_ != null && RechargeItem.isFire(p_239425_0_) ?  1.0F : 0.0F;
+        });
+
+        ItemProperties.register(MBItems.RECURVE_BOW.get(), new ResourceLocation("pulling"), (p_174630_, p_174631_, p_174632_, p_174633_) -> {
+            return p_174632_ != null && p_174632_.isUsingItem() && p_174632_.getUseItem() == p_174630_ ? 1.0F : 0.0F;
+        });
+        ItemProperties.register(MBItems.RECURVE_BOW.get(), new ResourceLocation("pull"), (p_174635_, p_174636_, p_174637_, p_174638_) -> {
+            if (p_174637_ == null) {
+                return 0.0F;
+            } else {
+                return p_174637_.getUseItem() != p_174635_ ? 0.0F : (float)(p_174635_.getUseDuration() - p_174637_.getUseItemRemainingTicks()) / 20.0F;
+            }
         });
     }
 }

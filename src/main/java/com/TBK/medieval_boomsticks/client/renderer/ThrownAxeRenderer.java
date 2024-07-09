@@ -22,7 +22,6 @@ public class ThrownAxeRenderer<T extends ThrowableAxe> extends GeoEntityRenderer
 
     @Override
     public void render(T entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
-        poseStack.scale(0.3F,0.3F,0.3F);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 
@@ -31,9 +30,9 @@ public class ThrownAxeRenderer<T extends ThrowableAxe> extends GeoEntityRenderer
         if(!isReRender){
             poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTick,animatable.yRotO,animatable.getYRot())+180.0F));
             if(!animatable.level().noCollision((new AABB(animatable.position(), animatable.position())).inflate(0.06D))){
-                poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick,animatable.xRotO,animatable.getXRot())));
+                poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick,animatable.xRotO,animatable.getXRot())+30.0F));
             }else {
-                poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick,animatable.xRotO,animatable.getXRot())+(Mth.sin(180*animatable.tickCount)*360F)));
+                poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick,animatable.xRotO,animatable.getXRot())+(Mth.sin(30*animatable.tickCount)*360F)));
             }
         }
     }

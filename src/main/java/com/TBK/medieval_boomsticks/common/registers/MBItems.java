@@ -3,7 +3,6 @@ package com.TBK.medieval_boomsticks.common.registers;
 import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
 import com.TBK.medieval_boomsticks.common.items.*;
 import net.minecraft.world.item.ArrowItem;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,6 +13,9 @@ public class MBItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RKMedievalBoomStick.MODID);
 
     public static final RegistryObject<Item> HANDGONNE= ITEMS.register("handgonne",()->new HandGonneItem(new Item.Properties().stacksTo(1).durability(24)));
+
+    public static final RegistryObject<Item> SPIKEHANDGONNE= ITEMS.register("spikedhandgonne",()->new SpikedHandGonneItem(new Item.Properties().stacksTo(1).durability(24)));
+
     public static final RegistryObject<Item> JAVELIN= ITEMS.register("javelin",()->new JavelinItem(new Item.Properties().stacksTo(1).durability(16)));
     public static final RegistryObject<Item> ARBALEST= ITEMS.register("arbalest",()->new ArbalestItem(new Item.Properties().stacksTo(1).durability(924)));
     public static final RegistryObject<Item> ARQUEBUS= ITEMS.register("arquebus",()->new ArquebusItem(new Item.Properties().stacksTo(1).durability(48)));

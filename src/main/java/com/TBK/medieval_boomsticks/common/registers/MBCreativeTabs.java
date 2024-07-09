@@ -21,6 +21,10 @@ public class MBCreativeTabs {
                 a.accept(MBItems.ARQUEBUS.get());
                 a.accept(MBItems.HANDGONNE.get());
                 a.accept(MBItems.ARBALEST.get());
+                a.accept(MBItems.SPIKEHANDGONNE.get());
+                a.accept(MBItems.RECURVE_BOW.get());
+                a.accept(MBItems.IRON_THROWING_KNIFE.get());
+                a.accept(MBItems.IRON_THROWING_AXE.get());
                 a.accept(MBItems.JAVELIN.get());
                 a.accept(MBItems.HEAVY_BOLT.get());
                 a.accept(MBItems.ROUND_BALL.get());

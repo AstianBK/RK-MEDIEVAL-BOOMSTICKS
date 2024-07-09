@@ -3,6 +3,10 @@ package com.TBK.medieval_boomsticks.server.entity;
 import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -16,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
 public class ThrowableAxe extends ThrowableWeapon {
+    private static final EntityDataAccessor<Boolean> IS_CURSED = SynchedEntityData.defineId(ThrowableAxe.class, EntityDataSerializers.BOOLEAN);
 
     public ThrowableAxe(EntityType<? extends ThrowableAxe> p_37561_, Level p_37562_) {
         super(p_37561_, p_37562_);
@@ -60,6 +65,32 @@ public class ThrowableAxe extends ThrowableWeapon {
         float f1 = 1.0F;
 
         this.playSound(soundevent, f1, 1.0F);
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(IS_CURSED,false);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag p_37582_) {
+        p_37582_.putBoolean("isCursed",this.isCursed());
+        super.addAdditionalSaveData(p_37582_);
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag p_37578_) {
+        this.setIsCursed(p_37578_.getBoolean("isCursed"));
+        super.readAdditionalSaveData(p_37578_);
+    }
+
+    public boolean isCursed() {
+        return this.entityData.get(IS_CURSED);
+    }
+
+    public void setIsCursed(boolean isCursed){
+        this.entityData.set(IS_CURSED,isCursed);
     }
 
     protected boolean tryPickup(Player p_150196_) {
