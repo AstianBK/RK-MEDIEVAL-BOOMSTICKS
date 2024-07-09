@@ -22,6 +22,7 @@ public class ThrownAxeRenderer<T extends ThrowableAxe> extends GeoEntityRenderer
 
     @Override
     public void render(T entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
+        poseStack.scale(0.7F,0.7F,0.7F);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 
