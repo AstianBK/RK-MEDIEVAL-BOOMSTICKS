@@ -3,6 +3,7 @@ package com.TBK.medieval_boomsticks.common.items;
 import com.TBK.medieval_boomsticks.client.renderer.ArquebusRenderer;
 import com.TBK.medieval_boomsticks.client.renderer.KnifeRenderer;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
+import com.TBK.medieval_boomsticks.server.entity.ThrowableAxe;
 import com.TBK.medieval_boomsticks.server.entity.ThrowableWeapon;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.sounds.SoundEvents;
@@ -52,6 +53,10 @@ public class ThrowingItem extends Item implements GeoItem {
         p_43142_.playSound((Player)null, p_43143_.getX(), p_43143_.getY(), p_43143_.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (p_43142_.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!p_43142_.isClientSide) {
             ThrowableWeapon throwableWeapon = new ThrowableWeapon(getEntityForType(this.type),p_43142_, p_43143_,itemstack);
+            if (itemstack.getItem() instanceof ThrowingAxeItem axeItem && axeItem.isCursed(itemstack)) {
+                throwableWeapon= new ThrowableAxe(p_43142_,p_43143_,itemstack);
+                ((ThrowableAxe)throwableWeapon).setIsCursed(true);
+            }
             throwableWeapon.shootFromRotation(p_43143_, p_43143_.getXRot(), p_43143_.getYRot(), 0.0F, 1.5F, 1.0F);
             p_43142_.addFreshEntity(throwableWeapon);
         }
