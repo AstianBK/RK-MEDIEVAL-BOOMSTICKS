@@ -43,13 +43,14 @@ public class SpikedHandGonneItem extends RechargeItem {
             }
         });
     }
+
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController(this,"controller",0,e->{
             ItemStack stack= (ItemStack) e.getData(DataTickets.ITEMSTACK);
             e.getController().setAnimationSpeed(1.0D);
             if(stack==null){
-                e.getController().setAnimation(RawAnimation.begin().thenLoop("handgonne.idle"));
+                e.getController().setAnimation(RawAnimation.begin().thenLoop("spikedhandgonne.idle"));
                 return PlayState.CONTINUE;
             }
             if (isReCharge(stack)) {
