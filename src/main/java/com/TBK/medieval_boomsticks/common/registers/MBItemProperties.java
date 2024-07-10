@@ -2,8 +2,10 @@ package com.TBK.medieval_boomsticks.common.registers;
 
 import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
 import com.TBK.medieval_boomsticks.common.items.RechargeItem;
+import com.TBK.medieval_boomsticks.common.items.ThrowingAxeItem;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.fml.ModList;
 
@@ -52,6 +54,9 @@ public class MBItemProperties {
             } else {
                 return p_174637_.getUseItem() != p_174635_ ? 0.0F : (float)(p_174635_.getUseDuration() - p_174637_.getUseItemRemainingTicks()) / 20.0F;
             }
+        });
+        ItemProperties.register(MBItems.IRON_THROWING_AXE.get(), new ResourceLocation(RKMedievalBoomStick.MODID, "isCursed"), (p_239426_0_, p_239426_1_, p_239426_2_, intIn) -> {
+            return p_239426_0_.getItem() instanceof ThrowingAxeItem axe && axe.isCursed(p_239426_0_) ? 1 : 0;
         });
     }
 }
