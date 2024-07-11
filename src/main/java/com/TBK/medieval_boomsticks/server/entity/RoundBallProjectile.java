@@ -106,17 +106,15 @@ public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
 
         if(entity instanceof Player player && player.isBlocking()){
             player.disableShield(true);
-            this.discard();
-        }else if (entity.hurt(damagesource, (float)i)) {
+        }
+        if (entity.hurt(damagesource, (float)i)) {
             if (flag) {
                 return;
             }
-            System.out.print("\n"+((LivingEntity)entity).getHealth()+"\n");
             entity.invulnerableTime = 0;
             entity.hurt(damageSources().generic(),d);
             if (entity instanceof LivingEntity) {
                 LivingEntity livingentity = (LivingEntity)entity;
-                System.out.print("\n"+livingentity.getHealth()+"\n");
                 if (!this.level().isClientSide && this.getPierceLevel() <= 0) {
                     livingentity.setArrowCount(livingentity.getArrowCount() + 1);
                 }
@@ -135,7 +133,7 @@ public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
                 }
 
                 this.doPostHurtEffects(livingentity);
-                if (entity1 != null && livingentity != entity1 && livingentity instanceof Player && entity1 instanceof ServerPlayer && !this.isSilent()) {
+                if (entity1 != null && livingentity != entity1 && livingentity instanceof Player player && entity1 instanceof ServerPlayer && !this.isSilent()) {
                     ((ServerPlayer)entity1).connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.ARROW_HIT_PLAYER, 0.0F));
                 }
 

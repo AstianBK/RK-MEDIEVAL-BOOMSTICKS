@@ -42,7 +42,6 @@ public class HeavyBoltProjectile extends AbstractArrow implements GeoEntity {
         super(MBEntityType.HEAVY_BOLT.get(), p_37570_, p_37569_);
     }
 
-
     @Override
     protected ItemStack getPickupItem() {
         return new ItemStack(MBItems.HEAVY_BOLT.get());

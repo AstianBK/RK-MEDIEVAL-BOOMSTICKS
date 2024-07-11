@@ -15,7 +15,7 @@ public class AxeModel<T extends GeoAnimatable> extends GeoModel<T> {
 
     @Override
     public ResourceLocation getTextureResource(T animatable) {
-        if((animatable instanceof ThrowingAxeItem axeItem && axeItem.isCursed) || (animatable instanceof ThrowableAxe axe && axe.isCursed())){
+        if((animatable instanceof ThrowingAxeItem axeItem && axeItem.isCursed()) || (animatable instanceof ThrowableAxe axe && axe.isCursed())){
             return new ResourceLocation(RKMedievalBoomStick.MODID,"textures/item/axe_cursed.png");
         }
         return new ResourceLocation(RKMedievalBoomStick.MODID,"textures/item/axe.png");
