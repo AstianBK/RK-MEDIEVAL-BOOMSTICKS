@@ -1,20 +1,13 @@
 package com.TBK.medieval_boomsticks.common.items;
 
-import com.TBK.medieval_boomsticks.Config;
-import com.TBK.medieval_boomsticks.client.renderer.ArbalestRenderer;
 import com.TBK.medieval_boomsticks.client.renderer.AxeRenderer;
-import com.TBK.medieval_boomsticks.client.renderer.ThrownAxeRenderer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import software.bernie.geckolib.constant.DataTickets;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.RawAnimation;
-import software.bernie.geckolib.core.object.PlayState;
 
 import java.util.function.Consumer;
 
@@ -37,12 +30,32 @@ public class ThrowingAxeItem extends ThrowingItem {
     }
 
     @Override
-    public void onInventoryTick(ItemStack stack, Level level, Player player, int slotIndex, int selectedIndex) {
-        this.isCursed=this.isCursed(stack);
-        super.onInventoryTick(stack, level, player, slotIndex, selectedIndex);
+    public void inventoryTick(ItemStack p_41404_, Level p_41405_, Entity p_41406_, int p_41407_, boolean p_41408_) {
+        if(p_41406_ instanceof Player){
+            if(p_41404_.getItem()   instanceof ThrowingAxeItem axeItem){
+                this.setCursed(p_41404_.getOrCreateTag(),p_41404_.getHoverName().getString().equals("Cursed"));
+            }
+        }
+        super.inventoryTick(p_41404_, p_41405_, p_41406_, p_41407_, p_41408_);
     }
 
-    public boolean isCursed(ItemStack stack){
-        return stack.getHoverName().getString().equals("Cursed");
+    public void setCursed(CompoundTag tag, boolean isCursed){
+        this.isCursed=isCursed;
+        tag.putBoolean("isCursed",isCursed);
+    }
+
+    public void setCursed(boolean isCursed){
+        this.isCursed= isCursed;
+    }
+
+    public boolean isCursed(ItemStack itemStack){
+        CompoundTag tag = itemStack.getOrCreateTag();
+        if(tag.contains("isCursed")){
+            return tag.getBoolean("isCursed");
+        }
+        return false;
+    }
+    public boolean isCursed(){
+        return this.isCursed;
     }
 }

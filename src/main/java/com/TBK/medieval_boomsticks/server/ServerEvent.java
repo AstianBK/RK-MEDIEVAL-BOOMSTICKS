@@ -2,8 +2,11 @@ package com.TBK.medieval_boomsticks.server;
 
 import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
 import com.TBK.medieval_boomsticks.common.items.RechargeItem;
+import com.TBK.medieval_boomsticks.common.items.ThrowingAxeItem;
 import com.TBK.medieval_boomsticks.common.registers.MBItemProperties;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingGetProjectileEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,5 +21,4 @@ public class ServerEvent {
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(MBItemProperties::register);
     }
-
 }
