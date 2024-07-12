@@ -1,6 +1,6 @@
 package com.TBK.medieval_boomsticks;
 
-import com.TBK.medieval_boomsticks.common.items.MorningStarItem;
+import com.TBK.medieval_boomsticks.common.items.MazeItem;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,7 +14,7 @@ public class ForgeEvents {
     public static void onHurt(LivingHurtEvent event) {
         LivingEntity target=event.getEntity();
         Entity source=event.getSource().getEntity();
-        if(source instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof MorningStarItem){
+        if(source instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof MazeItem){
             float trueDamage=event.getAmount()*0.3F;
             float damage=event.getAmount()-trueDamage;
             event.setAmount(damage);

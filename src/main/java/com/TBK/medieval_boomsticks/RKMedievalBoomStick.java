@@ -1,7 +1,6 @@
 package com.TBK.medieval_boomsticks;
 
 import com.TBK.medieval_boomsticks.client.renderer.*;
-import com.TBK.medieval_boomsticks.common.items.ThrowingAxeItem;
 import com.TBK.medieval_boomsticks.common.registers.MBCreativeTabs;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
@@ -9,11 +8,9 @@ import com.TBK.medieval_boomsticks.common.registers.MBSounds;
 import com.TBK.medieval_boomsticks.server.network.PacketHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
