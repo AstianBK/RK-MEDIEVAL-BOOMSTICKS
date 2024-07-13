@@ -2,9 +2,7 @@ package com.TBK.medieval_boomsticks.common.items;
 
 import com.TBK.medieval_boomsticks.client.renderer.MorningStarRenderer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import software.bernie.geckolib.animatable.GeoItem;
@@ -14,11 +12,11 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 
-public class MorningStarItem extends MazeItem implements GeoItem {
+public class MazeItem extends AxeItem implements GeoItem {
     private final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
 
-    public MorningStarItem(Properties p_43381_) {
-        super(p_43381_);
+    public MazeItem(Properties p_43381_) {
+        super(Tiers.IRON,4.5F,-1.0F,p_43381_);
     }
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
