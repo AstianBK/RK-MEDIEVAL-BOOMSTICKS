@@ -15,18 +15,11 @@
       "translation": [0, 0.75, 6]
     },
     "firstperson_righthand": {
-      "rotation": [97, 0, 0],
-      "translation": [-0.25, 0.5, -0.25]
+      "rotation": [0, 11.75, 0.91],
+      "translation": [14.5, 2.5, 3]
     },"firstperson_lefthand": {
-      "rotation": [-97, -17, 0.91],
-      "translation": [0, 2.5, -0.5]
-    },
-    "ground": {
-      "scale": [
-        0.7,
-        0.7,
-        0.7
-      ]
+      "rotation": [0, -17, 0.91],
+      "translation": [-8.75, 2.5, -0.5]
     },
     "gui": {
       "rotation": [
@@ -50,12 +43,6 @@
     {
       "predicate": {
         "medieval_boomsticks:charged": 1
-      },
-      "model": "medieval_boomsticks:item/spikedhandgonne_aim"
-    },
-    {
-      "predicate": {
-        "medieval_boomsticks:recharge": 1
       },
       "model": "medieval_boomsticks:item/spikedhandgonne_aim"
     }

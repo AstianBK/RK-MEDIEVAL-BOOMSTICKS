@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
 public class ThrowableLargeRock extends ThrowableWeapon {
@@ -31,7 +32,7 @@ public class ThrowableLargeRock extends ThrowableWeapon {
 
     protected void onHitEntity(EntityHitResult p_37573_) {
         Entity entity = p_37573_.getEntity();
-        float f = (float) Config.javelinDamage;
+        float f = (float) Config.largeRockSpeed;
         if (entity instanceof LivingEntity livingentity) {
             f += EnchantmentHelper.getDamageBonus(this.javelinItem, livingentity.getMobType());
         }
@@ -59,6 +60,14 @@ public class ThrowableLargeRock extends ThrowableWeapon {
         this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
         float f1 = 1.0F;
 
+        this.playSound(soundevent, f1, 1.0F);
+    }
+    @Override
+    protected void onHitBlock(BlockHitResult p_36755_) {
+        super.onHitBlock(p_36755_);
+        SoundEvent soundevent = SoundEvents.TRIDENT_HIT;
+        this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
+        float f1 = 1.0F;
         this.playSound(soundevent, f1, 1.0F);
     }
 

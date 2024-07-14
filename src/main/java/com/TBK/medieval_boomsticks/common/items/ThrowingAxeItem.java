@@ -1,5 +1,6 @@
 package com.TBK.medieval_boomsticks.common.items;
 
+import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.client.renderer.AxeRenderer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.nbt.CompoundTag;
@@ -14,7 +15,7 @@ import java.util.function.Consumer;
 public class ThrowingAxeItem extends ThrowingItem {
     public boolean isCursed = false;
     public ThrowingAxeItem(Properties p_41383_) {
-        super(p_41383_,ThrowableItems.AXE);
+        super(p_41383_,ThrowableItems.AXE, Config.axeDamage,-3.5D);
     }
 
     @Override

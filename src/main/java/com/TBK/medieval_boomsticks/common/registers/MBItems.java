@@ -31,6 +31,7 @@ public class MBItems {
         public static final RegistryObject<Item> MORNINGSTAR= ITEMS.register("morningstar",()->new MorningStarItem(new Item.Properties()));
 
     public static final RegistryObject<Item> GOTHEVENINGSTAR= ITEMS.register("gotheveningstar",()->new GotheveningStarItem(new Item.Properties()));
+    public static final RegistryObject<Item> EVENINGSTAR= ITEMS.register("eveningstar",()->new EveningStarItem(new Item.Properties()));
 
 
     public static final RegistryObject<Item> THROWING_WARDART= ITEMS.register("war_dart",()->new WarDartItem(new Item.Properties()));

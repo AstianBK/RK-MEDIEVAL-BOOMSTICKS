@@ -1,8 +1,15 @@
 package com.TBK.medieval_boomsticks.common.items;
 
+import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.client.renderer.AxeRenderer;
 import com.TBK.medieval_boomsticks.client.renderer.KnifeRenderer;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -11,9 +18,9 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import java.util.function.Consumer;
 
 public class ThrowingKnifeItem extends ThrowingItem {
-    public boolean isCursed = false;
     public ThrowingKnifeItem(Properties p_41383_) {
-        super(p_41383_,ThrowableItems.KNIFE);
+        super(p_41383_,ThrowableItems.KNIFE,Config.knifeDamage,-3.0D);
+
     }
 
     @Override
@@ -30,11 +37,6 @@ public class ThrowingKnifeItem extends ThrowingItem {
 
     @Override
     public void onInventoryTick(ItemStack stack, Level level, Player player, int slotIndex, int selectedIndex) {
-        this.isCursed=this.isCursed(stack);
         super.onInventoryTick(stack, level, player, slotIndex, selectedIndex);
-    }
-
-    public boolean isCursed(ItemStack stack){
-        return stack.getHoverName().getString().equals("Cursed");
     }
 }

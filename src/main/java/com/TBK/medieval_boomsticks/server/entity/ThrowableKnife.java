@@ -41,7 +41,7 @@ public class ThrowableKnife extends ThrowableWeapon {
 
     protected void onHitEntity(EntityHitResult p_37573_) {
         Entity entity = p_37573_.getEntity();
-        float f = (float) Config.javelinDamage;
+        float f = (float) Config.thrownKnifeDamage;
         if (entity instanceof LivingEntity livingentity) {
             f += EnchantmentHelper.getDamageBonus(this.javelinItem, livingentity.getMobType());
         }

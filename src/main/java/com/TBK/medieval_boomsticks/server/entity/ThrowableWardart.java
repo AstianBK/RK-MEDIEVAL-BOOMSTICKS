@@ -37,9 +37,6 @@ public class ThrowableWardart extends ThrowableWeapon {
     protected void onHitEntity(EntityHitResult p_37573_) {
         Entity entity = p_37573_.getEntity();
         float f = (float) Config.javelinDamage;
-        if (entity instanceof LivingEntity livingentity) {
-            f += EnchantmentHelper.getDamageBonus(this.javelinItem, livingentity.getMobType());
-        }
 
         Entity entity1 = this.getOwner();
         DamageSource damagesource = this.damageSources().trident(this, (Entity)(entity1 == null ? this : entity1));

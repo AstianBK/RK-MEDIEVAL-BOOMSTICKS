@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
 
 public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
     private final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
-
-
     private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(ThrowableWeapon.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Integer> ID_EFFECT_COLOR = SynchedEntityData.defineId(ThrowableWeapon.class, EntityDataSerializers.INT);
     protected ItemStack javelinItem = new ItemStack(MBItems.JAVELIN.get());

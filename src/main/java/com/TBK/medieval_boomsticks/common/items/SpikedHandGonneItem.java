@@ -27,7 +27,7 @@ public class SpikedHandGonneItem extends RechargeItem {
         super(p_41383_);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 8.0D, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", (double)-2.9F, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", (double)-3F, AttributeModifier.Operation.ADDITION));
         this.defaultModifiers = builder.build();
 
     }
@@ -54,10 +54,10 @@ public class SpikedHandGonneItem extends RechargeItem {
                 return PlayState.CONTINUE;
             }
             if (isReCharge(stack)) {
-                e.getController().setAnimationSpeed(2.0D*Config.rechargeSpeedHandgonne);
-                e.getController().setAnimation(RawAnimation.begin().thenPlayAndHold("handgonne.reload"));
+                e.getController().setAnimationSpeed(1.0D*Config.rechargeSpeedSpikedHandgonne);
+                e.getController().setAnimation(RawAnimation.begin().thenPlayAndHold("spikedhandgonne.reload"));
             }else{
-                e.getController().setAnimation(RawAnimation.begin().thenLoop("handgonne.idle"));
+                e.getController().setAnimation(RawAnimation.begin().thenLoop("spikedhandgonne.idle"));
             }
 
             return PlayState.CONTINUE;
