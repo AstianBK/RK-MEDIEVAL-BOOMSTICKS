@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 
 public class ThrowingLargeRockItem extends ThrowingItem {
     public ThrowingLargeRockItem(Properties p_41383_) {
-        super(p_41383_,ThrowableItems.LARGE_ROCK);
+        super(p_41383_,ThrowableItems.LARGE_ROCK,1,0.0D);
     }
 
     @Override

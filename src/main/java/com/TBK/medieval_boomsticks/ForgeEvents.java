@@ -15,7 +15,7 @@ public class ForgeEvents {
         LivingEntity target=event.getEntity();
         Entity source=event.getSource().getEntity();
         if(source instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof MazeItem){
-            float trueDamage=event.getAmount()*0.3F;
+            float trueDamage=event.getAmount()*(((float)Config.mazeArmorPenetrationPercentage)*0.01F);
             float damage=event.getAmount()-trueDamage;
             event.setAmount(damage);
             target.invulnerableTime=0;

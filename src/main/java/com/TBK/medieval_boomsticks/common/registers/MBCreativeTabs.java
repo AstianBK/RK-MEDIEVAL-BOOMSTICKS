@@ -18,6 +18,7 @@ public class MBCreativeTabs {
                 a.accept(MBItems.SMALL_THROWING_ROCK.get());
                 a.accept(MBItems.LARGE_THROWING_ROCK.get());
                 a.accept(MBItems.MORNINGSTAR.get());
+                a.accept(MBItems.EVENINGSTAR.get());
                 a.accept(MBItems.GOTHEVENINGSTAR.get());
                 a.accept(MBItems.THROWING_WARDART.get());
                 a.accept(MBItems.ARQUEBUS.get());

@@ -83,7 +83,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     }
 
     public static boolean isFireGun(ItemStack stack){
-        return !(stack.getItem() instanceof ArbalestItem) && (stack.getItem() instanceof ArquebusItem || stack.getItem() instanceof HandGonneItem);
+        return !(stack.getItem() instanceof ArbalestItem) && (stack.getItem() instanceof ArquebusItem || stack.getItem() instanceof SpikedHandGonneItem || stack.getItem() instanceof HandGonneItem);
     }
 
     public static ItemStack getAmmo(boolean isFireGun){
@@ -139,6 +139,8 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
             return Config.rechargeSpeedArbalest;
         }else if (stack.is(MBItems.HANDGONNE.get())){
             return Config.rechargeSpeedHandgonne;
+        }else if (stack.is(MBItems.SPIKEHANDGONNE.get())){
+            return Config.rechargeSpeedSpikedHandgonne;
         }
         return 1.0D;
     }
@@ -156,8 +158,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     }
 
     private static boolean tryLoadProjectiles(LivingEntity p_40860_, ItemStack p_40861_) {
-        int i = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MULTISHOT, p_40861_);
-        int j = i == 0 ? 1 : 3;
+        int j = p_40861_.getItem() instanceof SpikedHandGonneItem ? 3 : 1;
         boolean flag = p_40860_ instanceof Player && ((Player)p_40860_).getAbilities().instabuild;
         ItemStack itemstack = p_40860_.getProjectile(p_40861_);
         ItemStack itemstack1 = itemstack.copy();
@@ -325,7 +326,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     }
 
     private static SoundEvent getSoundShoot(ItemStack stack) {
-        if(stack.getItem() instanceof HandGonneItem){
+        if(stack.getItem() instanceof HandGonneItem || stack.getItem() instanceof SpikedHandGonneItem){
             return MBSounds.HANDGONNE_SHOOT.get();
         }else if(stack.getItem() instanceof ArquebusItem){
             return MBSounds.ARQUEBUS_SHOOT.get();
@@ -345,6 +346,10 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
             if (!itemstack.isEmpty()) {
                 if (i == 0) {
                     shootProjectile(p_40888_, p_40889_, p_40890_, p_40891_, itemstack, afloat[i], flag, p_40892_, p_40893_, 0.0F);
+                } else if (i == 1) {
+                    shootProjectile(p_40888_, p_40889_, p_40890_, p_40891_, itemstack, afloat[i], flag, p_40892_, p_40893_, -10.0F);
+                } else if (i == 2) {
+                    shootProjectile(p_40888_, p_40889_, p_40890_, p_40891_, itemstack, afloat[i], flag, p_40892_, p_40893_, 10.0F);
                 }
             }
         }
@@ -397,7 +402,6 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
                 }
 
                 if (f >= 1.0F && soundevent1 != null && !this.midLoadSoundPlayed) {
-                    p_40911_.releaseUsingItem();
                     p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
                 }
             }
@@ -411,6 +415,9 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
 
     public static int getChargeDuration(ItemStack p_40940_) {
         int i=isFireGun(p_40940_) ? 25 : 50;
+        if(p_40940_.getItem() instanceof SpikedHandGonneItem){
+            i=120;
+        }
         return (int) (i*(1.0F/getModifySpeedRecharge(p_40940_)));
     }
 

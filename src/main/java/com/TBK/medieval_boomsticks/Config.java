@@ -62,7 +62,7 @@ public class Config
 
     private static final ForgeConfigSpec.DoubleValue LARGE_ROCK_SPEED = BUILDER
             .comment("Large Rock Projectile Speed")
-            .defineInRange("large_rock_speed", 2.5D, 0, Double.MAX_VALUE);
+            .defineInRange("large_rock_speed", 1.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue JAVELIN_SPEED = BUILDER
             .comment("Javelin Projectile Speed Value")
@@ -71,6 +71,11 @@ public class Config
     private static final ForgeConfigSpec.IntValue ARMOR_PENETRATION_PERCENTAGE = BUILDER
             .comment("FireArm armor penetration percentage")
             .defineInRange("armor_penetration_percentage", 50, 0, 100);
+
+    private static final ForgeConfigSpec.IntValue MAZE_ARMOR_PENETRATION_PERCENTAGE = BUILDER
+            .comment("Maze armor penetration percentage")
+            .defineInRange("maze_armor_penetration_percentage", 30, 0, 100);
+
 
 
     private static final ForgeConfigSpec.IntValue PROBABILITY_FAIL_FIREGUN = BUILDER
@@ -97,6 +102,11 @@ public class Config
             .comment("Handgonne Recharge Speed")
             .defineInRange("recharge_speed_handgonne", 0.5D, 0.0D, 2.0D);
 
+    private static final ForgeConfigSpec.DoubleValue RECHARGE_SPEED_SPIKEDHANDGONNE = BUILDER
+            .comment("SpikedHandgonne Recharge Speed")
+            .defineInRange("recharge_speed_spikedhandgonne", 0.5D, 0.0D, 2.0D);
+
+
 
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
@@ -121,10 +131,13 @@ public class Config
 
     public static int armorPenetrationPercentage;
 
+    public static int mazeArmorPenetrationPercentage;
 
     public static int cooldownArquebus;
 
     public static int cooldownHandgonne;
+
+    public static Double rechargeSpeedSpikedHandgonne;
 
     public static Double rechargeSpeedArquebus;
     public static Double rechargeSpeedArbalest;
@@ -134,14 +147,25 @@ public class Config
     static void onLoad(final ModConfigEvent event) {
         roundBallDamage = ROUND_BALL_DAMAGE.get();
         heavyBoltDamage = HEAVY_BOLT_DAMAGE.get();
+        axeDamage =AXE_DAMAGE.get();
+        knifeDamage=KNIFE_DAMAGE.get();
+        thrownAxeDamage =THROWN_AXE_DAMAGE.get();
+        thrownKnifeDamage=THROWN_KNIFE_DAMAGE.get();
+        smallRockDamage =SMALL_ROCK_DAMAGE.get();
+        largeRockDamage=LARGE_ROCK_DAMAGE.get();
+
         javelinSpeed = JAVELIN_SPEED.get();
+        smallRockSpeed = SMALL_ROCK_SPEED.get();
+        largeRockSpeed =LARGE_ROCK_SPEED.get();
         probabilityFail = PROBABILITY_FAIL_FIREGUN.get();
         rechargeSpeedArquebus = RECHARGE_SPEED_ARQUEBUS.get();
         rechargeSpeedArbalest = RECHARGE_SPEED_ARBALEST.get();
         rechargeSpeedHandgonne = RECHARGE_SPEED_HANDGONNE.get();
+        rechargeSpeedSpikedHandgonne = RECHARGE_SPEED_SPIKEDHANDGONNE.get();
         cooldownArquebus = COOLDOWN_ARQUEBUS.get();
         cooldownHandgonne = COOLDOWN_HANDGONNE.get();
         armorPenetrationPercentage = ARMOR_PENETRATION_PERCENTAGE.get();
+        mazeArmorPenetrationPercentage = MAZE_ARMOR_PENETRATION_PERCENTAGE.get();
         javelinDamage= JAVELIN_DAMAGE.get();
     }
 }
