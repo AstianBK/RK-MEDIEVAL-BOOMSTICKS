@@ -1,9 +1,12 @@
 package com.TBK.medieval_boomsticks;
 
 import com.TBK.medieval_boomsticks.common.items.MazeItem;
+import com.TBK.medieval_boomsticks.server.entity.ThrowableSmallRock;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.phys.HitResult;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

@@ -18,7 +18,7 @@ public class MorningStarItem extends MazeItem implements GeoItem {
     private final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
 
     public MorningStarItem(Properties p_43381_) {
-        super(p_43381_);
+        super(p_43381_,9.0F,-3.1F);
     }
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {

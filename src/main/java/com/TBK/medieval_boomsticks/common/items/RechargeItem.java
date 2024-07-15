@@ -103,7 +103,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
                 p_40921_.getCooldowns().addCooldown(itemstack.getItem(),isFireGun() ? this.getCooldownForWeapon(itemstack)  : 7);
                 setFire(itemstack,true);
                 return InteractionResultHolder.consume(itemstack);
-            } else if (!p_40921_.getProjectile(itemstack).isEmpty()) {
+            } else if (!p_40921_.getProjectile(itemstack).isEmpty() && canCharge(p_40921_,itemstack)) {
                 if (!isCharged(itemstack)) {
                     this.startSoundPlayed = false;
                     this.midLoadSoundPlayed = false;
@@ -116,6 +116,10 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
             }
         }
         return InteractionResultHolder.fail(itemstack);
+    }
+
+    public boolean canCharge(Player p40921, ItemStack itemstack) {
+        return true;
     }
 
     private int getCooldownForWeapon(ItemStack itemstack) {
@@ -190,16 +194,20 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
             boolean flag = p_40867_ && ((isFireGun && p_40865_.is(MBItems.ROUND_BALL.get())) ||
                     (!isFireGun && p_40865_.is(MBItems.HEAVY_BOLT.get()))) ;
             ItemStack itemstack;
-            if (!flag && !p_40867_ && !p_40866_) {
-                itemstack = p_40865_.split(1);
-                if (p_40865_.isEmpty() && p_40863_ instanceof Player) {
-                    ((Player)p_40863_).getInventory().removeItem(p_40865_);
+            int i=(p_40864_.getItem() instanceof SpikedHandGonneItem) ? 3 : 1;
+            for (int j=0;j<i;j++){
+                if (!flag && !p_40867_ && !p_40866_) {
+                    itemstack = p_40865_.split(1);
+                    if (p_40865_.isEmpty() && p_40863_ instanceof Player) {
+                        ((Player)p_40863_).getInventory().removeItem(p_40865_);
+                    }
+                } else {
+                    itemstack = p_40865_.copy();
                 }
-            } else {
-                itemstack = p_40865_.copy();
+                addChargedProjectile(p_40864_, itemstack);
             }
 
-            addChargedProjectile(p_40864_, itemstack);
+
             return true;
         }
     }

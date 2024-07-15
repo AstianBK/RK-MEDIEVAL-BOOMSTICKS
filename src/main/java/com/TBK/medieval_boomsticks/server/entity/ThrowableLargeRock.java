@@ -1,8 +1,6 @@
 package com.TBK.medieval_boomsticks.server.entity;
 
 import com.TBK.medieval_boomsticks.Config;
-import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
-import com.TBK.medieval_boomsticks.common.registers.MBItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -10,11 +8,11 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 
 public class ThrowableLargeRock extends ThrowableWeapon {
 
@@ -22,20 +20,9 @@ public class ThrowableLargeRock extends ThrowableWeapon {
         super(p_37561_, p_37562_);
     }
 
-    public ThrowableLargeRock(Level p_37569_, LivingEntity p_37570_, ItemStack p_37571_) {
-        super(MBEntityType.THROWN_LARGE_ROCK.get(),p_37569_,p_37570_,p_37571_);
-    }
-
-    public ItemStack getWeaponType(){
-        return new ItemStack(MBItems.LARGE_THROWING_ROCK.get());
-    }
-
     protected void onHitEntity(EntityHitResult p_37573_) {
         Entity entity = p_37573_.getEntity();
-        float f = (float) Config.largeRockSpeed;
-        if (entity instanceof LivingEntity livingentity) {
-            f += EnchantmentHelper.getDamageBonus(this.javelinItem, livingentity.getMobType());
-        }
+        float f = (float) Config.largeRockDamage;
 
         Entity entity1 = this.getOwner();
         DamageSource damagesource = this.damageSources().trident(this, (Entity)(entity1 == null ? this : entity1));
@@ -57,18 +44,30 @@ public class ThrowableLargeRock extends ThrowableWeapon {
             }
         }
 
-        this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
-        float f1 = 1.0F;
+        this.discard();
 
-        this.playSound(soundevent, f1, 1.0F);
+        this.playSound(soundevent,1.0F, 1.0F);
     }
+
     @Override
     protected void onHitBlock(BlockHitResult p_36755_) {
         super.onHitBlock(p_36755_);
-        SoundEvent soundevent = SoundEvents.TRIDENT_HIT;
-        this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
-        float f1 = 1.0F;
-        this.playSound(soundevent, f1, 1.0F);
+        System.out.print("\nentro\n");
+        this.javelinItem=null;
+        this.dealtDamage=true;
+        this.pickup=Pickup.DISALLOWED;
+        this.discard();
+    }
+
+    @Override
+    public boolean isRock() {
+        return true;
+    }
+
+    @Override
+    protected void onHit(HitResult p_37260_) {
+        super.onHit(p_37260_);
+
     }
 
     protected boolean tryPickup(Player p_150196_) {

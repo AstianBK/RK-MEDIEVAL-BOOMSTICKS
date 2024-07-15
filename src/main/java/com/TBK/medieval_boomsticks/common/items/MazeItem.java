@@ -15,8 +15,8 @@ import java.util.function.Consumer;
 public class MazeItem extends AxeItem implements GeoItem {
     private final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
 
-    public MazeItem(Properties p_43381_) {
-        super(Tiers.WOOD,10.0F,-3.0F,p_43381_);
+    public MazeItem(Properties p_43381_,float damage,float attackSpeed) {
+        super(Tiers.WOOD,damage,attackSpeed,p_43381_);
     }
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {

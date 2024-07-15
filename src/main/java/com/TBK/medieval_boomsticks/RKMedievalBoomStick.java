@@ -28,6 +28,7 @@ public class RKMedievalBoomStick
     public RKMedievalBoomStick()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         MBItems.ITEMS.register(modEventBus);
         MBEntityType.ENTITY_TYPES.register(modEventBus);
         MBCreativeTabs.TABS.register(modEventBus);
@@ -39,7 +40,6 @@ public class RKMedievalBoomStick
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT,()->()->{
             modEventBus.addListener(this::registerRenderers);
         });
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     @OnlyIn(Dist.CLIENT)
