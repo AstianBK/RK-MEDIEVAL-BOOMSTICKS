@@ -35,7 +35,7 @@ public class MBItems {
     public static final RegistryObject<Item> EVENINGSTAR= ITEMS.register("eveningstar",()->new EveningStarItem(new Item.Properties().stacksTo(1).durability(2048)));
 
 
-    public static final RegistryObject<Item> THROWING_WARDART= ITEMS.register("war_dart",()->new WarDartItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> THROWING_WARDART= ITEMS.register("war_dart",()->new WarDartItem(new Item.Properties().stacksTo(1).durability(16)));
     public static final RegistryObject<Item> RECURVE_BOW= ITEMS.register("recurve_bow",()->new BowItem(new Item.Properties().stacksTo(1)));
 
 }
