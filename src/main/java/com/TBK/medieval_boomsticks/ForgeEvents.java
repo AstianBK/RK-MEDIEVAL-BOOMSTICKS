@@ -1,7 +1,10 @@
 package com.TBK.medieval_boomsticks;
 
 import com.TBK.medieval_boomsticks.common.items.MazeItem;
+import com.TBK.medieval_boomsticks.common.items.MorningStarItem;
+import com.TBK.medieval_boomsticks.common.registers.MBSounds;
 import com.TBK.medieval_boomsticks.server.entity.ThrowableSmallRock;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,6 +26,7 @@ public class ForgeEvents {
             event.setAmount(damage);
             target.invulnerableTime=0;
             target.hurt(living.damageSources().generic(),trueDamage);
+            living.level().playSound(null,living,living.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof MorningStarItem ? MBSounds.MORNINGSTAR_HIT.get() : MBSounds.EVENINGSTAR_HIT.get(), SoundSource.PLAYERS,1.0F,1.0F);
         }
     }
 }

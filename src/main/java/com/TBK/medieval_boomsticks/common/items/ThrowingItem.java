@@ -4,6 +4,7 @@ import com.TBK.medieval_boomsticks.Config;
 import com.TBK.medieval_boomsticks.client.renderer.ArquebusRenderer;
 import com.TBK.medieval_boomsticks.client.renderer.KnifeRenderer;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
+import com.TBK.medieval_boomsticks.common.registers.MBSounds;
 import com.TBK.medieval_boomsticks.server.entity.ThrowableAxe;
 import com.TBK.medieval_boomsticks.server.entity.ThrowableWeapon;
 import com.google.common.collect.ImmutableMultimap;
@@ -47,7 +48,7 @@ public class ThrowingItem extends Item implements GeoItem {
 
     public InteractionResultHolder<ItemStack> use(Level p_43142_, Player p_43143_, InteractionHand p_43144_) {
         ItemStack itemstack = p_43143_.getItemInHand(p_43144_);
-        p_43142_.playSound((Player)null, p_43143_.getX(), p_43143_.getY(), p_43143_.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (p_43142_.getRandom().nextFloat() * 0.4F + 0.8F));
+        p_43142_.playSound((Player)null, p_43143_, MBSounds.THROW_WEAPON.get(), SoundSource.PLAYERS, 1.0F,1.0F);
         if (!p_43142_.isClientSide) {
             ItemStack stack=itemstack.copy();
             stack.setCount(1);
@@ -55,7 +56,7 @@ public class ThrowingItem extends Item implements GeoItem {
             if(p_43143_.isCreative()){
                 throwableWeapon.pickup= AbstractArrow.Pickup.CREATIVE_ONLY;
             }else {
-                throwableWeapon.pickup= this.type==ThrowableItems.SMALL_ROCK || this.type==ThrowableItems.LARGE_ROCK ? AbstractArrow.Pickup.DISALLOWED : AbstractArrow.Pickup.ALLOWED;
+                throwableWeapon.pickup= AbstractArrow.Pickup.ALLOWED;
             }
             if (itemstack.getItem() instanceof ThrowingAxeItem axeItem && axeItem.isCursed(itemstack)) {
                 throwableWeapon= new ThrowableAxe(p_43142_,p_43143_,stack);

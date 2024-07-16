@@ -65,36 +65,6 @@ public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
         return this.dealtDamage ? null : super.findHitEntity(p_37575_, p_37576_);
     }
 
-    protected void onHitEntity(EntityHitResult p_37573_) {
-        Entity entity = p_37573_.getEntity();
-        float f = (float) Config.javelinDamage;
-
-        Entity entity1 = this.getOwner();
-        DamageSource damagesource = this.damageSources().trident(this, (Entity)(entity1 == null ? this : entity1));
-        this.dealtDamage = true;
-        SoundEvent soundevent = SoundEvents.TRIDENT_HIT;
-        if (entity.hurt(damagesource, f)) {
-            if (entity.getType() == EntityType.ENDERMAN) {
-                return;
-            }
-
-            if (entity instanceof LivingEntity) {
-                LivingEntity livingentity1 = (LivingEntity)entity;
-                if (entity1 instanceof LivingEntity) {
-                    EnchantmentHelper.doPostHurtEffects(livingentity1, entity1);
-                    EnchantmentHelper.doPostDamageEffects((LivingEntity)entity1, livingentity1);
-                }
-
-                this.doPostHurtEffects(livingentity1);
-            }
-        }
-
-        this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
-        float f1 = 1.0F;
-
-        this.playSound(soundevent, f1, 1.0F);
-    }
-
     protected boolean tryPickup(Player p_150196_) {
         return super.tryPickup(p_150196_) || this.isNoPhysics() && this.ownedBy(p_150196_) && p_150196_.getInventory().add(this.getPickupItem());
     }
@@ -102,7 +72,7 @@ public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
 
 
     protected SoundEvent getDefaultHitGroundSoundEvent() {
-        return SoundEvents.TRIDENT_HIT_GROUND;
+        return SoundEvents.COPPER_HIT;
     }
 
     public boolean isRock(){

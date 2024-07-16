@@ -1,13 +1,13 @@
 package com.TBK.medieval_boomsticks.server.entity;
 
 import com.TBK.medieval_boomsticks.Config;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
+import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
@@ -19,6 +19,9 @@ public class ThrowableLargeRock extends ThrowableWeapon {
     public ThrowableLargeRock(EntityType<? extends ThrowableLargeRock> p_37561_, Level p_37562_) {
         super(p_37561_, p_37562_);
     }
+    public ThrowableLargeRock(Level p_37569_, LivingEntity p_37570_, ItemStack p_37571_) {
+        super(MBEntityType.THROWN_LARGE_ROCK.get(),p_37569_,p_37570_,p_37571_);
+    }
 
     protected void onHitEntity(EntityHitResult p_37573_) {
         Entity entity = p_37573_.getEntity();
@@ -27,7 +30,6 @@ public class ThrowableLargeRock extends ThrowableWeapon {
         Entity entity1 = this.getOwner();
         DamageSource damagesource = this.damageSources().trident(this, (Entity)(entity1 == null ? this : entity1));
         this.dealtDamage = true;
-        SoundEvent soundevent = SoundEvents.TRIDENT_HIT;
         if (entity.hurt(damagesource, f)) {
             if (entity.getType() == EntityType.ENDERMAN) {
                 return;
@@ -46,13 +48,11 @@ public class ThrowableLargeRock extends ThrowableWeapon {
 
         this.discard();
 
-        this.playSound(soundevent,1.0F, 1.0F);
     }
 
     @Override
     protected void onHitBlock(BlockHitResult p_36755_) {
         super.onHitBlock(p_36755_);
-        System.out.print("\nentro\n");
         this.javelinItem=null;
         this.dealtDamage=true;
         this.pickup=Pickup.DISALLOWED;
@@ -72,10 +72,6 @@ public class ThrowableLargeRock extends ThrowableWeapon {
 
     protected boolean tryPickup(Player p_150196_) {
         return super.tryPickup(p_150196_) || this.isNoPhysics() && this.ownedBy(p_150196_) && p_150196_.getInventory().add(this.getPickupItem());
-    }
-
-    protected SoundEvent getDefaultHitGroundSoundEvent() {
-        return SoundEvents.TRIDENT_HIT_GROUND;
     }
 
 }

@@ -49,7 +49,6 @@ public class ThrowableSmallRock extends ThrowableWeapon {
         Entity entity1 = this.getOwner();
         DamageSource damagesource = this.damageSources().trident(this, (Entity)(entity1 == null ? this : entity1));
         this.dealtDamage = true;
-        SoundEvent soundevent = SoundEvents.TRIDENT_HIT;
         if (entity.hurt(damagesource, f)) {
             if (entity.getType() == EntityType.ENDERMAN) {
                 return;
@@ -65,7 +64,6 @@ public class ThrowableSmallRock extends ThrowableWeapon {
                 this.doPostHurtEffects(livingentity1);
             }
         }
-        this.playSound(soundevent, 1.0F, 1.0F);
     }
 
     @Override
@@ -79,8 +77,5 @@ public class ThrowableSmallRock extends ThrowableWeapon {
         return true;
     }
 
-    protected SoundEvent getDefaultHitGroundSoundEvent() {
-        return SoundEvents.TRIDENT_HIT_GROUND;
-    }
 
 }
