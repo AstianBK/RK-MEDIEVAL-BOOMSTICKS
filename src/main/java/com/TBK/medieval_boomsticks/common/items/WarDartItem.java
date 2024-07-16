@@ -1,10 +1,8 @@
 package com.TBK.medieval_boomsticks.common.items;
 
 import com.TBK.medieval_boomsticks.Config;
-import com.TBK.medieval_boomsticks.client.renderer.JavelinRenderer;
 import com.TBK.medieval_boomsticks.client.renderer.WarDartRenderer;
 import com.TBK.medieval_boomsticks.server.entity.ThrowableWardart;
-import com.TBK.medieval_boomsticks.server.entity.ThrownJavelin;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
@@ -40,14 +38,9 @@ import java.util.function.Consumer;
 
 public class WarDartItem extends TridentItem implements DyeableLeatherItem, GeoItem {
     private final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
-    private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public WarDartItem(Properties p_43381_) {
         super(p_43381_);
-        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 1.0D, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", (double)-2.9F, AttributeModifier.Operation.ADDITION));
-        this.defaultModifiers = builder.build();
     }
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
@@ -150,7 +143,7 @@ public class WarDartItem extends TridentItem implements DyeableLeatherItem, GeoI
     }
 
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot p_43383_) {
-        return p_43383_ == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(p_43383_);
+        return ImmutableMultimap.of();
     }
 
     public int getEnchantmentValue() {

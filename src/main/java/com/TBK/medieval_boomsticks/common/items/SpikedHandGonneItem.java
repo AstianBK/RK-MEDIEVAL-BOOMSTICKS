@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import software.bernie.geckolib.constant.DataTickets;
@@ -30,6 +31,11 @@ public class SpikedHandGonneItem extends RechargeItem {
         builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", (double)-3F, AttributeModifier.Operation.ADDITION));
         this.defaultModifiers = builder.build();
 
+    }
+
+    @Override
+    public boolean canCharge(Player p40921, ItemStack itemstack) {
+        return p40921.getProjectile(itemstack).getCount()>=3;
     }
 
     @Override

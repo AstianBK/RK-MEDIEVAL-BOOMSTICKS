@@ -24,7 +24,7 @@ public class Config
 
     private static final ForgeConfigSpec.DoubleValue SMALL_ROCK_DAMAGE = BUILDER
             .comment("Round Ball ammo damage value")
-            .defineInRange("small_rock_damage", 10.0D, 0, Double.MAX_VALUE);
+            .defineInRange("small_rock_damage", 4.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue WARDART_DAMAGE = BUILDER
             .comment("Round Ball ammo damage value")
@@ -38,7 +38,7 @@ public class Config
 
     private static final ForgeConfigSpec.DoubleValue LARGE_ROCK_DAMAGE = BUILDER
             .comment("Heavy Bolt ammo damage value")
-            .defineInRange("large_rock_damage", 4.0D, 0, Double.MAX_VALUE);
+            .defineInRange("large_rock_damage", 18.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue THROWN_KNIFE_DAMAGE = BUILDER
             .comment("Knife Projectile damage value")
@@ -53,7 +53,7 @@ public class Config
 
     private static final ForgeConfigSpec.DoubleValue AXE_DAMAGE = BUILDER
             .comment("Knife damage value")
-            .defineInRange("knife_damage", 8.0D, 0, Double.MAX_VALUE);
+            .defineInRange("axe_damage", 8.0D, 0, Double.MAX_VALUE);
 
 
     private static final ForgeConfigSpec.DoubleValue SMALL_ROCK_SPEED = BUILDER
@@ -104,7 +104,7 @@ public class Config
 
     private static final ForgeConfigSpec.DoubleValue RECHARGE_SPEED_SPIKEDHANDGONNE = BUILDER
             .comment("SpikedHandgonne Recharge Speed")
-            .defineInRange("recharge_speed_spikedhandgonne", 0.5D, 0.0D, 2.0D);
+            .defineInRange("recharge_speed_spikedhandgonne", 1.0D, 0.0D, 2.0D);
 
 
 

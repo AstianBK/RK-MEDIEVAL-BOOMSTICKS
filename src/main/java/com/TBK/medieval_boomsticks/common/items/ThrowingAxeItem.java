@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 public class ThrowingAxeItem extends ThrowingItem {
     public boolean isCursed = false;
     public ThrowingAxeItem(Properties p_41383_) {
-        super(p_41383_,ThrowableItems.AXE, Config.axeDamage,-3.5D);
+        super(p_41383_,ThrowableItems.AXE, Config.axeDamage,-3.0D);
     }
 
     @Override
@@ -28,6 +28,11 @@ public class ThrowingAxeItem extends ThrowingItem {
                 return renderer;
             }
         });
+    }
+
+    @Override
+    public double getDamage() {
+        return Config.axeDamage;
     }
 
     @Override

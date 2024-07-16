@@ -31,11 +31,9 @@ import javax.annotation.Nullable;
 
 public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
     private final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
-    private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(ThrowableWeapon.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Integer> ID_EFFECT_COLOR = SynchedEntityData.defineId(ThrowableWeapon.class, EntityDataSerializers.INT);
     protected ItemStack javelinItem = new ItemStack(MBItems.JAVELIN.get());
     protected boolean dealtDamage;
-    public int clientSideReturnTridentTickCount;
     private boolean fixedColor;
 
     public ThrowableWeapon(EntityType<? extends ThrowableWeapon> p_37561_, Level p_37562_) {
@@ -45,20 +43,11 @@ public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
     public ThrowableWeapon(EntityType<? extends ThrowableWeapon> pType,Level p_37569_, LivingEntity p_37570_, ItemStack p_37571_) {
         super(pType, p_37570_, p_37569_);
         this.javelinItem = p_37571_.copy();
-        this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(p_37571_));
     }
 
-    public ItemStack getJavelinItem() {
-        return this.javelinItem;
-    }
-
-    public ItemStack getWeaponType(){
-        return new ItemStack(MBItems.IRON_THROWING_KNIFE.get());
-    }
 
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(ID_LOYALTY, (byte)0);
         this.entityData.define(ID_EFFECT_COLOR, -1);
     }
 
@@ -66,55 +55,6 @@ public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
         return this.entityData.get(ID_EFFECT_COLOR);
     }
 
-
-    public static int getCustomColor(ItemStack p_36885_) {
-        CompoundTag compoundtag = p_36885_.getTag();
-        return compoundtag != null && compoundtag.contains("CustomColor", 99) ? compoundtag.getInt("CustomColor") : -1;
-    }
-
-    public void tick() {
-        if (this.inGroundTime > 4) {
-            this.dealtDamage = true;
-        }
-
-        Entity entity = this.getOwner();
-        int i = this.entityData.get(ID_LOYALTY);
-        if (i > 0 && (this.dealtDamage || this.isNoPhysics()) && entity != null) {
-            if (!this.isAcceptibleReturnOwner()) {
-                if (!this.level().isClientSide && this.pickup == Pickup.ALLOWED) {
-                    this.spawnAtLocation(this.getPickupItem(), 0.1F);
-                }
-
-                this.discard();
-            } else {
-                this.setNoPhysics(true);
-                Vec3 vec3 = entity.getEyePosition().subtract(this.position());
-                this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015D * (double)i, this.getZ());
-                if (this.level().isClientSide) {
-                    this.yOld = this.getY();
-                }
-
-                double d0 = 0.05D * (double)i;
-                this.setDeltaMovement(this.getDeltaMovement().scale(0.95D).add(vec3.normalize().scale(d0)));
-                if (this.clientSideReturnTridentTickCount == 0) {
-                    this.playSound(SoundEvents.TRIDENT_RETURN, 10.0F, 1.0F);
-                }
-
-                ++this.clientSideReturnTridentTickCount;
-            }
-        }
-
-        super.tick();
-    }
-
-    private boolean isAcceptibleReturnOwner() {
-        Entity entity = this.getOwner();
-        if (entity != null && entity.isAlive()) {
-            return !(entity instanceof ServerPlayer) || !entity.isSpectator();
-        } else {
-            return false;
-        }
-    }
 
     protected ItemStack getPickupItem() {
         return this.javelinItem.copy();
@@ -128,9 +68,6 @@ public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
     protected void onHitEntity(EntityHitResult p_37573_) {
         Entity entity = p_37573_.getEntity();
         float f = (float) Config.javelinDamage;
-        if (entity instanceof LivingEntity livingentity) {
-            f += EnchantmentHelper.getDamageBonus(this.javelinItem, livingentity.getMobType());
-        }
 
         Entity entity1 = this.getOwner();
         DamageSource damagesource = this.damageSources().trident(this, (Entity)(entity1 == null ? this : entity1));
@@ -162,8 +99,14 @@ public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
         return super.tryPickup(p_150196_) || this.isNoPhysics() && this.ownedBy(p_150196_) && p_150196_.getInventory().add(this.getPickupItem());
     }
 
+
+
     protected SoundEvent getDefaultHitGroundSoundEvent() {
         return SoundEvents.TRIDENT_HIT_GROUND;
+    }
+
+    public boolean isRock(){
+        return false;
     }
 
     public void playerTouch(Player p_37580_) {
@@ -186,7 +129,6 @@ public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
         this.setFixedColor(p_37578_.getInt("Color"));
 
         this.dealtDamage = p_37578_.getBoolean("DealtDamage");
-        this.entityData.set(ID_LOYALTY, (byte)EnchantmentHelper.getLoyalty(this.javelinItem));
     }
 
     public void addAdditionalSaveData(CompoundTag p_37582_) {
@@ -197,15 +139,6 @@ public class ThrowableWeapon extends AbstractArrow implements GeoEntity {
             p_37582_.putInt("Color", this.getColor());
         }
     }
-
-    public void tickDespawn() {
-        int i = this.entityData.get(ID_LOYALTY);
-        if (this.pickup != Pickup.ALLOWED || i <= 0) {
-            super.tickDespawn();
-        }
-
-    }
-
     protected float getWaterInertia() {
         return 0.99F;
     }
