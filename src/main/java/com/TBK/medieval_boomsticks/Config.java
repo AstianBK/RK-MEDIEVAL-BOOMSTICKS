@@ -73,7 +73,7 @@ public class Config
             .defineInRange("armor_penetration_percentage", 50, 0, 100);
 
     private static final ForgeConfigSpec.IntValue MAZE_ARMOR_PENETRATION_PERCENTAGE = BUILDER
-            .comment("Maze armor penetration percentage")
+            .comment("Mace armor penetration percentage")
             .defineInRange("maze_armor_penetration_percentage", 30, 0, 100);
 
 
