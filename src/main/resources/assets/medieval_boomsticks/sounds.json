@@ -10,5 +10,23 @@
     "sounds": [
       "medieval_boomsticks:handgonne_shoot"
     ]
+  },
+  "eveningstar_hit": {
+    "subtitle": "sounds.medieval_boomsticks.eveningstar_hit",
+    "sounds": [
+      "medieval_boomsticks:eveningstar_hit"
+    ]
+  },
+  "morningstar_hit": {
+    "subtitle": "sounds.medieval_boomsticks.morningstar_hit",
+    "sounds": [
+      "medieval_boomsticks:morningstar_hit"
+    ]
+  },
+  "throw_weapon": {
+    "subtitle": "sounds.medieval_boomsticks.throw_weapon",
+    "sounds": [
+      "medieval_boomsticks:throw_weapon"
+    ]
   }
 }

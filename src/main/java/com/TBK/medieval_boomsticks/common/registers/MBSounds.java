@@ -19,6 +19,17 @@ public class MBSounds {
     public static final RegistryObject<SoundEvent> HANDGONNE_SHOOT =
             registerSoundEvent("handgonne_shoot");
 
+    //MELEE
+
+    public static final RegistryObject<SoundEvent> MORNINGSTAR_HIT =
+            registerSoundEvent("morningstar_hit");
+
+    public static final RegistryObject<SoundEvent> EVENINGSTAR_HIT =
+            registerSoundEvent("eveningstar_hit");
+
+    public static final RegistryObject<SoundEvent> THROW_WEAPON =
+            registerSoundEvent("throw_weapon");
+
 
     public static RegistryObject<SoundEvent> registerSoundEvent(String name){
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(RKMedievalBoomStick.MODID, name)));
