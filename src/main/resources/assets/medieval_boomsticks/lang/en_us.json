@@ -1,8 +1,21 @@
 {
+  "item.medieval_boomsticks.morningstar": "Morningstar",
+  "item.medieval_boomsticks.eveningstar": "Eveningstar",
+  "item.medieval_boomsticks.gotheveningstar": "Gothic Eveningstar",
+
   "item.medieval_boomsticks.javelin": "Javelin",
+  "item.medieval_boomsticks.iron_throwing_axe": "Throwing Axe",
+  "item.medieval_boomsticks.iron_throwing_knife": "Throwing Knife",
+  "item.medieval_boomsticks.war_dart": "War Dart",
+  "item.medieval_boomsticks.small_throwing_rock": "Small Rock",
+  "item.medieval_boomsticks.large_throwing_rock": "Large Rock",
+
+  "item.medieval_boomsticks.recurve_bow": "Recurve Bow",
+
   "item.medieval_boomsticks.arquebus": "Arquebus",
   "item.medieval_boomsticks.arbalest": "Arbalest",
   "item.medieval_boomsticks.handgonne": "Handgonne",
+  "item.medieval_boomsticks.spikedhandgonne": "Spiked Handgonne",
 
   "item.medieval_boomsticks.heavy_bolt": "Heavy Bolt",
   "item.medieval_boomsticks.round_ball": "Round Ball",
