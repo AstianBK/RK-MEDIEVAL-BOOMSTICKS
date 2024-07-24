@@ -11,5 +11,19 @@
   "entity.medieval_boomsticks.round_ball": "Perdigon",
   "entity.medieval_boomsticks.throw_javelin": "Javalina",
 
-  "itemGroup.medieval_boomstick": "RK Medieval Boomsticks"
+  "itemGroup.medieval_boomstick": "RK Medieval Boomsticks",
+
+  "item.medieval_boomsticks.morningstar": "Lucero del alba",
+  "item.medieval_boomsticks.eveningstar": "Estrella de la tarde",
+  "item.medieval_boomsticks.gotheveningstar": "Estrella de la tarde gotica",
+
+  "item.medieval_boomsticks.iron_throwing_axe": "Hacha arrojadiza",
+  "item.medieval_boomsticks.iron_throwing_knife": "Cuchillo arrojadizo",
+  "item.medieval_boomsticks.war_dart": "Dardo",
+  "item.medieval_boomsticks.small_throwing_rock": "Roca pequeña",
+  "item.medieval_boomsticks.large_throwing_rock": "Roca grande",
+
+  "item.medieval_boomsticks.recurve_bow": "Arco recurvado",
+
+  "item.medieval_boomsticks.spikedhandgonne": "Handgonne con pinches"
 }
