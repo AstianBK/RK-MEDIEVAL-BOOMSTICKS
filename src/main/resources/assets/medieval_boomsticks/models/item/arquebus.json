@@ -125,5 +125,19 @@
         0.35
       ]
     }
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "medieval_boomsticks:charged": 1
+      },
+      "model": "medieval_boomsticks:item/arquebus_aim"
+    },
+    {
+      "predicate": {
+        "medieval_boomsticks:recharge": 1
+      },
+      "model": "medieval_boomsticks:item/arquebus_aim"
+    }
+  ]
 }

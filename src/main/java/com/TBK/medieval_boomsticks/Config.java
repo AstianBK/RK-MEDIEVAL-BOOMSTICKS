@@ -52,7 +52,7 @@ public class Config
             .defineInRange("knife_damage", 8.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue AXE_DAMAGE = BUILDER
-            .comment("Knife damage value")
+            .comment("Axe damage value")
             .defineInRange("axe_damage", 8.0D, 0, Double.MAX_VALUE);
 
 
