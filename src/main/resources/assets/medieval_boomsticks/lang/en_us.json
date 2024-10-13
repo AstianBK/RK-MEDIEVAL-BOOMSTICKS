@@ -24,5 +24,18 @@
   "entity.medieval_boomsticks.round_ball": "Round Ball",
   "entity.medieval_boomsticks.throw_javelin": "Javelin",
 
+  "item.medieval_boomsticks.dziwer_bar": "Dziwer Bar",
+  "item.medieval_boomsticks.bulat_bar": "Bulat Bar",
+  "item.medieval_boomsticks.canvas": "Canvas",
+  "item.medieval_boomsticks.quilted_canvas": "Quilted Canvas",
+  "item.medieval_boomsticks.padded_canvas": "Padded Canvas",
+  "item.medieval_boomsticks.finished_oil": "Finished Oil",
+  "item.medieval_boomsticks.finished_oil_bucket": "Finished Oil Bucket",
+  "item.medieval_boomsticks.finished_shaft": "Finished Shaft",
+  "item.medieval_boomsticks.finished_leather": "Finished Leather",
+  "item.medieval_boomsticks.upgrade_kit": "Upgrade Kit",
+
+
+
   "itemGroup.medieval_boomstick": "RK Medieval Boomsticks"
 }
