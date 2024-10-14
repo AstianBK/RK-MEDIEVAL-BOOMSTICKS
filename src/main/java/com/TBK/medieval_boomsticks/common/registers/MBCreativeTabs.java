@@ -31,6 +31,16 @@ public class MBCreativeTabs {
                 a.accept(MBItems.JAVELIN.get());
                 a.accept(MBItems.HEAVY_BOLT.get());
                 a.accept(MBItems.ROUND_BALL.get());
+                a.accept(MBItems.FINISHED_LEATHER.get());
+                a.accept(MBItems.FINISHED_OIL.get());
+                a.accept(MBItems.FINISHED_OIL_BUCKET.get());
+                a.accept(MBItems.FINISHED_SHAFT.get());
+                a.accept(MBItems.BULAT_BAR.get());
+                a.accept(MBItems.DZIWER_BAR.get());
+                a.accept(MBItems.CANVAS.get());
+                a.accept(MBItems.PADDED_CANVAS.get());
+                a.accept(MBItems.QUILTED_CANVAS.get());
+                a.accept(MBItems.UPGRADE_KIT.get());
             })
             .build());
 }
