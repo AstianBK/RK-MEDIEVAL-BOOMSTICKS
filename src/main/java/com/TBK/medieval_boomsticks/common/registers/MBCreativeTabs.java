@@ -41,6 +41,13 @@ public class MBCreativeTabs {
                 a.accept(MBItems.PADDED_CANVAS.get());
                 a.accept(MBItems.QUILTED_CANVAS.get());
                 a.accept(MBItems.UPGRADE_KIT.get());
+                a.accept(MBItems.YARROW.get());
+                a.accept(MBItems.SAGE.get());
+                a.accept(MBItems.YELLOW_WOOD_SORREL.get());
+                a.accept(MBItems.LEMON_BALM.get());
+                a.accept(MBItems.ARNICA.get());
+                a.accept(MBItems.COMFREY.get());
+
             })
             .build());
 }

@@ -1,10 +1,7 @@
 package com.TBK.medieval_boomsticks;
 
 import com.TBK.medieval_boomsticks.client.renderer.*;
-import com.TBK.medieval_boomsticks.common.registers.MBCreativeTabs;
-import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
-import com.TBK.medieval_boomsticks.common.registers.MBItems;
-import com.TBK.medieval_boomsticks.common.registers.MBSounds;
+import com.TBK.medieval_boomsticks.common.registers.*;
 import com.TBK.medieval_boomsticks.server.network.PacketHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -29,6 +26,7 @@ public class RKMedievalBoomStick
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        MBBlocks.BLOCKS.register(modEventBus);
         MBItems.ITEMS.register(modEventBus);
         MBEntityType.ENTITY_TYPES.register(modEventBus);
         MBCreativeTabs.TABS.register(modEventBus);
