@@ -1,9 +1,9 @@
 package com.TBK.medieval_boomsticks.server.world;
 
-import com.TBK.rk_herbs.RKHerbs;
-import com.TBK.rk_herbs.common.blocks.SageCropBlock;
-import com.TBK.rk_herbs.common.blocks.YarrowCropBlock;
-import com.TBK.rk_herbs.common.registers.MBBlocks;
+import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
+import com.TBK.medieval_boomsticks.common.blocks.SageCropBlock;
+import com.TBK.medieval_boomsticks.common.blocks.YarrowCropBlock;
+import com.TBK.medieval_boomsticks.common.registers.MBBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -18,7 +18,7 @@ import java.util.function.Function;
 
 public class BKBlockStateProvider extends BlockStateProvider {
     public BKBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
-        super(output, RKHerbs.MODID, exFileHelper);
+        super(output, RKMedievalBoomStick.MODID, exFileHelper);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class BKBlockStateProvider extends BlockStateProvider {
     private ConfiguredModel[] goldenBeetrootsStates(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];
         models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((SageCropBlock) block).getAgeProperty()),
-                new ResourceLocation(RKHerbs.MODID, "blocks/" + textureName + state.getValue(((SageCropBlock) block).getAgeProperty()))).renderType("cutout"));
+                new ResourceLocation(RKMedievalBoomStick.MODID, "blocks/" + textureName + state.getValue(((SageCropBlock) block).getAgeProperty()))).renderType("cutout"));
 
         return models;
     }
@@ -65,7 +65,7 @@ public class BKBlockStateProvider extends BlockStateProvider {
     private ConfiguredModel[] goldenCarrotsStates(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];
         models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((YarrowCropBlock) block).getAgeProperty()),
-                new ResourceLocation(RKHerbs.MODID, "blocks/" + textureName + state.getValue(((YarrowCropBlock) block).getAgeProperty()))).renderType("cutout"));
+                new ResourceLocation(RKMedievalBoomStick.MODID, "blocks/" + textureName + state.getValue(((YarrowCropBlock) block).getAgeProperty()))).renderType("cutout"));
 
         return models;
     }

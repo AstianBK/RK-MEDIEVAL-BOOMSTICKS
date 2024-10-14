@@ -3,11 +3,17 @@ package com.TBK.medieval_boomsticks;
 import com.TBK.medieval_boomsticks.client.renderer.*;
 import com.TBK.medieval_boomsticks.common.registers.*;
 import com.TBK.medieval_boomsticks.server.network.PacketHandler;
+import com.TBK.medieval_boomsticks.server.world.BKBlockStateProvider;
+import com.TBK.medieval_boomsticks.server.world.BKLootTableProvider;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -38,6 +44,8 @@ public class RKMedievalBoomStick
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT,()->()->{
             modEventBus.addListener(this::registerRenderers);
         });
+        modEventBus.addListener(this::dataSetup);
+
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -52,4 +60,12 @@ public class RKMedievalBoomStick
         EntityRenderers.register(MBEntityType.HEAVY_BOLT.get(), HeavyBoltRenderer::new);
     }
 
+    private void dataSetup(GatherDataEvent event) {
+        DataGenerator generator = event.getGenerator();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        PackOutput packOutput = generator.getPackOutput();
+        boolean includeServer = event.includeServer();
+        generator.addProvider(includeServer, BKLootTableProvider.create(packOutput));
+        generator.addProvider(includeServer, new BKBlockStateProvider(packOutput, existingFileHelper));
+    }
 }
