@@ -137,7 +137,7 @@
       "predicate": {
         "medieval_boomsticks:recharge": 1
       },
-      "model": "medieval_boomsticks:item/arquebus_aim"
+      "model": "medieval_boomsticks:item/arquebus_recharge"
     }
   ]
 }
