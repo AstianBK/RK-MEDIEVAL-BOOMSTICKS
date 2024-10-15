@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "rk_herbs:block/yellow_wood_sorrel_stage3"
+    "layer0": "medieval_boomsticks:block/yellow_wood_sorrel_stage3"
   }
 }
