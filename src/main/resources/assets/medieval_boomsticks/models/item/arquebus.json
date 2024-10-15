@@ -8,36 +8,36 @@
   "display": {
     "thirdperson_righthand": {
       "rotation": [
-        90,
+        67.75,
         0,
         0
       ],
       "translation": [
         0,
-        2.75,
-        0
+        3.75,
+        -2
       ],
       "scale": [
-        0.52,
-        0.52,
-        0.52
+        0.5,
+        0.5,
+        0.7
       ]
     },
     "thirdperson_lefthand": {
       "rotation": [
-        90,
+        67.75,
         0,
         0
       ],
       "translation": [
         0,
-        2.75,
-        0
+        3.75,
+        -2
       ],
       "scale": [
-        0.52,
-        0.52,
-        0.52
+        0.5,
+        0.5,
+        0.7
       ]
     },
     "firstperson_righthand": {
