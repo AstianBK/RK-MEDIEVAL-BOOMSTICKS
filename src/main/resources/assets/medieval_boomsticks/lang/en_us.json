@@ -35,6 +35,13 @@
   "item.medieval_boomsticks.finished_leather": "Finished Leather",
   "item.medieval_boomsticks.upgrade_kit": "Upgrade Kit",
 
+  "item.medieval_boomsticks.arnica": "Arnica",
+  "item.medieval_boomsticks.sage": "Sage",
+  "item.medieval_boomsticks.lemon_balm": "Lemon Balm",
+  "item.medieval_boomsticks.yellow_wood_sorrel": "Yellow Wood Sorrel",
+  "item.medieval_boomsticks.comfrey": "Comfrey",
+  "item.medieval_boomsticks.yarrow": "Yarrow",
+
 
 
   "itemGroup.medieval_boomstick": "RK Medieval Boomsticks"
