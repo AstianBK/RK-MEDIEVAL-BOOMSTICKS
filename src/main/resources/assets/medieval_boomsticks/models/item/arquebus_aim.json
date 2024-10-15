@@ -40,6 +40,40 @@
         0.7
       ]
     },
+    "firstperson_righthand": {
+      "rotation": [
+        2.69,
+        3.31,
+        -0.37
+      ],
+      "translation": [
+        9.5,
+        2.25,
+        3.25
+      ],
+      "scale": [
+        0.7,
+        0.71,
+        0.8
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        2.69,
+        3.31,
+        -0.37
+      ],
+      "translation": [
+        9.5,
+        2.25,
+        3.25
+      ],
+      "scale": [
+        0.7,
+        0.71,
+        0.8
+      ]
+    },
     "gui": {
       "rotation": [
         94.16,
