@@ -8,9 +8,9 @@
   "display": {
     "thirdperson_righthand": {
       "rotation": [
-        0,
-        -2,
-        1.81
+        0.15,
+        -15,
+        2.76
       ],
       "scale": [
         0.81,
@@ -20,9 +20,9 @@
     },
     "thirdperson_lefthand": {
       "rotation": [
-        0,
-        -2,
-        1.81
+        0.15,
+        -15,
+        2.76
       ],
       "scale": [
         0.81,
@@ -32,39 +32,56 @@
     },
     "firstperson_righthand": {
       "rotation": [
-        53.41,
-        -2.41,
-        -1.07
+        0,
+        -2,
+        4
       ],
       "translation": [
-        3.5,
-        -1,
-        2.75
+        4.25,
+        2.25,
+        0.5
       ],
       "scale": [
-        0.56,
-        0.61,
-        0.68
+        0.7,
+        0.71,
+        0.8
       ]
     },
     "firstperson_lefthand": {
       "rotation": [
-        53.78,
-        -4.6,
-        -2.68
+        0,
+        -2,
+        4
       ],
       "translation": [
-        3.5,
-        -1,
-        2.75
+        4.25,
+        2.25,
+        0.5
       ],
       "scale": [
-        0.56,
-        0.61,
-        0.68
+        0.7,
+        0.71,
+        0.8
       ]
     },
     "gui": {
+      "rotation": [
+        96,
+        45,
+        -93.14
+      ],
+      "translation": [
+        0,
+        -0.5,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.38,
+        0.36
+      ]
+    },
+    "fixed": {
       "rotation": [
         96,
         45,
