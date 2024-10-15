@@ -58,6 +58,7 @@
 			},
 			"model": "medieval_boomsticks:item/handgonne_aim"
 		},
-		{"predicate": {"medieval_boomsticks:recharge": 1}, "model": "medieval_boomsticks:item/handgonne_recharge"}
+		{"predicate": {
+			"medieval_boomsticks:recharge": 1}, "model": "medieval_boomsticks:item/handgonne_recharge"}
 	]
 }
