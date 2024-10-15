@@ -67,7 +67,7 @@ public class MBItems {
     public static final RegistryObject<Item> IRON_THROWING_KNIFE= ITEMS.register("iron_throwing_knife",()->new ThrowingKnifeItem(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> IRON_THROWING_AXE= ITEMS.register("iron_throwing_axe",()->new ThrowingAxeItem(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> SMALL_THROWING_ROCK= ITEMS.register("small_throwing_rock",()->new ThrowingSmallRockItem(new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> SMALL_THROWING_ROCK= ITEMS.register("small_throwing_rock",()->new ThrowingSmallRockItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> LARGE_THROWING_ROCK= ITEMS.register("large_throwing_rock",()->new ThrowingLargeRockItem(new Item.Properties().stacksTo(1)));
 
 
