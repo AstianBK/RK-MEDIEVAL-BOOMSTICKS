@@ -2,6 +2,7 @@ package com.TBK.medieval_boomsticks;
 
 import com.TBK.medieval_boomsticks.client.renderer.*;
 import com.TBK.medieval_boomsticks.common.registers.*;
+import com.TBK.medieval_boomsticks.server.data.MBGenWorld;
 import com.TBK.medieval_boomsticks.server.network.PacketHandler;
 import com.TBK.medieval_boomsticks.server.world.BKBlockStateProvider;
 import com.TBK.medieval_boomsticks.server.world.BKLootTableProvider;
@@ -66,6 +67,7 @@ public class RKMedievalBoomStick
         PackOutput packOutput = generator.getPackOutput();
         boolean includeServer = event.includeServer();
         generator.addProvider(includeServer, BKLootTableProvider.create(packOutput));
-        generator.addProvider(includeServer, new BKBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new BKBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(includeServer,new MBGenWorld(packOutput,event.getLookupProvider()));
     }
 }
