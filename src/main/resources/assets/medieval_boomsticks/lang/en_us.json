@@ -47,11 +47,11 @@
   "item.medieval_boomsticks.raw_magnitite": "Raw Magnitite",
 
   "block.medieval_boomsticks.limonite_ore": "Limonite Ore",
-  "block.medieval_boomsticks.limonite_ore_deepslate": "Limonite Ore",
+  "block.medieval_boomsticks.limonite_ore_deepslate": "Deepslate Limonite Ore",
   "block.medieval_boomsticks.pyrite_ore": "Pyrite Ore",
-  "block.medieval_boomsticks.pyrite_ore_deepslate": "Pyrite Ore",
+  "block.medieval_boomsticks.pyrite_ore_deepslate": "Deepslate Pyrite Ore",
   "block.medieval_boomsticks.magnitite_ore": "Magnitite Ore",
-  "block.medieval_boomsticks.magnitite_ore_deepslate": "Magnitite Ore",
+  "block.medieval_boomsticks.magnitite_ore_deepslate": "Deepslate Magnitite Ore",
 
   "itemGroup.medieval_boomstick": "RK Medieval Boomsticks"
 }

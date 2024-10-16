@@ -31,14 +31,14 @@ public class MBBlocks {
                     .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
     public static final RegistryObject<Block> LIMONITE_ORE_DEEPSLATE = registerBlock("limonite_ore_deepslate",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
     public static final RegistryObject<Block> PYRITE_ORE_DEEPSLATE = registerBlock("pyrite_ore_deepslate",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE)
                     .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
     public static final RegistryObject<Block> MAGNITITE_ORE_DEEPSLATE = registerBlock("magnitite_ore_deepslate",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE)
                     .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
     public static final RegistryObject<Block> SAGE_CROP_BLOCK = BLOCKS.register("sage_crop_block",
