@@ -1,5 +1,10 @@
 {
   "values": [
-    "medieval_boomsticks:mb_ore"
+    "medieval_boomsticks:mb_ore",
+    "medieval_boomsticks:mb_ore_1",
+    "medieval_boomsticks:mb_ore_2",
+    "medieval_boomsticks:mb_ore_deepslate",
+    "medieval_boomsticks:mb_ore_1_deepslate",
+    "medieval_boomsticks:mb_ore_2_deepslate"
   ]
 }

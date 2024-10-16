@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "medieval_boomsticks:mb_ore"
+          "Name": "medieval_boomsticks:mb_ore_1"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
@@ -15,7 +15,7 @@
       },
       {
         "state": {
-          "Name": "medieval_boomsticks:mb_ore_deepslate"
+          "Name": "medieval_boomsticks:mb_ore_1_deepslate"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
