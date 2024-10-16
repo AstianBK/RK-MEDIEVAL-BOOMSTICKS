@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "medieval_boomsticks:block/smooth_diabase"
+    "all": "medieval_boomsticks:block/pyrite_ore"
   }
 }

@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#  ",
+        "III",
+        "SSC"
+    ],
+    "key": {
+        "#": {
+            "item": "medieval_boomsticks:canvas"
+        },
+        "I": {
+            "item": "minecraft:iron_block"
+        },
+        "S": {
+            "item": "minecraft:stripped_oak_log"
+        },
+        "C": {
+            "item": "medieval_boomsticks:finished_oil_bucket"
+        }
+    },
+    "result": {
+        "item": "medieval_boomsticks:arquebus",
+        "count": 1
+    }
+}

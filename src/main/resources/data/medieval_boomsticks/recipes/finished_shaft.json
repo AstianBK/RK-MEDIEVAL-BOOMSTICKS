@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  #",
+        " #S",
+        "#PC"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stripped_oak_log"
+        },
+        "S": {
+            "item": "minecraft:stone_sword"
+        },
+        "P": {
+            "item": "minecraft:paper"
+        },
+        "C": {
+            "item": "medieval_boomsticks:finished_oil_bucket"
+        }
+    },
+    "result": {
+        "item": "medieval_boomsticks:finished_shaft",
+        "count": 1
+    }
+}

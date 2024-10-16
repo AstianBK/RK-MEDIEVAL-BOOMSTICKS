@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " nn",
+        "nEn",
+        "/n "
+    ],
+    "key": {
+        "n": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "E": {
+            "item": "medieval_boomsticks:handgonne"
+        },
+        "/": {
+            "item": "medieval_boomsticks:finished_shaft"
+        }
+    },
+    "result": {
+        "item": "medieval_boomsticks:spikedhandgonne",
+        "count": 1
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        " C "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:wheat_seeds"
+        },
+        "C": {
+            "item": "minecraft:composter"
+        }
+    },
+    "result": {
+        "item": "medieval_boomsticks:finished_oil_bucket",
+        "count": 1
+    }
+}

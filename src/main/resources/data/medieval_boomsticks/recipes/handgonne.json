@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " #I",
+        " / ",
+        "/  "
+    ],
+    "key": {
+        "#": {
+            "item": "medieval_boomsticks:canvas"
+        },
+        "I": {
+            "item": "minecraft:iron_block"
+        },
+        "/": {
+            "item": "medieval_boomsticks:finished_shaft"
+        }
+    },
+    "result": {
+        "id": "medieval_boomsticks:handgonne",
+        "count": 1
+    }
+}

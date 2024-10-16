@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  #",
+        " N ",
+        "/  "
+    ],
+    "key": {
+        "#": {
+            "item": "medieval_boomsticks:upgrade_kit"
+        },
+        "N": {
+            "item": "minecraft:netherite_block"
+        },
+        "/": {
+            "item": "medieval_boomsticks:eveningstar"
+        }
+    },
+    "result": {
+        "id": "medieval_boomsticks:gothiceveningstar",
+        "count": 1
+    }
+}

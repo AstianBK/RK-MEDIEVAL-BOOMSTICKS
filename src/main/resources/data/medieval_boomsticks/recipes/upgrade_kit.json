@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ccc",
+        "ISW",
+        "LLL"
+    ],
+    "key": {
+        "c": {
+            "item": "minecraft:copper_ingot"
+        },
+        "I": {
+            "item": "minecraft:iron_pickaxe"
+        },
+        "S": {
+            "item": "minecraft:shears"
+        },
+        "W": {
+            "item": "minecraft:iron_axe"
+        },
+        "L": {
+            "item": "medieval_boomsticks:finished_leather"
+        }
+    },
+    "result": {
+        "id": "medieval_boomsticks:upgrade_kit",
+        "count": 1
+    }
+}

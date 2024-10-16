@@ -1,18 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " i ",
-    "iGi",
-    " i "
-  ],
-  "key": {
-    "i": {
-      "item": "minecraft:iron_ingot"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#i",
+        "P#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:gunpowder"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "P": {
+            "item": "minecraft:paper"
+        }
     },
-    "G": {
-      "item": "minecraft:gunpowder"
-    }
-  },
   "result": {
     "item": "medieval_boomsticks:round_ball",
     "count": 1

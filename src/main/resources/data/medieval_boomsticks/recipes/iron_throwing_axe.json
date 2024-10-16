@@ -1,16 +1,16 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        " # ",
-        " L ",
+        "###",
+        "III",
         "///"
     ],
     "key": {
         "#": {
-            "item": "minecraft:iron_axe"
+            "item": "minecraft:iron_nugget"
         },
-        "L": {
-            "item": "minecraft:leather"
+        "I": {
+            "item": "minecraft:iron_axe"
         },
         "/": {
             "item": "minecraft:stick"
@@ -18,6 +18,6 @@
     },
     "result": {
         "item": "medieval_boomsticks:iron_throwing_axe",
-        "count": 1
+        "count": 3
     }
 }

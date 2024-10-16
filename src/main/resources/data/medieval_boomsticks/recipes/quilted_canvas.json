@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "medieval_boomsticks:padded_canvas"
+        }
+    },
+    "result": {
+        "id": "medieval_boomsticks:quilted_canvas",
+        "count": 1
+    }
+}

@@ -1,13 +1,16 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        "///",
-        "FFF"
+        "  #",
+        "S/ ",
+        "FS "
     ],
     "key": {
         "#": {
-            "item": "minecraft:iron_nugget"
+            "item": "minecraft:raw_iron"
+        },
+        "S": {
+            "item": "minecraft:string"
         },
         "/": {
             "item": "minecraft:stick"

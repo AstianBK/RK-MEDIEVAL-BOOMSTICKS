@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        " C "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:leather"
+        },
+        "C": {
+            "item": "medieval_boomsticks:finished_oil_bucket"
+        }
+    },
+    "result": {
+        "id": "medieval_boomsticks:finished_leather",
+        "count": 1
+    }
+}

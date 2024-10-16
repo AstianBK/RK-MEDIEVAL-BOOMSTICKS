@@ -2,7 +2,8 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         " # ",
-        "/L/"
+        "/ #",
+        " / "
     ],
     "key": {
         "#": {
@@ -10,13 +11,10 @@
         },
         "/": {
             "item": "minecraft:stick"
-        },
-        "L": {
-            "item": "minecraft:leather"
         }
     },
     "result": {
         "item": "medieval_boomsticks:iron_throwing_knife",
-        "count": 3
+        "count": 2
     }
 }

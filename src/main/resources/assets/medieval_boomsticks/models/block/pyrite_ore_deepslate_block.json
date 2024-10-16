@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "medieval_boomsticks:block/cobbled_tephrite"
+    "all": "medieval_boomsticks:block/pyrite_deepslate_ore"
   }
 }
