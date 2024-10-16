@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "medieval_boomsticks:mb_ore"
+              "name": "medieval_boomsticks:magnitite_ore_2"
             },
             {
               "type": "minecraft:item",
@@ -34,7 +34,7 @@
                   "count": {
                     "type": "minecraft:uniform",
                     "max": 5.0,
-                    "min": 2.0
+                    "min": 1.0
                   },
                   "function": "minecraft:set_count"
                 },
@@ -47,7 +47,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:leather"
+              "name": "medieval_boomsticks:raw_magnitite"
             }
           ]
         }
@@ -55,5 +55,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "medieval_boomsticks:blocks/mb_ore"
+  "random_sequence": "medieval_boomsticks:blocks/magnitite_ore_2"
 }

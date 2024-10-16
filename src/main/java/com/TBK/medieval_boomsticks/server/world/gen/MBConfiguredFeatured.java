@@ -25,22 +25,6 @@ public class MBConfiguredFeatured {
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceable = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
-
-        List<OreConfiguration.TargetBlockState> ore = List.of(OreConfiguration.target(stoneReplaceable,
-                        MBBlocks.MB_ORE.get().defaultBlockState()),
-                OreConfiguration.target(deepslateReplaceables, MBBlocks.MB_ORE_DEEPSLATE.get().defaultBlockState()));
-
-        List<OreConfiguration.TargetBlockState> ore1 = List.of(OreConfiguration.target(stoneReplaceable,
-                        MBBlocks.MB_ORE_1.get().defaultBlockState()),
-                OreConfiguration.target(deepslateReplaceables, MBBlocks.MB_ORE_1_DEEPSLATE.get().defaultBlockState()));
-
-        List<OreConfiguration.TargetBlockState> ore2 = List.of(OreConfiguration.target(stoneReplaceable,
-                        MBBlocks.MB_ORE_2.get().defaultBlockState()),
-                OreConfiguration.target(deepslateReplaceables, MBBlocks.MB_ORE_2_DEEPSLATE.get().defaultBlockState()));
-
-        register(context, OVERWORLD_SAPPHIRE_ORE_KEY, Feature.ORE, new OreConfiguration(ore, 9));
-        register(context, NETHER_SAPPHIRE_ORE_KEY, Feature.ORE, new OreConfiguration(ore1, 9));
-        register(context, END_SAPPHIRE_ORE_KEY, Feature.ORE, new OreConfiguration(ore2, 9));
     }
 
 

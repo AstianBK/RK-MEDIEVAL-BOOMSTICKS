@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "medieval_boomsticks:mb_ore_1"
+              "name": "medieval_boomsticks:limonite_ore"
             },
             {
               "type": "minecraft:item",
@@ -34,7 +34,7 @@
                   "count": {
                     "type": "minecraft:uniform",
                     "max": 5.0,
-                    "min": 2.0
+                    "min": 3.0
                   },
                   "function": "minecraft:set_count"
                 },
@@ -47,7 +47,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:leather"
+              "name": "medieval_boomsticks:raw_limonite"
             }
           ]
         }
@@ -55,5 +55,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "medieval_boomsticks:blocks/mb_ore_1"
+  "random_sequence": "medieval_boomsticks:blocks/limonite_ore"
 }

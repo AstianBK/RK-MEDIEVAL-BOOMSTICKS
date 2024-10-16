@@ -2,11 +2,11 @@
   "type": "minecraft:ore",
   "config": {
     "discard_chance_on_air_exposure": 0.0,
-    "size": 9,
+    "size": 20,
     "targets": [
       {
         "state": {
-          "Name": "medieval_boomsticks:mb_ore_1"
+          "Name": "medieval_boomsticks:limonite_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
@@ -15,7 +15,7 @@
       },
       {
         "state": {
-          "Name": "medieval_boomsticks:mb_ore_1_deepslate"
+          "Name": "medieval_boomsticks:limonite_ore_deepslate"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

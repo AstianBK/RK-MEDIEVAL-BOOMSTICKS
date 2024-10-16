@@ -69,22 +69,6 @@ public class BKBlockLootTables extends BlockLootSubProvider {
 
         this.add(MBBlocks.YELLOW_WOOD_SORREL_CROP_BLOCK.get(), createCropDrops(MBBlocks.YELLOW_WOOD_SORREL_CROP_BLOCK.get(),MBItems.YELLOW_WOOD_SORREL.get(), MBItems.YELLOW_WOOD_SORREL.get(),
                  lootitemcondition$builder5));
-
-
-
-        this.add(MBBlocks.MB_ORE.get(),
-                block -> createCopperLikeOreDrops(MBBlocks.MB_ORE.get(), Items.LEATHER));
-        this.add(MBBlocks.MB_ORE_1.get(),
-                block -> createCopperLikeOreDrops(MBBlocks.MB_ORE_1.get(), Items.LEATHER));
-        this.add(MBBlocks.MB_ORE_2.get(),
-                block -> createCopperLikeOreDrops(MBBlocks.MB_ORE_2.get(),Items.LEATHER));
-        this.add(MBBlocks.MB_ORE_DEEPSLATE.get(),
-                block -> createCopperLikeOreDrops(MBBlocks.MB_ORE_DEEPSLATE.get(),Items.LEATHER));
-        this.add(MBBlocks.MB_ORE_1_DEEPSLATE.get(),
-                block -> createCopperLikeOreDrops(MBBlocks.MB_ORE_1_DEEPSLATE.get(), Items.LEATHER));
-        this.add(MBBlocks.MB_ORE_2_DEEPSLATE.get(),
-                block -> createCopperLikeOreDrops(MBBlocks.MB_ORE_2_DEEPSLATE.get(), Items.LEATHER));
-
     }
 
     protected LootTable.Builder createCopperLikeOreDrops(Block pBlock, Item item) {

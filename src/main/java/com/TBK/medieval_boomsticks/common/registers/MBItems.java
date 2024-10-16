@@ -34,6 +34,12 @@ public class MBItems {
 
     public static final RegistryObject<Item> UPGRADE_KIT= ITEMS.register("upgrade_kit",()->new Item(new Item.Properties().stacksTo(64)));
 
+    public static final RegistryObject<Item> RAW_LIMONITE= ITEMS.register("raw_limonite",()->new Item(new Item.Properties().stacksTo(64)));
+
+    public static final RegistryObject<Item> RAW_PYRITE= ITEMS.register("raw_pyrite",()->new Item(new Item.Properties().stacksTo(64)));
+
+    public static final RegistryObject<Item> RAW_MAGNITITE= ITEMS.register("raw_magnitite",()->new Item(new Item.Properties().stacksTo(64)));
+
 
     public static final RegistryObject<Item> SAGE = ITEMS.register("sage",
             ()-> new ItemNameBlockItem(MBBlocks.SAGE_CROP_BLOCK.get(), new Item.Properties()));

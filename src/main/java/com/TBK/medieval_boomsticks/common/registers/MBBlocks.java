@@ -19,26 +19,26 @@ public class MBBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, RKMedievalBoomStick.MODID);
 
-    public static final RegistryObject<Block> MB_ORE = registerBlock("mb_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+    public static final RegistryObject<Block> LIMONITE_ORE = registerBlock("limonite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
-    public static final RegistryObject<Block> MB_ORE_1 = registerBlock("mb_ore_1",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+    public static final RegistryObject<Block> PYRITE_ORE = registerBlock("pyrite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
                     .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
-    public static final RegistryObject<Block> MB_ORE_2 = registerBlock("mb_ore_2",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+    public static final RegistryObject<Block> MAGNITITE_ORE = registerBlock("magnitite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
                     .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
-    public static final RegistryObject<Block> MB_ORE_DEEPSLATE = registerBlock("mb_ore_deepslate",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+    public static final RegistryObject<Block> LIMONITE_ORE_DEEPSLATE = registerBlock("limonite_ore_deepslate",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
-    public static final RegistryObject<Block> MB_ORE_1_DEEPSLATE = registerBlock("mb_ore_1_deepslate",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+    public static final RegistryObject<Block> PYRITE_ORE_DEEPSLATE = registerBlock("pyrite_ore_deepslate",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
                     .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
-    public static final RegistryObject<Block> MB_ORE_2_DEEPSLATE = registerBlock("mb_ore_2_deepslate",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+    public static final RegistryObject<Block> MAGNITITE_ORE_DEEPSLATE = registerBlock("magnitite_ore_deepslate",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
                     .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
     public static final RegistryObject<Block> SAGE_CROP_BLOCK = BLOCKS.register("sage_crop_block",

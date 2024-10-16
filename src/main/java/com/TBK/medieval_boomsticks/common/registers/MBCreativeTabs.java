@@ -47,6 +47,10 @@ public class MBCreativeTabs {
                 a.accept(MBItems.LEMON_BALM.get());
                 a.accept(MBItems.ARNICA.get());
                 a.accept(MBItems.COMFREY.get());
+                a.accept(MBItems.RAW_LIMONITE.get());
+                a.accept(MBItems.RAW_PYRITE.get());
+                a.accept(MBItems.RAW_MAGNITITE.get());
+
 
             })
             .build());
