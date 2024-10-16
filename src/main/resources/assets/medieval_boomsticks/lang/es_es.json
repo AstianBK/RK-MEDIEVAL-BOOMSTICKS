@@ -31,6 +31,29 @@
   "item.medieval_boomsticks.yellow_wood_sorrel": "Acederilla amarilla",
   "item.medieval_boomsticks.comfrey": "Consuelda",
   "item.medieval_boomsticks.yarrow": "Milenrama",
-  
+
+  "item.medieval_boomsticks.dziwer_bar": "Dziwer Bar",
+  "item.medieval_boomsticks.bulat_bar": "Bulat Bar",
+  "item.medieval_boomsticks.canvas": "Canvas",
+  "item.medieval_boomsticks.quilted_canvas": "Quilted Canvas",
+  "item.medieval_boomsticks.padded_canvas": "Padded Canvas",
+  "item.medieval_boomsticks.finished_oil": "Finished Oil",
+  "item.medieval_boomsticks.finished_oil_bucket": "Finished Oil Bucket",
+  "item.medieval_boomsticks.finished_shaft": "Finished Shaft",
+  "item.medieval_boomsticks.finished_leather": "Finished Leather",
+  "item.medieval_boomsticks.upgrade_kit": "Upgrade Kit",
+
+  "item.medieval_boomsticks.raw_limonite": "Raw Limonite",
+  "item.medieval_boomsticks.raw_pyrite": "Raw Pyrite",
+  "item.medieval_boomsticks.raw_magnitite": "Raw Magnitite",
+
+  "block.medieval_boomsticks.limonite_ore": "Limonite Ore",
+  "block.medieval_boomsticks.limonite_ore_deepslate": "Limonite Ore",
+  "block.medieval_boomsticks.pyrite_ore": "Pyrite Ore",
+  "block.medieval_boomsticks.pyrite_ore_deepslate": "Pyrite Ore",
+  "block.medieval_boomsticks.magnitite_ore": "Magnitite Ore",
+  "block.medieval_boomsticks.magnitite_ore_deepslate": "Magnitite Ore",
+
+
   "item.medieval_boomsticks.spikedhandgonne": "Handgonne con pinches"
 }
