@@ -50,8 +50,12 @@ public class MBCreativeTabs {
                 a.accept(MBItems.RAW_LIMONITE.get());
                 a.accept(MBItems.RAW_PYRITE.get());
                 a.accept(MBItems.RAW_MAGNITITE.get());
-
-
+                a.accept(MBBlocks.MAGNITITE_ORE.get());
+                a.accept(MBBlocks.MAGNITITE_ORE_DEEPSLATE.get());
+                a.accept(MBBlocks.LIMONITE_ORE.get());
+                a.accept(MBBlocks.LIMONITE_ORE_DEEPSLATE.get());
+                a.accept(MBBlocks.PYRITE_ORE.get());
+                a.accept(MBBlocks.PYRITE_ORE_DEEPSLATE.get());
             })
             .build());
 }
