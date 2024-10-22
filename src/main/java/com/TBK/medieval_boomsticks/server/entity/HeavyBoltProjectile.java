@@ -23,6 +23,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -156,6 +157,12 @@ public class HeavyBoltProjectile extends AbstractArrow implements GeoEntity {
             }
         }
 
+    }
+
+    @Override
+    protected void onHit(HitResult p_37260_) {
+        super.onHit(p_37260_);
+        this.discard();
     }
 
     @Override
