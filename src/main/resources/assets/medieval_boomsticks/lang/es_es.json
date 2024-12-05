@@ -34,6 +34,7 @@
 
   "item.medieval_boomsticks.dziwer_bar": "Dziwer Bar",
   "item.medieval_boomsticks.bulat_bar": "Bulat Bar",
+  "item.medieval_boomsticks.aqua_fortis": "Aqua Fortis",
   "item.medieval_boomsticks.canvas": "Canvas",
   "item.medieval_boomsticks.quilted_canvas": "Quilted Canvas",
   "item.medieval_boomsticks.padded_canvas": "Padded Canvas",
@@ -43,10 +44,13 @@
   "item.medieval_boomsticks.finished_leather": "Finished Leather",
   "item.medieval_boomsticks.upgrade_kit": "Upgrade Kit",
 
+
   "item.medieval_boomsticks.raw_limonite": "Raw Limonite",
   "item.medieval_boomsticks.raw_pyrite": "Raw Pyrite",
   "item.medieval_boomsticks.raw_magnitite": "Raw Magnitite",
 
+  "item.medieval_boomsticks.nitre": "Nitre",
+  "item.medieval_boomsticks.sulfur": "Sulfur",
   "block.medieval_boomsticks.limonite_ore": "Limonite Ore",
   "block.medieval_boomsticks.limonite_ore_deepslate": "Limonite Ore",
   "block.medieval_boomsticks.pyrite_ore": "Pyrite Ore",
