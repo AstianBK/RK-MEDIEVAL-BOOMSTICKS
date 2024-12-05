@@ -2,6 +2,7 @@ package com.TBK.medieval_boomsticks;
 
 import com.TBK.medieval_boomsticks.common.items.MazeItem;
 import com.TBK.medieval_boomsticks.common.items.MorningStarItem;
+import com.TBK.medieval_boomsticks.common.registers.MBItems;
 import com.TBK.medieval_boomsticks.common.registers.MBSounds;
 import com.TBK.medieval_boomsticks.server.entity.ThrowableSmallRock;
 import net.minecraft.client.Minecraft;
@@ -39,7 +40,7 @@ public class ForgeEvents {
         ItemStack stack=event.getPlayer().getUseItem();
         float f=event.getFovModifier();
         if (event.getPlayer().isUsingItem()) {
-            if (stack.is(Items.BOW)) {
+            if (stack.is(MBItems.RECURVE_BOW.get())) {
                 int i = event.getPlayer().getTicksUsingItem();
                 float f1 = (float)i / 20.0F;
                 if (f1 > 1.0F) {
