@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "medieval_boomsticks:sulfur_ore_block"
+        }
+    ],
+    "result": {
+        "item": "medieval_boomsticks:sulfur",
+        "count": 9
+    }
+}
