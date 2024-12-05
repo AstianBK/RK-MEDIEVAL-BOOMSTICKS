@@ -51,6 +51,9 @@
 
   "item.medieval_boomsticks.nitre": "Nitre",
   "item.medieval_boomsticks.sulfur": "Sulfur",
+  "block.medieval_boomsticks.sulfur_ore_deepslate": "Deepslate Sulfur Ore",
+  "block.medieval_boomsticks.sulfur_ore": "Sulfur Ore",
+  "block.medieval_boomsticks.sulfur_ore_block": "Sulfur Ore Block",
   "block.medieval_boomsticks.limonite_ore": "Limonite Ore",
   "block.medieval_boomsticks.limonite_ore_deepslate": "Limonite Ore",
   "block.medieval_boomsticks.pyrite_ore": "Pyrite Ore",

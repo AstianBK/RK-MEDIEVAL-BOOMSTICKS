@@ -45,16 +45,19 @@
 
   "item.medieval_boomsticks.raw_limonite": "Raw Limonite",
   "item.medieval_boomsticks.raw_pyrite": "Raw Pyrite",
-  "item.medieval_boomsticks.raw_magnitite": "Raw Magnitite",
+  "item.medieval_boomsticks.raw_magnetite": "Raw Magnetite",
 
   "item.medieval_boomsticks.nitre": "Nitre",
   "item.medieval_boomsticks.sulfur": "Sulfur",
+  "block.medieval_boomsticks.deepslate_sulfur_ore": "Deepslate Sulfur Ore",
+  "block.medieval_boomsticks.sulfur_ore": "Sulfur Ore",
+  "block.medieval_boomsticks.sulfur_ore_block": "Sulfur Ore Block",
   "block.medieval_boomsticks.limonite_ore": "Limonite Ore",
   "block.medieval_boomsticks.limonite_ore_deepslate": "Deepslate Limonite Ore",
   "block.medieval_boomsticks.pyrite_ore": "Pyrite Ore",
   "block.medieval_boomsticks.pyrite_ore_deepslate": "Deepslate Pyrite Ore",
-  "block.medieval_boomsticks.magnitite_ore": "Magnitite Ore",
-  "block.medieval_boomsticks.magnitite_ore_deepslate": "Deepslate Magnitite Ore",
+  "block.medieval_boomsticks.magnetite_ore": "Magnetite Ore",
+  "block.medieval_boomsticks.magnetite_ore_deepslate": "Deepslate Magnetite Ore",
 
   "itemGroup.medieval_boomstick": "RK Medieval Boomsticks"
 }

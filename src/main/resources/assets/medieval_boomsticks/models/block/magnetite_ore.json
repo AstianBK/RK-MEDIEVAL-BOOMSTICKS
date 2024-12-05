@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "medieval_boomsticks:block/magnitite_ore"
+    "all": "medieval_boomsticks:block/magnetite_ore"
   }
 }
