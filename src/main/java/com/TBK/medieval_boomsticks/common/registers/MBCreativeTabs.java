@@ -31,6 +31,7 @@ public class MBCreativeTabs {
                 a.accept(MBItems.JAVELIN.get());
                 a.accept(MBItems.HEAVY_BOLT.get());
                 a.accept(MBItems.ROUND_BALL.get());
+                a.accept(MBItems.AQUA_FORTIS.get());
                 a.accept(MBItems.FINISHED_LEATHER.get());
                 a.accept(MBItems.FINISHED_OIL.get());
                 a.accept(MBItems.FINISHED_OIL_BUCKET.get());
@@ -50,6 +51,8 @@ public class MBCreativeTabs {
                 a.accept(MBItems.RAW_LIMONITE.get());
                 a.accept(MBItems.RAW_PYRITE.get());
                 a.accept(MBItems.RAW_MAGNITITE.get());
+                a.accept(MBItems.SULFUR.get());
+                a.accept(MBItems.NITRE.get());
                 a.accept(MBBlocks.MAGNITITE_ORE.get());
                 a.accept(MBBlocks.MAGNITITE_ORE_DEEPSLATE.get());
                 a.accept(MBBlocks.LIMONITE_ORE.get());

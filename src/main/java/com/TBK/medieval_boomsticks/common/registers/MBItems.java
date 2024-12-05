@@ -32,6 +32,11 @@ public class MBItems {
 
     public static final RegistryObject<Item> QUILTED_CANVAS= ITEMS.register("quilted_canvas",()->new Item(new Item.Properties().stacksTo(64)));
 
+    public static final RegistryObject<Item> NITRE= ITEMS.register("nitre",()->new Item(new Item.Properties().stacksTo(64)));
+
+    public static final RegistryObject<Item> SULFUR= ITEMS.register("sulfur",()->new Item(new Item.Properties().stacksTo(64)));
+
+    public static final RegistryObject<Item> AQUA_FORTIS= ITEMS.register("aqua_fortis",()->new Item(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> UPGRADE_KIT= ITEMS.register("upgrade_kit",()->new Item(new Item.Properties().stacksTo(64)));
 
     public static final RegistryObject<Item> RAW_LIMONITE= ITEMS.register("raw_limonite",()->new Item(new Item.Properties().stacksTo(64)));
