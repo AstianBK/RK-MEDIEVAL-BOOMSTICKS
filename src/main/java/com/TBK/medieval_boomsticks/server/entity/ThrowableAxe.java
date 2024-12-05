@@ -57,7 +57,6 @@ public class ThrowableAxe extends ThrowableWeapon {
                     EnchantmentHelper.doPostDamageEffects((LivingEntity)entity1, livingentity1);
                 }
 
-                this.doPostHurtEffects(livingentity1);
             }
         }
 

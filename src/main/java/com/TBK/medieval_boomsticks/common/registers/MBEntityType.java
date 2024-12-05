@@ -46,4 +46,5 @@ public class MBEntityType {
             .register("heavy_bolt", () -> EntityType.Builder.<HeavyBoltProjectile>of(HeavyBoltProjectile::new, MobCategory.MISC)
                     .fireImmune().sized(0.2F, 0.2F).build(RKMedievalBoomStick.MODID + "heavy_bolt"));
 
+
 }

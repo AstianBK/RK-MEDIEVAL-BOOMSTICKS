@@ -50,7 +50,7 @@ public class MBCreativeTabs {
                 a.accept(MBItems.COMFREY.get());
                 a.accept(MBItems.RAW_LIMONITE.get());
                 a.accept(MBItems.RAW_PYRITE.get());
-                a.accept(MBItems.RAW_MAGNITITE.get());
+                a.accept(MBItems.RAW_MAGNETITE.get());
                 a.accept(MBItems.SULFUR.get());
                 a.accept(MBItems.NITRE.get());
                 a.accept(MBBlocks.MAGNITITE_ORE.get());

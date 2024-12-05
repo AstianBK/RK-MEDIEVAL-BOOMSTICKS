@@ -162,7 +162,6 @@ public class HeavyBoltProjectile extends AbstractArrow implements GeoEntity {
     @Override
     protected void onHit(HitResult p_37260_) {
         super.onHit(p_37260_);
-        this.discard();
     }
 
     @Override

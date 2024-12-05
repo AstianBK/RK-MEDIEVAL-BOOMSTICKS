@@ -480,7 +480,7 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
     }
 
     public int getDefaultProjectileRange() {
-        return 8;
+        return 20;
     }
 
     @Override

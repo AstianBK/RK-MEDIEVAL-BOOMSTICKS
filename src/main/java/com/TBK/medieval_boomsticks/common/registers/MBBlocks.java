@@ -26,7 +26,11 @@ public class MBBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
-    public static final RegistryObject<Block> MAGNITITE_ORE = registerBlock("magnitite_ore",
+    public static final RegistryObject<Block> MAGNITITE_ORE = registerBlock("magnetite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
+                    .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
+
+    public static final RegistryObject<Block> SULFUR_ORE = registerBlock("sulfur_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
@@ -37,7 +41,11 @@ public class MBBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
-    public static final RegistryObject<Block> MAGNITITE_ORE_DEEPSLATE = registerBlock("magnitite_ore_deepslate",
+    public static final RegistryObject<Block> MAGNITITE_ORE_DEEPSLATE = registerBlock("magnetite_ore_deepslate",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE)
+                    .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
+
+    public static final RegistryObject<Block> SULFUR_ORE_DEEPSLATE = registerBlock("sulfur_ore_deepslate",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 

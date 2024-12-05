@@ -1,9 +1,13 @@
 {
-	"credit": "Made with Blockbench",
 	"parent": "builtin/entity",
 	"texture_size": [64, 32],
 	"overrides": [
-		{"predicate": {"medieval_boomsticks:charged": 1}, "model": "medieval_boomsticks:item/arbalest_aim"}
+		{
+			"predicate": {
+				"medieval_boomsticks:charged": 1
+			},
+			"model": "medieval_boomsticks:item/arbalest_aim"
+		}
 	],
 	"display": {
 		"thirdperson_righthand": {

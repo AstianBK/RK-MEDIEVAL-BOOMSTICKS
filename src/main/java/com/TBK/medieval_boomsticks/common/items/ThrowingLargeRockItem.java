@@ -77,7 +77,6 @@ public class ThrowingLargeRockItem extends ThrowingItem {
                             }
 
                             p_43395_.addFreshEntity(throwntrident);
-                            p_43395_.playSound((Player)null, throwntrident, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
                             if (!player.getAbilities().instabuild) {
                                 player.getInventory().removeItem(p_43394_);
                             }

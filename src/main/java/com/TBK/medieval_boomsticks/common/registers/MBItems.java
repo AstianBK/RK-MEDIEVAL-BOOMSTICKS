@@ -43,7 +43,7 @@ public class MBItems {
 
     public static final RegistryObject<Item> RAW_PYRITE= ITEMS.register("raw_pyrite",()->new Item(new Item.Properties().stacksTo(64)));
 
-    public static final RegistryObject<Item> RAW_MAGNITITE= ITEMS.register("raw_magnitite",()->new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> RAW_MAGNETITE = ITEMS.register("raw_magnetite",()->new Item(new Item.Properties().stacksTo(64)));
 
 
     public static final RegistryObject<Item> SAGE = ITEMS.register("sage",
@@ -90,5 +90,6 @@ public class MBItems {
 
     public static final RegistryObject<Item> THROWING_WARDART= ITEMS.register("war_dart",()->new WarDartItem(new Item.Properties().stacksTo(1).durability(16)));
     public static final RegistryObject<Item> RECURVE_BOW= ITEMS.register("recurve_bow",()->new BowItem(new Item.Properties().stacksTo(1)));
+
 
 }
