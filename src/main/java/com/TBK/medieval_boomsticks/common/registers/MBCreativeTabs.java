@@ -53,10 +53,13 @@ public class MBCreativeTabs {
                 a.accept(MBItems.RAW_MAGNETITE.get());
                 a.accept(MBItems.SULFUR.get());
                 a.accept(MBItems.NITRE.get());
-                a.accept(MBBlocks.MAGNITITE_ORE.get());
-                a.accept(MBBlocks.MAGNITITE_ORE_DEEPSLATE.get());
+                a.accept(MBBlocks.SULFUR_ORE_BLOCK.get());
+                a.accept(MBBlocks.MAGNETITE_ORE.get());
+                a.accept(MBBlocks.MAGNETITE_ORE_DEEPSLATE.get());
                 a.accept(MBBlocks.LIMONITE_ORE.get());
                 a.accept(MBBlocks.LIMONITE_ORE_DEEPSLATE.get());
+                a.accept(MBBlocks.SULFUR_ORE.get());
+                a.accept(MBBlocks.SULFUR_ORE_DEEPSLATE.get());
                 a.accept(MBBlocks.PYRITE_ORE.get());
                 a.accept(MBBlocks.PYRITE_ORE_DEEPSLATE.get());
             })

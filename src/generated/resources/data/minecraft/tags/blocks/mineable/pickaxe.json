@@ -2,9 +2,13 @@
   "values": [
     "medieval_boomsticks:limonite_ore",
     "medieval_boomsticks:pyrite_ore",
-    "medieval_boomsticks:magnitite_ore",
+    "medieval_boomsticks:magnetite_ore",
+    "medieval_boomsticks:sulfur_ore",
+
     "medieval_boomsticks:limonite_ore_deepslate",
     "medieval_boomsticks:pyrite_ore_deepslate",
-    "medieval_boomsticks:magnitite_ore_deepslate"
+    "medieval_boomsticks:magnetite_ore_deepslate",
+    "medieval_boomsticks:sulfur_ore_deepslate"
+
   ]
 }
