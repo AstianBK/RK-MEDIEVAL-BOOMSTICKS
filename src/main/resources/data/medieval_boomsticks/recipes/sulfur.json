@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "medieval_boomsticks:sulfur"
+    }
+  },
+  "result": {
+    "item": "medieval_boomsticks:sulfur_ore_block",
+    "count": 1
+  }
+}
