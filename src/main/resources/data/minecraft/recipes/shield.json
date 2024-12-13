@@ -1,0 +1,27 @@
+{
+  "type": "medieval_boomsticks:new_furnace_recipe",
+  "ingredient1": {
+    "item": "minecraft:iron_ingot"
+  },
+  "ingredient2": {
+    "item": "minecraft:iron_ingot"
+  },
+  "ingredient3": {
+    "item": "minecraft:iron_ingot"
+  },
+  "tool1": {
+    "item": "minecraft:iron_axe"
+  },
+  "tool2": {
+    "item": "minecraft:iron_pickaxe"
+  },
+  "tool3": {
+    "item": "minecraft:iron_sword"
+  },
+  "experience": 100,
+  "cooking_time":500,
+
+  "result": {
+    "item": "minecraft:shield"
+  }
+}

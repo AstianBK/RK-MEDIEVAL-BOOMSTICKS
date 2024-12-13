@@ -19,6 +19,9 @@ public class MBBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, RKMedievalBoomStick.MODID);
 
+    public static final RegistryObject<Block> RK_FURNACE = registerBlock("rk_furnace",
+            () -> new RKFurnace(BlockBehaviour.Properties.copy(Blocks.BLAST_FURNACE)));
+
     public static final RegistryObject<Block> LIMONITE_ORE = registerBlock("limonite_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
