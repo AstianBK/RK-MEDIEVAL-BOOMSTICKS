@@ -46,6 +46,9 @@ public class ThrowingAxeItem extends ThrowingItem {
         ItemStack itemstack = p_43143_.getItemInHand(p_43144_);
         p_43142_.playSound((Player)null, p_43143_, MBSounds.THROW_WEAPON.get(), SoundSource.PLAYERS, 1.0F,1.0F);
         if (!p_43142_.isClientSide) {
+            itemstack.hurtAndBreak(1, p_43143_, (p_43388_) -> {
+                p_43388_.broadcastBreakEvent(p_43143_.getUsedItemHand());
+            });
             ItemStack stack=itemstack.copy();
             stack.setCount(1);
             ThrowableAxe throwableWeapon = new ThrowableAxe(p_43142_, p_43143_,stack);
