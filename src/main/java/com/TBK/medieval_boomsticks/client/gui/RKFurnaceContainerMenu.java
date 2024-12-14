@@ -36,17 +36,17 @@ public class RKFurnaceContainerMenu extends RecipeBookMenu<Container> {
         this.container = p_38971_;
         this.data = p_38972_;
         this.level = p_38970_.player.level();
-        this.addSlot(new Slot(p_38971_, 0, 56, 17));
-        this.addSlot(new Slot(p_38971_, 1, 56, 34));
-        this.addSlot(new Slot(p_38971_, 2, 56, 51));
+        this.addSlot(new Slot(p_38971_, 0, 8, 9));
+        this.addSlot(new Slot(p_38971_, 1, 8, 31));
+        this.addSlot(new Slot(p_38971_, 2, 8, 54));
 
-        this.addSlot(new FuelSlot(this, p_38971_, 3, 74, 18));
+        this.addSlot(new FuelSlot(this, p_38971_, 3, 89, 52));
 
-        this.addSlot(new Slot(p_38971_, 4, 116, 17));
-        this.addSlot(new Slot(p_38971_, 5, 116, 34));
-        this.addSlot(new Slot(p_38971_, 6, 116, 51));
+        this.addSlot(new Slot(p_38971_, 4, 152, 9));
+        this.addSlot(new Slot(p_38971_, 5, 152, 31));
+        this.addSlot(new Slot(p_38971_, 6, 152, 53));
 
-        this.addSlot(new FurnaceResultSlot(p_38970_.player, p_38971_, 7, 74, 54));
+        this.addSlot(new FurnaceResultSlot(p_38970_.player, p_38971_, 7, 88, 13));
 
 
         for(int i = 0; i < 3; ++i) {

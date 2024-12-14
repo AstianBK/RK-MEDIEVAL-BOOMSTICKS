@@ -53,6 +53,14 @@ public class MBCreativeTabs {
                 a.accept(MBItems.RAW_MAGNETITE.get());
                 a.accept(MBItems.SULFUR.get());
                 a.accept(MBItems.NITRE.get());
+                a.accept(MBItems.SMITHING_HAMMER.get());
+                a.accept(MBItems.SMITHING_BELLOWS.get());
+                a.accept(MBItems.SMITHING_TONGS.get());
+                a.accept(MBItems.SMALL_GUNMETAL_BARREL.get());
+                a.accept(MBItems.SMALL_IRON_BARREL.get());
+                a.accept(MBItems.LARGE_GUNMETAL_BARREL.get());
+                a.accept(MBItems.LARGE_IRON_BARREL.get());
+                a.accept(MBBlocks.SMITHING_FURNACE.get());
                 a.accept(MBBlocks.MAGNETITE_ORE.get());
                 a.accept(MBBlocks.MAGNETITE_ORE_DEEPSLATE.get());
                 a.accept(MBBlocks.LIMONITE_ORE.get());

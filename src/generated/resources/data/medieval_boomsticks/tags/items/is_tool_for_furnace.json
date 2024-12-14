@@ -1,8 +1,7 @@
 {
   "values": [
-    "minecraft:diamond_sword",
-    "minecraft:diamond_pickaxe",
-    "minecraft:diamond_axe",
-    "minecraft:iron_sword"
+      "medieval_boomsticks:smithing_hammer",
+      "medieval_boomsticks:smithing_bellows",
+      "medieval_boomsticks:smithing_tongs"
   ]
 }

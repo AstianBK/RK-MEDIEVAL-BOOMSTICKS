@@ -19,7 +19,7 @@ public class MBBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, RKMedievalBoomStick.MODID);
 
-    public static final RegistryObject<Block> RK_FURNACE = registerBlock("rk_furnace",
+    public static final RegistryObject<Block> SMITHING_FURNACE = registerBlock("smithing_furnace",
             () -> new RKFurnace(BlockBehaviour.Properties.copy(Blocks.BLAST_FURNACE)));
 
     public static final RegistryObject<Block> LIMONITE_ORE = registerBlock("limonite_ore",

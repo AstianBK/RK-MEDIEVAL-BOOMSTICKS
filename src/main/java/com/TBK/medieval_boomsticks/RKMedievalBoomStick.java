@@ -9,6 +9,8 @@ import com.TBK.medieval_boomsticks.server.world.BKBlockStateProvider;
 import com.TBK.medieval_boomsticks.server.world.BKLootTableProvider;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;

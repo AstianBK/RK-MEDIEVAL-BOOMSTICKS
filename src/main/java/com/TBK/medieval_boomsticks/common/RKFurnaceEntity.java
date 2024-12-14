@@ -163,10 +163,21 @@ public class RKFurnaceEntity extends AbstractFurnaceBlockEntity {
             } else if (itemstack2.is(itemstack1.getItem())) {
                 itemstack2.grow(itemstack1.getCount());
             }
-
-            tool1.setDamageValue(tool1.getDamageValue()+1);
-            tool2.setDamageValue(tool2.getDamageValue()+1);
-            tool3.setDamageValue(tool3.getDamageValue()+1);
+            if(tool1.getDamageValue()+1<5){
+                tool1.setDamageValue(tool1.getDamageValue()+1);
+            }else {
+                tool1.shrink(1);
+            }
+            if(tool2.getDamageValue()+1<5){
+                tool2.setDamageValue(tool2.getDamageValue()+1);
+            }else {
+                tool2.shrink(1);
+            }
+            if(tool3.getDamageValue()+1<5){
+                tool3.setDamageValue(tool3.getDamageValue()+1);
+            }else {
+                tool3.shrink(1);
+            }
 
             addition1.shrink(1);
             addition2.shrink(1);
