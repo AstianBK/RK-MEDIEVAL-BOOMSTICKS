@@ -60,6 +60,7 @@ public class MBCreativeTabs {
                 a.accept(MBItems.SMALL_IRON_BARREL.get());
                 a.accept(MBItems.LARGE_GUNMETAL_BARREL.get());
                 a.accept(MBItems.LARGE_IRON_BARREL.get());
+                a.accept(MBItems.GUN_TRIGGER.get());
                 a.accept(MBBlocks.SMITHING_FURNACE.get());
                 a.accept(MBBlocks.MAGNETITE_ORE.get());
                 a.accept(MBBlocks.MAGNETITE_ORE_DEEPSLATE.get());

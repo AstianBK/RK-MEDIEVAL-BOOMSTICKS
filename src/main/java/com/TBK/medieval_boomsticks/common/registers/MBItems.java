@@ -58,6 +58,7 @@ public class MBItems {
 
     public static final RegistryObject<Item> SMALL_GUNMETAL_BARREL = ITEMS.register("small_gunmetal_barrel",()->new Item(new Item.Properties().stacksTo(64)));
 
+    public static final RegistryObject<Item> GUN_TRIGGER = ITEMS.register("gun_trigger",()->new Item(new Item.Properties().stacksTo(64)));
 
 
     public static final RegistryObject<Item> SAGE = ITEMS.register("sage",
@@ -82,14 +83,14 @@ public class MBItems {
     public static final RegistryObject<Item> HANDGONNE= ITEMS.register("handgonne",()->new HandGonneItem(new Item.Properties().stacksTo(1).durability(24)));
     public static final RegistryObject<Item> SPIKEHANDGONNE= ITEMS.register("spikedhandgonne",()->new SpikedHandGonneItem(new Item.Properties().stacksTo(1).durability(24)));
 
-    public static final RegistryObject<Item> JAVELIN= ITEMS.register("javelin",()->new JavelinItem(new Item.Properties().stacksTo(1).durability(16)));
+    public static final RegistryObject<Item> JAVELIN= ITEMS.register("javelin",()->new JavelinItem(new Item.Properties().stacksTo(1).durability(1)));
     public static final RegistryObject<Item> ARBALEST= ITEMS.register("arbalest",()->new ArbalestItem(new Item.Properties().stacksTo(1).durability(924)));
     public static final RegistryObject<Item> ARQUEBUS= ITEMS.register("arquebus",()->new ArquebusItem(new Item.Properties().stacksTo(1).durability(48)));
 
     public static final RegistryObject<Item> HEAVY_BOLT= ITEMS.register("heavy_bolt",()->new ArrowItem(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> ROUND_BALL= ITEMS.register("round_ball",()->new ArrowItem(new Item.Properties().stacksTo(16)));
 
-    public static final RegistryObject<Item> IRON_THROWING_KNIFE= ITEMS.register("iron_throwing_knife",()->new ThrowingKnifeItem(new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> IRON_THROWING_KNIFE= ITEMS.register("iron_throwing_knife",()->new ThrowingKnifeItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> IRON_THROWING_AXE= ITEMS.register("iron_throwing_axe",()->new ThrowingAxeItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> SMALL_THROWING_ROCK= ITEMS.register("small_throwing_rock",()->new ThrowingSmallRockItem(new Item.Properties().stacksTo(1)));

@@ -35,6 +35,16 @@
   "item.medieval_boomsticks.finished_shaft": "Finished Shaft",
   "item.medieval_boomsticks.finished_leather": "Finished Leather",
   "item.medieval_boomsticks.upgrade_kit": "Upgrade Kit",
+  "item.medieval_boomsticks.gun_trigger": "Gun Trigger",
+  "item.medieval_boomsticks.smithing_hammer": "Smithing Hammer",
+  "item.medieval_boomsticks.smithing_bellows": "Smithing Bellows",
+  "item.medieval_boomsticks.smithing_tongs": "Smithing Tongs",
+  "item.medieval_boomsticks.small_gunmetal_barrel": "Small Gunmetal Barrel",
+  "item.medieval_boomsticks.large_gunmetal_barrel": "Large Gunmetal Barrel",
+  "item.medieval_boomsticks.gunmetal_barrel": "Gunmetal Barrel",
+  "item.medieval_boomsticks.small_iron_barrel": "Small Iron Barrel",
+  "item.medieval_boomsticks.large_iron_barrel": "Large Iron Barrel",
+  "item.medieval_boomsticks.iron_barrel": "Iron Barrel",
 
   "item.medieval_boomsticks.arnica": "Arnica",
   "item.medieval_boomsticks.sage": "Sage",
@@ -43,7 +53,6 @@
   "item.medieval_boomsticks.comfrey": "Comfrey",
   "item.medieval_boomsticks.yarrow": "Yarrow",
   "block.medieval_boomsticks.smithing_furnace": "Smithing Furnace",
-
 
   "item.medieval_boomsticks.raw_limonite": "Raw Limonite",
   "item.medieval_boomsticks.raw_pyrite": "Raw Pyrite",
