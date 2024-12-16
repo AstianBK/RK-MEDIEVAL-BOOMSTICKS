@@ -1,21 +1,20 @@
 package com.TBK.medieval_boomsticks;
 
+import com.TBK.medieval_boomsticks.common.blocks.RKFurnace;
 import com.TBK.medieval_boomsticks.common.items.MazeItem;
 import com.TBK.medieval_boomsticks.common.items.MorningStarItem;
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
 import com.TBK.medieval_boomsticks.common.registers.MBSounds;
-import com.TBK.medieval_boomsticks.server.entity.ThrowableSmallRock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
-import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -32,6 +31,12 @@ public class ForgeEvents {
             target.invulnerableTime=0;
             target.hurt(living.damageSources().generic(),trueDamage);
             living.level().playSound(null,living,living.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof MorningStarItem ? MBSounds.MORNINGSTAR_HIT.get() : MBSounds.EVENINGSTAR_HIT.get(), SoundSource.PLAYERS,1.0F,1.0F);
+        }
+    }
+    @SubscribeEvent
+    public static void onPlaceBlock(BlockEvent.EntityPlaceEvent event){
+        if(!event.getLevel().isClientSide()){
+
         }
     }
 

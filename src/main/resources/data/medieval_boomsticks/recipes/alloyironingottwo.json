@@ -1,0 +1,28 @@
+{
+  "type": "medieval_boomsticks:new_furnace_recipe",
+  "ingredient1": {
+    "item": "medieval_boomsticks:raw_pyrite"
+  },
+  "ingredient2": {
+    "item": "medieval_boomsticks:raw_pyrite"
+  },
+  "ingredient3": {
+    "item": "medieval_boomsticks:raw_pyrite"
+  },
+  "tool1": {
+    "item": "medieval_boomsticks:smithing_hammer"
+  },
+  "tool2": {
+    "item": "medieval_boomsticks:smithing_tongs"
+  },
+  "tool3": {
+    "item": "medieval_boomsticks:smithing_bellows"
+  },
+  "experience": 0.3,
+  "cooking_time":150,
+
+  "result": {
+    "item": "minecraft:raw_iron",
+    "count": 4
+  }
+}

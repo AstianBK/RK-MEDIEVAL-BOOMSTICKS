@@ -1,0 +1,28 @@
+{
+  "type": "medieval_boomsticks:new_furnace_recipe",
+  "ingredient1": {
+    "item": "medieval_boomsticks:raw_limonite"
+  },
+  "ingredient2": {
+    "item": "medieval_boomsticks:raw_limonite"
+  },
+  "ingredient3": {
+    "item": "medieval_boomsticks:raw_limonite"
+  },
+  "tool1": {
+    "item": "medieval_boomsticks:smithing_hammer"
+  },
+  "tool2": {
+    "item": "medieval_boomsticks:smithing_tongs"
+  },
+  "tool3": {
+    "item": "medieval_boomsticks:smithing_bellows"
+  },
+  "experience": 0.1,
+  "cooking_time":100,
+
+  "result": {
+    "item": "minecraft:iron_nugget",
+    "count": 6
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "medieval_boomsticks:new_furnace_recipe",
+  "ingredient1": {
+    "item": "medieval_boomsticks:dziwer_bar"
+  },
+  "ingredient2": {
+    "item": "minecraft:iron_ingot"
+  },
+  "ingredient3": {
+    "item": "medieval_boomsticks:dziwer_bar"
+  },
+  "tool1": {
+    "item": "medieval_boomsticks:smithing_hammer"
+  },
+  "tool2": {
+    "item": "medieval_boomsticks:smithing_tongs"
+  },
+  "tool3": {
+    "item": "medieval_boomsticks:smithing_bellows"
+  },
+  "experience": 10,
+  "cooking_time":800,
+
+  "result": {
+    "item": "medieval_boomsticks:bulat_bar"
+  }
+}
