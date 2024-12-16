@@ -38,9 +38,9 @@ public class RKFurnaceContainerMenu extends RecipeBookMenu<Container> {
         this.level = p_38970_.player.level();
         this.addSlot(new Slot(p_38971_, 0, 8, 9));
         this.addSlot(new Slot(p_38971_, 1, 8, 31));
-        this.addSlot(new Slot(p_38971_, 2, 8, 55));
+        this.addSlot(new Slot(p_38971_, 2, 8, 53));
 
-        this.addSlot(new FuelSlot(this, p_38971_, 3, 89, 51));
+        this.addSlot(new FuelSlot(this, p_38971_, 3, 89, 53));
 
         this.addSlot(new Slot(p_38971_, 4, 152, 9));
         this.addSlot(new Slot(p_38971_, 5, 152, 31));
