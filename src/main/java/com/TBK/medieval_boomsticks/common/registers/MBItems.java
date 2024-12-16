@@ -45,11 +45,12 @@ public class MBItems {
 
     public static final RegistryObject<Item> RAW_MAGNETITE = ITEMS.register("raw_magnetite",()->new Item(new Item.Properties().stacksTo(64)));
 
-    public static final RegistryObject<Item> SMITHING_BELLOWS= ITEMS.register("smithing_bellows",()->new Item(new Item.Properties().stacksTo(1).durability(5)));
+    public static final RegistryObject<Item> SMITHING_BELLOWS= ITEMS.register("smithing_bellows",()->new Item(new Item.Properties().stacksTo(1).durability(128)));
 
-    public static final RegistryObject<Item> SMITHING_HAMMER= ITEMS.register("smithing_hammer",()->new Item(new Item.Properties().stacksTo(1).durability(5)));
+    public static final RegistryObject<Item> SMITHING_HAMMER= ITEMS.register("smithing_hammer",()->new Item(new Item.Properties().stacksTo(1).durability(64)));
 
-    public static final RegistryObject<Item> SMITHING_TONGS= ITEMS.register("smithing_tongs",()->new Item(new Item.Properties().stacksTo(1).durability(5)));
+    public static final RegistryObject<Item> SMITHING_TONGS= ITEMS.register("smithing_tongs",()->new Item(new Item.Properties().stacksTo(1).durability(32)));
+
     public static final RegistryObject<Item> LARGE_IRON_BARREL= ITEMS.register("large_iron_barrel",()->new Item(new Item.Properties().stacksTo(64)));
 
     public static final RegistryObject<Item> LARGE_GUNMETAL_BARREL= ITEMS.register("large_gunmetal_barrel",()->new Item(new Item.Properties().stacksTo(64)));

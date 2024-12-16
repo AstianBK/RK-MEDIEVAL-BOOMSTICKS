@@ -1,9 +1,9 @@
 {
   "variants": {
-    "facing=north,half=lower": { "model":"medieval_boomsticks:block/smithing_furnace" },
-    "facing=east,half=lower": { "model":"medieval_boomsticks:block/smithing_furnace", "y": 90 },
-    "facing=south,half=lower": { "model":"medieval_boomsticks:block/smithing_furnace", "y": 180 },
-    "facing=west,half=lower": { "model":"medieval_boomsticks:block/smithing_furnace", "y": 270 },
+    "facing=north,half=lower": { "model":"medieval_boomsticks:block/smithing_furnace_bot" },
+    "facing=east,half=lower": { "model":"medieval_boomsticks:block/smithing_furnace_bot", "y": 90 },
+    "facing=south,half=lower": { "model":"medieval_boomsticks:block/smithing_furnace_bot", "y": 180 },
+    "facing=west,half=lower": { "model":"medieval_boomsticks:block/smithing_furnace_bot", "y": 270 },
 
     "facing=north,half=upper": { "model":"medieval_boomsticks:block/smithing_furnace_top" },
     "facing=east,half=upper": { "model":"medieval_boomsticks:block/smithing_furnace_top", "y": 90 },

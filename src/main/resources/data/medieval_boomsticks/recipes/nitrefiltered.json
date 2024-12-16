@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "DDD",
+        " C "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:sand"
+        },
+        "D": {
+            "tag": "medieval_boomsticks:decay"
+        },
+        "C": {
+            "item": "minecraft:composter"
+        }
+    },
+    "result": {
+        "item": "medieval_boomsticks:nitre",
+        "count": 3
+    }
+}

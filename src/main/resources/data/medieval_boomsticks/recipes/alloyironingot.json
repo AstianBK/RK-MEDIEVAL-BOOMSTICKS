@@ -19,6 +19,7 @@
     "item": "medieval_boomsticks:smithing_bellows"
   },
   "experience": 0.1,
+
   "cooking_time":100,
 
   "result": {

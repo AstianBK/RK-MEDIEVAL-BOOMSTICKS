@@ -3,7 +3,8 @@
 	"parent": "furnacetop",
 	"texture_size": [32, 32],
 	"textures": {
-		"4": "medieval_boomsticks:block/furnacebasemain"
+		"4": "medieval_boomsticks:block/furnacebasemain",
+		"particle": "medieval_boomsticks:block/cobblebase"
 	},
 	"elements": [
 		{

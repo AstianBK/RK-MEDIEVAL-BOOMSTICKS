@@ -6,7 +6,7 @@
 		"2": "medieval_boomsticks:block/furnacebasemain",
 		"3": "medieval_boomsticks:block/cobblebase",
 		"4": "medieval_boomsticks:block/furnacebasemain",
-		"particle": "medieval_boomsticks:block/furnacebasemain"
+		"particle": "medieval_boomsticks:block/cobblebase"
 	},
 	"elements": [
 		{
@@ -158,11 +158,11 @@
 			"rotation": {"angle": 0, "axis": "y", "origin": [6.075, 10, 4.05]},
 			"faces": {
 				"north": {"uv": [0, 10, 4.5, 11.5], "texture": "#3"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#missing"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#3"},
 				"south": {"uv": [0, 10, 4.5, 11.5], "texture": "#3"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#missing"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#3"},
 				"up": {"uv": [0, 8.5, 4.5, 10], "texture": "#3"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#missing"}
+				"down": {"uv": [0, 0, 16, 16], "texture": "#3"}
 			}
 		},
 		{
@@ -171,41 +171,15 @@
 			"rotation": {"angle": 0, "axis": "y", "origin": [4, 3, 4]},
 			"color": 9,
 			"faces": {
-				"north": {"uv": [0, 0, 4, 0.25], "texture": "#missing"},
-				"east": {"uv": [0, 0, 4, 0.25], "texture": "#missing"},
-				"south": {"uv": [0, 0, 4, 0.25], "texture": "#missing"},
-				"west": {"uv": [0, 0, 4, 0.25], "texture": "#missing"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#missing"},
-				"down": {"uv": [0, 0, 4, 0], "texture": "#missing"}
+				"north": {"uv": [0, 0, 4, 0.25], "texture": "#4"},
+				"east": {"uv": [0, 0, 4, 0.25], "texture": "#4"},
+				"south": {"uv": [0, 0, 4, 0.25], "texture": "#4"},
+				"west": {"uv": [0, 0, 4, 0.25], "texture": "#4"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#4"},
+				"down": {"uv": [0, 0, 4, 0], "texture": "#4"}
 			}
 		}
 	],
-	"display": {
-		"thirdperson_righthand": {
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"thirdperson_lefthand": {
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"firstperson_righthand": {
-			"scale": [0.45, 0.43, 0.42]
-		},
-		"firstperson_lefthand": {
-			"scale": [0.45, 0.43, 0.42]
-		},
-		"ground": {
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"gui": {
-			"rotation": [30, 225, 0],
-			"translation": [0, -1, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"fixed": {
-			"translation": [0, -1.25, 0],
-			"scale": [0.4, 0.4, 0.4]
-		}
-	},
 	"groups": [
 		{
 			"name": "main",

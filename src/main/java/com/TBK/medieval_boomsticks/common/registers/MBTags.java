@@ -8,6 +8,8 @@ import net.minecraft.world.item.Item;
 
 public class MBTags {
     public static final TagKey<Item> IS_TOOL_FOR_FURNACE = tag("is_tool_for_furnace");
+    public static final TagKey<Item> IS_FUEL_FOR_SMITHING_FURNACE = tag("is_fuel_for_smithing_furnace");
+
 
 
     private static TagKey<Item> tag(String name) {

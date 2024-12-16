@@ -126,7 +126,7 @@ public class RKFurnaceContainerMenu extends RecipeBookMenu<Container> {
     }
 
     protected boolean isFuel(ItemStack p_38989_) {
-        return net.minecraftforge.common.ForgeHooks.getBurnTime(p_38989_, MBRecipeSerializer.FURNACE_RECIPE_TYPE.get()) > 0;
+        return p_38989_.is(MBTags.IS_FUEL_FOR_SMITHING_FURNACE) && net.minecraftforge.common.ForgeHooks.getBurnTime(p_38989_, MBRecipeSerializer.FURNACE_RECIPE_TYPE.get()) > 0;
     }
 
     public int getBurnProgress() {

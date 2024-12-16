@@ -1,0 +1,14 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:bone",
+        "minecraft:leather",
+        "minecraft:rotten_flesh",
+        "minecraft:spider_eye",
+        "minecraft:egg",
+        "minecraft:phantom_membrane",
+        "minecraft:beef",
+        "minecraft:porkchop",
+        "minecraft:mutton"
+    ]
+}

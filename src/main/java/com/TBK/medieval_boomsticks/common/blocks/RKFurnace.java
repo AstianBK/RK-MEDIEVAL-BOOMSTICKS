@@ -8,7 +8,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,15 +17,12 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -73,7 +69,7 @@ public class RKFurnace extends AbstractFurnaceBlock {
             double d7 = direction$axis == Direction.Axis.Z ? (double)direction.getStepZ() * 0.52D : d4;
             p_221254_.addParticle(ParticleTypes.SMOKE, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
             p_221254_.addParticle(ParticleTypes.FLAME, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
-            if (p_221256_.nextDouble()<0.2D){
+            if (p_221256_.nextDouble()<0.4D){
                 p_221254_.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE,d0, (double)p_221255_.getY()+2.2D, d2, 0.0D, 0.1D, 0.0D);
             }
         }
@@ -98,6 +94,8 @@ public class RKFurnace extends AbstractFurnaceBlock {
         if(!p_49860_.isClientSide()){
             if(p_49862_.getValue(HALF)==DoubleBlockHalf.LOWER){
                 p_49860_.destroyBlock(p_49861_.above(),true);
+            }else {
+                p_49860_.destroyBlock(p_49861_.below(),true);
             }
         }
         super.destroy(p_49860_, p_49861_, p_49862_);
@@ -109,7 +107,7 @@ public class RKFurnace extends AbstractFurnaceBlock {
     @Override
     public void setPlacedBy(Level p_48694_, BlockPos p_48695_, BlockState p_48696_, LivingEntity p_48697_, ItemStack p_48698_) {
         if(!p_48694_.isClientSide){
-            p_48694_.setBlock(p_48695_.above(),this.defaultBlockState().setValue(HALF,DoubleBlockHalf.UPPER),3);
+            p_48694_.setBlock(p_48695_.above(),this.defaultBlockState().setValue(HALF,DoubleBlockHalf.UPPER).setValue(FACING,p_48696_.getValue(FACING)),3);
         }
     }
 
@@ -122,7 +120,7 @@ public class RKFurnace extends AbstractFurnaceBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new RKFurnaceEntity(p_153215_,p_153216_);
+        return p_153216_.getValue(HALF)==DoubleBlockHalf.LOWER ? new RKFurnaceEntity(p_153215_,p_153216_) : null;
     }
 
 
