@@ -18,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 
 public class ThrowableAxe extends ThrowableWeapon {
     private static final EntityDataAccessor<Boolean> IS_CURSED = SynchedEntityData.defineId(ThrowableAxe.class, EntityDataSerializers.BOOLEAN);
@@ -94,6 +95,21 @@ public class ThrowableAxe extends ThrowableWeapon {
 
     protected boolean tryPickup(Player p_150196_) {
         return super.tryPickup(p_150196_) || this.isNoPhysics() && this.ownedBy(p_150196_) && p_150196_.getInventory().add(this.getPickupItem());
+    }
+
+    @Override
+    protected void onHit(HitResult p_37260_) {
+        super.onHit(p_37260_);
+        if(!this.level().isClientSide){
+            if(this.javelinItem!=null){
+                if(this.javelinItem.getDamageValue()+1<this.javelinItem.getMaxDamage()){
+                    this.javelinItem.setDamageValue(this.javelinItem.getDamageValue()+1);
+                }else {
+                    this.javelinItem.shrink(1);
+                    this.discard();
+                }
+            }
+        }
     }
 
     protected SoundEvent getDefaultHitGroundSoundEvent() {

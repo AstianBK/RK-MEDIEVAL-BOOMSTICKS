@@ -21,6 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
@@ -70,6 +71,21 @@ public class ThrowableKnife extends ThrowableWeapon {
         float f1 = 1.0F;
 
         this.playSound(soundevent, f1, 1.0F);
+    }
+
+    @Override
+    protected void onHit(HitResult p_37260_) {
+        super.onHit(p_37260_);
+        if(!this.level().isClientSide){
+            if(this.javelinItem!=null){
+                if(this.javelinItem.getDamageValue()+1<this.javelinItem.getMaxDamage()){
+                    this.javelinItem.setDamageValue(this.javelinItem.getDamageValue()+1);
+                }else {
+                    this.javelinItem.shrink(1);
+                    this.discard();
+                }
+            }
+        }
     }
 
     protected boolean tryPickup(Player p_150196_) {
