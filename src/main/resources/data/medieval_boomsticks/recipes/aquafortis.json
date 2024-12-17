@@ -1,0 +1,45 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "medieval_boomsticks:nitre"
+        },
+        {
+            "item": "medieval_boomsticks:sulfur"
+        },
+        {
+            "item": "medieval_boomsticks:nitre"
+        },
+        {
+            "item": "minecraft:potion",
+            "nbt": "{Potion:\"minecraft:water\"}"
+
+        },
+        {
+            "item": "medieval_boomsticks:nitre"
+        },
+        {
+            "item": "minecraft:potion",
+            "nbt": "{Potion:\"minecraft:water\"}"
+
+        },
+        {
+            "item": "minecraft:potion",
+            "nbt": "{Potion:\"minecraft:water\"}"
+
+        },
+        {
+            "item": "minecraft:potion",
+            "nbt": "{Potion:\"minecraft:water\"}"
+
+        },
+        {
+            "item": "minecraft:potion",
+            "nbt": "{Potion:\"minecraft:water\"}"
+        }
+    ],
+    "result": {
+        "item": "medieval_boomsticks:aqua_fortis",
+        "count": 5
+    }
+}

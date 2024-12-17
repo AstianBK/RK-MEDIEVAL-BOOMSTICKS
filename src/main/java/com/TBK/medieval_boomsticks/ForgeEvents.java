@@ -33,12 +33,6 @@ public class ForgeEvents {
             living.level().playSound(null,living,living.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof MorningStarItem ? MBSounds.MORNINGSTAR_HIT.get() : MBSounds.EVENINGSTAR_HIT.get(), SoundSource.PLAYERS,1.0F,1.0F);
         }
     }
-    @SubscribeEvent
-    public static void onPlaceBlock(BlockEvent.EntityPlaceEvent event){
-        if(!event.getLevel().isClientSide()){
-
-        }
-    }
 
     @SubscribeEvent
     public static void onComputeFOV(ComputeFovModifierEvent event){
