@@ -1,5 +1,6 @@
 package com.TBK.medieval_boomsticks.server.data.recipe;
 
+import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
 import com.TBK.medieval_boomsticks.common.registers.MBRecipeSerializer;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
@@ -13,6 +14,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+
+import java.util.Arrays;
 
 public class RKFurnaceRecipe extends AbstractCookingRecipe {
     protected final RecipeType<?> type;
@@ -44,6 +47,8 @@ public class RKFurnaceRecipe extends AbstractCookingRecipe {
 
     @Override
     public boolean matches(Container p_44002_, Level p_44003_) {
+        boolean isValidIngredient2=false;
+        boolean isValidIngredient3=false;
         ItemStack addition1=p_44002_.getItem(0);
         ItemStack addition2=p_44002_.getItem(1);
         ItemStack addition3=p_44002_.getItem(2);
@@ -51,6 +56,7 @@ public class RKFurnaceRecipe extends AbstractCookingRecipe {
         ItemStack tool1=p_44002_.getItem(4);
         ItemStack tool2=p_44002_.getItem(5);
         ItemStack tool3=p_44002_.getItem(6);
+
 
         return this.addition1.test(addition1) && this.addition2.test(addition2) && this.addition3.test(addition3) && this.tool1.is(tool1.getItem()) && this.tool2.is(tool2.getItem()) && this.tool3.is(tool3.getItem());
     }
@@ -98,8 +104,8 @@ public class RKFurnaceRecipe extends AbstractCookingRecipe {
     public static class Serializer implements RecipeSerializer<RKFurnaceRecipe> {
         public RKFurnaceRecipe fromJson(ResourceLocation p_44562_, JsonObject p_44563_) {
             Ingredient ingredient1 = Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_, "ingredient1"));
-            Ingredient ingredient2 = Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_, "ingredient2"));
-            Ingredient ingredient3 = Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_,"ingredient3"));
+            Ingredient ingredient2 = p_44563_.has("ingredient2") ? Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_, "ingredient2")) : Ingredient.EMPTY;
+            Ingredient ingredient3 = p_44563_.has("ingredient3") ? Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_,"ingredient3")) : Ingredient.EMPTY;
             ItemStack tool1 = getItemForJson(p_44563_,"tool1");
             ItemStack tool2 = getItemForJson(p_44563_,"tool2");
             ItemStack tool3 = getItemForJson(p_44563_,"tool3");

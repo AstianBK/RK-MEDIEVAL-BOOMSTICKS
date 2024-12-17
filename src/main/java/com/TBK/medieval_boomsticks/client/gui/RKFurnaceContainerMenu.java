@@ -1,5 +1,6 @@
 package com.TBK.medieval_boomsticks.client.gui;
 
+import com.TBK.medieval_boomsticks.common.RKFurnaceEntity;
 import com.TBK.medieval_boomsticks.common.registers.MBMenuType;
 import com.TBK.medieval_boomsticks.common.registers.MBRecipeSerializer;
 import com.TBK.medieval_boomsticks.common.registers.MBTags;
@@ -93,6 +94,11 @@ public class RKFurnaceContainerMenu extends RecipeBookMenu<Container> {
     @Override
     public int getResultSlotIndex() {
         return 7;
+    }
+
+    @Override
+    public void slotsChanged(Container p_38868_) {
+        super.slotsChanged(p_38868_);
     }
 
     @Override

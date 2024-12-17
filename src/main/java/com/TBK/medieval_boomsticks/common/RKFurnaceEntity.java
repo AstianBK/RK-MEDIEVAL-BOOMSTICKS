@@ -17,6 +17,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
@@ -114,7 +115,7 @@ public class RKFurnaceEntity extends AbstractFurnaceBlockEntity {
     }
 
     public boolean fullSlotAddition(NonNullList<ItemStack> list){
-        return !list.get(0).isEmpty() && !list.get(1).isEmpty() && !list.get(2).isEmpty();
+        return !list.get(0).isEmpty();
     }
 
     public boolean fullSlotTool(NonNullList<ItemStack> list){

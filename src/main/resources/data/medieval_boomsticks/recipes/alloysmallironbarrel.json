@@ -1,13 +1,13 @@
 {
   "type": "medieval_boomsticks:new_furnace_recipe",
   "ingredient1": {
-    "item": "minecraft:gold_ingot"
+    "item": "minecraft:iron_ingot"
   },
   "ingredient2": {
     "item": "minecraft:iron_ingot"
   },
   "ingredient3": {
-    "item": "minecraft:iron_ingot"
+    "item": "minecraft:clay_ball"
   },
   "tool1": {
     "item": "medieval_boomsticks:smithing_hammer"
@@ -18,10 +18,10 @@
   "tool3": {
     "item": "medieval_boomsticks:smithing_bellows"
   },
-  "experience": 100,
-  "cooking_time":500,
+  "experience": 1,
+  "cooking_time":400,
 
   "result": {
-    "item": "medieval_boomsticks:large_gunmetal_barrel"
+    "item": "medieval_boomsticks:small_iron_barrel"
   }
 }
