@@ -54,6 +54,9 @@ public class MBItems {
     public static final RegistryObject<Item> LARGE_IRON_BARREL= ITEMS.register("large_iron_barrel",()->new Item(new Item.Properties().stacksTo(64)));
 
     public static final RegistryObject<Item> LARGE_GUNMETAL_BARREL= ITEMS.register("large_gunmetal_barrel",()->new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> IRON_BARREL= ITEMS.register("iron_barrel",()->new Item(new Item.Properties().stacksTo(64)));
+
+    public static final RegistryObject<Item> GUNMETAL_BARREL= ITEMS.register("gunmetal_barrel",()->new Item(new Item.Properties().stacksTo(64)));
 
     public static final RegistryObject<Item> SMALL_IRON_BARREL= ITEMS.register("small_iron_barrel",()->new Item(new Item.Properties().stacksTo(64)));
 

@@ -58,6 +58,9 @@ public class MBCreativeTabs {
                 a.accept(MBItems.SMITHING_TONGS.get());
                 a.accept(MBItems.SMALL_GUNMETAL_BARREL.get());
                 a.accept(MBItems.SMALL_IRON_BARREL.get());
+                a.accept(MBItems.GUNMETAL_BARREL.get());
+                a.accept(MBItems.IRON_BARREL.get());
+
                 a.accept(MBItems.LARGE_GUNMETAL_BARREL.get());
                 a.accept(MBItems.LARGE_IRON_BARREL.get());
                 a.accept(MBItems.GUN_TRIGGER.get());
