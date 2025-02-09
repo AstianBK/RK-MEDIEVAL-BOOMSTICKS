@@ -26,12 +26,40 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+
+import java.awt.*;
 
 public class RKFurnace extends AbstractFurnaceBlock {
     protected static final VoxelShape AXIS_AABB = Block.box(0.0D, 0.0D, 0.0D,
             16.0D, 16.0D, 16.0D);
+    protected static final VoxelShape CHIMNEY = Block.box(4, 3, 4,
+            12, 13, 12);
+    protected static final VoxelShape BASE_SOUTH = Block.box(3, 0, 3, 13, 5, 16);
+    protected static final VoxelShape BASE_LEFT_SOUTH = Block.box(0, 0, 3, 3, 3, 16);
+    protected static final VoxelShape BASE_RIGHT_SOUTH = Block.box(13, 0, 3, 16, 3, 16);
+
+    // NORTE
+    protected static final VoxelShape BASE_NORTH = Block.box(3, 0, 0, 13, 5, 13);
+    protected static final VoxelShape BASE_LEFT_NORTH = Block.box(13, 0, 0, 16, 3, 13);
+    protected static final VoxelShape BASE_RIGHT_NORTH = Block.box(0, 0, 0, 3, 3, 13);
+
+    // ESTE
+    protected static final VoxelShape BASE_EAST = Block.box(3, 0, 3, 16, 5, 13);
+    protected static final VoxelShape BASE_LEFT_EAST = Block.box(3, 0, 0, 16, 3, 3);
+    protected static final VoxelShape BASE_RIGHT_EAST = Block.box(3, 0, 13, 16, 3, 16);
+
+    // OESTE
+    protected static final VoxelShape BASE_WEST = Block.box(0, 0, 3, 13, 5, 13);
+    protected static final VoxelShape BASE_LEFT_WEST = Block.box(0, 0, 0, 3, 3, 3);
+    protected static final VoxelShape BASE_RIGHT_WEST = Block.box(0, 0, 13, 3, 3, 16);
+    protected static final VoxelShape AXIS_AABB_SOUTH = Shapes.or(BASE_SOUTH,BASE_LEFT_SOUTH,BASE_RIGHT_SOUTH,CHIMNEY);
+    protected static final VoxelShape AXIS_AABB_NORTH = Shapes.or(BASE_NORTH,BASE_LEFT_NORTH,BASE_RIGHT_NORTH,CHIMNEY);
+    protected static final VoxelShape AXIS_AABB_EAST = Shapes.or(BASE_EAST,BASE_LEFT_EAST,BASE_RIGHT_EAST,CHIMNEY);
+    protected static final VoxelShape AXIS_AABB_WEST = Shapes.or(BASE_WEST,BASE_LEFT_WEST,BASE_RIGHT_WEST,CHIMNEY);
+
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
 
@@ -42,12 +70,22 @@ public class RKFurnace extends AbstractFurnaceBlock {
 
     @Override
     public VoxelShape getShape(BlockState p_60555_, BlockGetter p_60556_, BlockPos p_60557_, CollisionContext p_60558_) {
-        return AXIS_AABB;
+        return p_60555_.getValue(HALF)==DoubleBlockHalf.UPPER ? this.getShapeForDirection(p_60555_.getValue(FACING)) : AXIS_AABB;
+    }
+
+    public VoxelShape getShapeForDirection(Direction direction){
+        return switch (direction) {
+            case NORTH -> AXIS_AABB_SOUTH;
+            case EAST  -> AXIS_AABB_WEST;
+            case SOUTH -> AXIS_AABB_NORTH;
+            case WEST  -> AXIS_AABB_EAST;
+            default -> BASE_SOUTH;
+        };
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState p_60572_, BlockGetter p_60573_, BlockPos p_60574_, CollisionContext p_60575_) {
-        return AXIS_AABB;
+        return p_60572_.getValue(HALF)==DoubleBlockHalf.UPPER ? this.getShapeForDirection(p_60572_.getValue(FACING)) : AXIS_AABB;
     }
 
 
