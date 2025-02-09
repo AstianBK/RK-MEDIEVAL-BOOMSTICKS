@@ -473,6 +473,8 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
             }
 
         }
+        p_40882_.add(Component.translatable("item.medieval_boomsticks.gunfire.passive").append(String.valueOf(Config.armorPenetrationPercentage)));
+
     }
 
     public boolean useOnRelease(ItemStack p_150801_) {
