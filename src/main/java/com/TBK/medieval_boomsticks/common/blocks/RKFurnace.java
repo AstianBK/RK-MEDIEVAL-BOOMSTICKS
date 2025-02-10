@@ -1,5 +1,6 @@
 package com.TBK.medieval_boomsticks.common.blocks;
 
+import com.TBK.medieval_boomsticks.RKMedievalBoomStick;
 import com.TBK.medieval_boomsticks.common.RKFurnaceEntity;
 import com.TBK.medieval_boomsticks.common.registers.MBBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -34,9 +35,10 @@ import java.awt.*;
 
 public class RKFurnace extends AbstractFurnaceBlock {
     protected static final VoxelShape AXIS_AABB = Block.box(0.0D, 0.0D, 0.0D,
-            16.0D, 16.0D, 16.0D);
+            16.0D, 14.0D, 16.0D);
     protected static final VoxelShape CHIMNEY = Block.box(4, 3, 4,
             12, 13, 12);
+
     protected static final VoxelShape BASE_SOUTH = Block.box(3, 0, 3, 13, 5, 16);
     protected static final VoxelShape BASE_LEFT_SOUTH = Block.box(0, 0, 3, 3, 3, 16);
     protected static final VoxelShape BASE_RIGHT_SOUTH = Block.box(13, 0, 3, 16, 3, 16);
@@ -53,12 +55,14 @@ public class RKFurnace extends AbstractFurnaceBlock {
 
     // OESTE
     protected static final VoxelShape BASE_WEST = Block.box(0, 0, 3, 13, 5, 13);
-    protected static final VoxelShape BASE_LEFT_WEST = Block.box(0, 0, 0, 3, 3, 3);
-    protected static final VoxelShape BASE_RIGHT_WEST = Block.box(0, 0, 13, 3, 3, 16);
+    protected static final VoxelShape BASE_LEFT_WEST = Block.box(0, 0, 3, 3, 3, 16);
+    protected static final VoxelShape BASE_RIGHT_WEST = Block.box(13, 0, 3, 16, 3, 16);
+
     protected static final VoxelShape AXIS_AABB_SOUTH = Shapes.or(BASE_SOUTH,BASE_LEFT_SOUTH,BASE_RIGHT_SOUTH,CHIMNEY);
     protected static final VoxelShape AXIS_AABB_NORTH = Shapes.or(BASE_NORTH,BASE_LEFT_NORTH,BASE_RIGHT_NORTH,CHIMNEY);
     protected static final VoxelShape AXIS_AABB_EAST = Shapes.or(BASE_EAST,BASE_LEFT_EAST,BASE_RIGHT_EAST,CHIMNEY);
     protected static final VoxelShape AXIS_AABB_WEST = Shapes.or(BASE_WEST,BASE_LEFT_WEST,BASE_RIGHT_WEST,CHIMNEY);
+
 
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
@@ -115,6 +119,7 @@ public class RKFurnace extends AbstractFurnaceBlock {
 
     protected void openContainer(Level p_49777_, BlockPos p_49778_, Player p_49779_) {
         BlockState state=p_49777_.getBlockState(p_49778_);
+        RKMedievalBoomStick.LOGGER.debug("La direccion es :"+state.getValue(FACING));
         BlockEntity blockentity = p_49777_.getBlockEntity(state.getValue(HALF)==DoubleBlockHalf.LOWER ? p_49778_ : p_49778_.below());
         if (blockentity instanceof RKFurnaceEntity) {
             p_49779_.openMenu((MenuProvider)blockentity);

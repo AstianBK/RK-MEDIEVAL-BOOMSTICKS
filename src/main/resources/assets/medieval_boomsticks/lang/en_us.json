@@ -71,6 +71,7 @@
   "block.medieval_boomsticks.magnetite_ore_deepslate": "Deepslate Magnetite Ore",
 
   "itemGroup.medieval_boomstick": "RK Medieval Boomsticks",
-  "item.medieval_boomsticks.maze.passive": "Ignore Armor : %",
-  "item.medieval_boomsticks.gunfire.passive": "Ignore Armor : %"
+
+  "item.medieval_boomsticks.maze.passive": "Ignore Armor : ",
+  "item.medieval_boomsticks.gunfire.passive": "Ignore Armor : "
 }
