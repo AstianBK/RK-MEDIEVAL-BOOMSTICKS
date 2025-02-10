@@ -72,6 +72,6 @@
 
   "itemGroup.medieval_boomstick": "RK Medieval Boomsticks",
 
-  "item.medieval_boomsticks.maze.passive": "Ignore Armor : ",
-  "item.medieval_boomsticks.gunfire.passive": "Ignore Armor : "
+  "item.medieval_boomsticks.maze.passive": "Armor Pierce",
+  "item.medieval_boomsticks.gunfire.passive": "Armor Pierce"
 }
