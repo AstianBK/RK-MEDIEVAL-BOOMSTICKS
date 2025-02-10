@@ -20,6 +20,11 @@ public class MBCreativeTabs {
                 a.accept(MBItems.MORNINGSTAR.get());
                 a.accept(MBItems.EVENINGSTAR.get());
                 a.accept(MBItems.GOTHEVENINGSTAR.get());
+
+                a.accept(MBItems.MORNINGSTAR_METAL.get());
+                a.accept(MBItems.EVENINGSTAR_METAL.get());
+                a.accept(MBItems.GOTHEVENINGSTAR_METAL.get());
+
                 a.accept(MBItems.THROWING_WARDART.get());
                 a.accept(MBItems.ARQUEBUS.get());
                 a.accept(MBItems.HANDGONNE.get());
@@ -68,13 +73,17 @@ public class MBCreativeTabs {
 
                 a.accept(MBItems.GUN_TRIGGER.get());
                 a.accept(MBBlocks.SMITHING_FURNACE.get());
+
                 a.accept(MBBlocks.MAGNETITE_ORE.get());
                 a.accept(MBBlocks.MAGNETITE_ORE_DEEPSLATE.get());
+
                 a.accept(MBBlocks.LIMONITE_ORE.get());
                 a.accept(MBBlocks.LIMONITE_ORE_DEEPSLATE.get());
+
                 a.accept(MBBlocks.SULFUR_ORE_BLOCK.get());
                 a.accept(MBBlocks.SULFUR_ORE.get());
                 a.accept(MBBlocks.SULFUR_ORE_DEEPSLATE.get());
+
                 a.accept(MBBlocks.PYRITE_ORE.get());
                 a.accept(MBBlocks.PYRITE_ORE_DEEPSLATE.get());
             })

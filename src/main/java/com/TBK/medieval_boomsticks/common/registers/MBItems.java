@@ -107,6 +107,10 @@ public class MBItems {
 
 
 
+    public static final RegistryObject<Item> MORNINGSTAR_METAL= ITEMS.register("morningstar_metal",()->new MorningStarItem(new Item.Properties().stacksTo(1).durability(2048)));
+    public static final RegistryObject<Item> GOTHEVENINGSTAR_METAL= ITEMS.register("gotheveningstar_metal",()->new GotheveningStarItem(new Item.Properties().stacksTo(1).durability(4096)));
+    public static final RegistryObject<Item> EVENINGSTAR_METAL= ITEMS.register("eveningstar_metal",()->new EveningStarItem(new Item.Properties().stacksTo(1).durability(2048)));
+
     public static final RegistryObject<Item> THROWING_WARDART= ITEMS.register("war_dart",()->new WarDartItem(new Item.Properties().stacksTo(1).durability(16)));
     public static final RegistryObject<Item> RECURVE_BOW= ITEMS.register("recurve_bow",()->new BowItem(new Item.Properties().stacksTo(1)));
 

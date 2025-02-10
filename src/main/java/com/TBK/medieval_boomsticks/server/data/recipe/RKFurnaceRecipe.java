@@ -27,10 +27,10 @@ public class RKFurnaceRecipe extends AbstractCookingRecipe {
     public final Ingredient addition1;
     public final Ingredient addition2;
     protected final Ingredient addition3;
-    protected final ItemStack tool1;
-    protected final ItemStack tool2;
-    protected final ItemStack tool3;
-    public RKFurnaceRecipe(ResourceLocation p_249379_,Ingredient addition1,Ingredient addition2, Ingredient addition3,ItemStack tool1,ItemStack tool2,ItemStack tool3, ItemStack p_252185_, float p_252165_, int p_250256_) {
+    protected final Ingredient tool1;
+    protected final Ingredient tool2;
+    protected final Ingredient tool3;
+    public RKFurnaceRecipe(ResourceLocation p_249379_,Ingredient addition1,Ingredient addition2, Ingredient addition3,Ingredient tool1,Ingredient tool2,Ingredient tool3, ItemStack p_252185_, float p_252165_, int p_250256_) {
         super(MBRecipeSerializer.FURNACE_RECIPE_TYPE.get(),p_249379_,"Horno",CookingBookCategory.MISC,addition1,p_252185_,p_252165_,p_250256_);
         this.type=MBRecipeSerializer.FURNACE_RECIPE_TYPE.get();
         this.id=p_249379_;
@@ -47,8 +47,6 @@ public class RKFurnaceRecipe extends AbstractCookingRecipe {
 
     @Override
     public boolean matches(Container p_44002_, Level p_44003_) {
-        boolean isValidIngredient2=false;
-        boolean isValidIngredient3=false;
         ItemStack addition1=p_44002_.getItem(0);
         ItemStack addition2=p_44002_.getItem(1);
         ItemStack addition3=p_44002_.getItem(2);
@@ -58,7 +56,7 @@ public class RKFurnaceRecipe extends AbstractCookingRecipe {
         ItemStack tool3=p_44002_.getItem(6);
 
 
-        return this.addition1.test(addition1) && this.addition2.test(addition2) && this.addition3.test(addition3) && this.tool1.is(tool1.getItem()) && this.tool2.is(tool2.getItem()) && this.tool3.is(tool3.getItem());
+        return this.addition1.test(addition1) && this.addition2.test(addition2) && this.addition3.test(addition3) && this.tool1.test(tool1) && this.tool2.test(tool2) && this.tool3.test(tool3);
     }
 
     @Override
@@ -76,9 +74,9 @@ public class RKFurnaceRecipe extends AbstractCookingRecipe {
         nonnulllist.add(this.addition1);
         nonnulllist.add(this.addition2);
         nonnulllist.add(this.addition3);
-        nonnulllist.add(Ingredient.of(this.tool1));
-        nonnulllist.add(Ingredient.of(this.tool2));
-        nonnulllist.add(Ingredient.of(this.tool3));
+        nonnulllist.add(this.tool1);
+        nonnulllist.add(this.tool2);
+        nonnulllist.add(this.tool3);
         return nonnulllist;
     }
     @Override
@@ -106,9 +104,9 @@ public class RKFurnaceRecipe extends AbstractCookingRecipe {
             Ingredient ingredient1 = Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_, "ingredient1"));
             Ingredient ingredient2 = p_44563_.has("ingredient2") ? Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_, "ingredient2")) : Ingredient.EMPTY;
             Ingredient ingredient3 = p_44563_.has("ingredient3") ? Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_,"ingredient3")) : Ingredient.EMPTY;
-            ItemStack tool1 = getItemForJson(p_44563_,"tool1");
-            ItemStack tool2 = getItemForJson(p_44563_,"tool2");
-            ItemStack tool3 = getItemForJson(p_44563_,"tool3");
+            Ingredient tool1 = Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_,"tool1"));
+            Ingredient tool2 = Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_,"tool2"));
+            Ingredient tool3 = Ingredient.fromJson(GsonHelper.getAsJsonObject(p_44563_,"tool3"));
             ItemStack result = getItemForJson(p_44563_,"result");
             float f = GsonHelper.getAsFloat(p_44563_, "experience", 0.0F);
             int i = GsonHelper.getAsInt(p_44563_, "cooking_time", 200);
@@ -135,9 +133,9 @@ public class RKFurnaceRecipe extends AbstractCookingRecipe {
             Ingredient ingredient2 = Ingredient.fromNetwork(p_44566_);
             Ingredient ingredient3 = Ingredient.fromNetwork(p_44566_);
             int cookingTime = p_44566_.readInt();
-            ItemStack tool1 = p_44566_.readItem();
-            ItemStack tool2 = p_44566_.readItem();
-            ItemStack tool3 = p_44566_.readItem();
+            Ingredient tool1 = Ingredient.fromNetwork(p_44566_);
+            Ingredient tool2 = Ingredient.fromNetwork(p_44566_);
+            Ingredient tool3 = Ingredient.fromNetwork(p_44566_);
             ItemStack result = p_44566_.readItem();
             float exp = p_44566_.readFloat();
             return new RKFurnaceRecipe(p_44565_, ingredient1, ingredient2,ingredient3,tool1,tool2,tool3,result,exp,cookingTime);
@@ -148,9 +146,9 @@ public class RKFurnaceRecipe extends AbstractCookingRecipe {
             p_44554_.addition2.toNetwork(p_44553_);
             p_44554_.addition3.toNetwork(p_44553_);
             p_44553_.writeInt(p_44554_.cookingTime);
-            p_44553_.writeItem(p_44554_.tool1);
-            p_44553_.writeItem(p_44554_.tool2);
-            p_44553_.writeItem(p_44554_.tool3);
+            p_44554_.tool1.toNetwork(p_44553_);
+            p_44554_.tool2.toNetwork(p_44553_);
+            p_44554_.tool3.toNetwork(p_44553_);
             p_44553_.writeItem(p_44554_.result);
             p_44553_.writeFloat(p_44554_.experience);
         }

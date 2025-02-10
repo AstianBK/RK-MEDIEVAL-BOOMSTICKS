@@ -10,13 +10,13 @@
     "item": "minecraft:iron_ingot"
   },
   "tool1": {
-    "item": "medieval_boomsticks:smithing_hammer"
+    "tag": "#medieval_boomsticks:blacksmith_hammer"
   },
   "tool2": {
-    "item": "medieval_boomsticks:smithing_tongs"
+    "tag": "#medieval_boomsticks:blacksmith_tongs"
   },
   "tool3": {
-    "item": "medieval_boomsticks:smithing_bellows"
+    "tag": "#medieval_boomsticks:blacksmith_bellows"
   },
   "experience": 2,
   "cooking_time":400,
