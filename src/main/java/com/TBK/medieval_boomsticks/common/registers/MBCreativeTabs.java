@@ -36,6 +36,8 @@ public class MBCreativeTabs {
                 a.accept(MBItems.JAVELIN.get());
                 a.accept(MBItems.HEAVY_BOLT.get());
                 a.accept(MBItems.ROUND_BALL.get());
+                a.accept(MBItems.ROUND_BALL_SMALL.get());
+                a.accept(MBItems.ROUND_BALL_HEAVY.get());
                 a.accept(MBItems.AQUA_FORTIS.get());
                 a.accept(MBItems.FINISHED_LEATHER.get());
                 a.accept(MBItems.FINISHED_OIL.get());
