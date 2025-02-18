@@ -46,9 +46,12 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class RechargeItem extends CrossbowItem implements GeoItem {
-    public static final Predicate<ItemStack> BALL_ONLY = (p_43017_) -> {
-        return p_43017_.is(MBItems.ROUND_BALL.get());
+    public final Predicate<ItemStack> BALL_ONLY = (p_43017_) -> {
+        return p_43017_.getItem() instanceof BullatItem bullatItem && this.acceptedCaliber(bullatItem.caliber);
     };
+
+
+
     public static final Predicate<ItemStack> HEAVY_BOLT_ONLY = (p_43017_) -> {
         return p_43017_.is(MBItems.HEAVY_BOLT.get());
     };
@@ -76,6 +79,20 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
             }
         }
         super.inventoryTick(p_41404_, p_41405_, p_41406_, p_41407_, p_41408_);
+    }
+    public boolean acceptedCaliber(BullatItem.Caliber caliber) {
+        switch (caliber){
+            case SMALL -> {
+                return Config.smallCaliberList.contains(this);
+            }
+            case MEDIUM -> {
+                return Config.mediumCaliberList.contains(this);
+            }
+            case HEAVY -> {
+                return Config.heavyCaliberList.contains(this);
+            }
+        }
+        return false;
     }
 
     public boolean isFireGun(){

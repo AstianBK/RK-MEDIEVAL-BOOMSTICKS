@@ -1,9 +1,16 @@
 package com.TBK.medieval_boomsticks;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(modid = RKMedievalBoomStick.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config
@@ -106,14 +113,46 @@ public class Config
             .comment("SpikedHandgonne Recharge Speed")
             .defineInRange("recharge_speed_spikedhandgonne", 1.0D, 0.0D, 2.0D);
 
+    private static final ForgeConfigSpec.DoubleValue SMALL_CALIBER_DAMAGE = BUILDER
+            .comment("Arquebus Recharge Speed")
+            .defineInRange("small_caliber_damage", 10D, 0,  Double.MAX_VALUE);
 
+    private static final ForgeConfigSpec.DoubleValue MEDIUM_CALIBER_DAMAGE = BUILDER
+            .comment("Arquebus Recharge Speed")
+            .defineInRange("medium_caliber_damage", 15D, 0, Double.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue HEAVY_CALIBER_DAMAGE = BUILDER
+            .comment("Arquebus Recharge Speed")
+            .defineInRange("heavy_caliber_damage", 20D, 0,  Double.MAX_VALUE);
+
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> SMALL_CALIBER = BUILDER
+            .comment("A blacklist for armors that can't be chainmailed")
+            .defineListAllowEmpty("small_caliber", new ArrayList<>(), Config::validateItemName);
+
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> MEDIUM_CALIBER = BUILDER
+            .comment("A blacklist for armors that can't be chainmailed")
+            .defineListAllowEmpty("medium_caliber", List.of("medieval_boomsticks:handgonne","medieval_boomsticks:spikehandgonne","medieval_boomsticks:arquebus"), Config::validateItemName);
+
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> HEAVY_CALIBER = BUILDER
+            .comment("A blacklist for armors that can't be chainmailed")
+            .defineListAllowEmpty("heavy_caliber", new ArrayList<>(), Config::validateItemName);
+
+    private static boolean validateItemName(final Object obj) {
+        return obj instanceof final String itemName && ForgeRegistries.ITEMS.containsKey(new ResourceLocation(itemName));
+    }
 
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
+    public static List<Item> smallCaliberList;
+
+    public static List<Item> mediumCaliberList;
+    public static List<Item> heavyCaliberList;
 
     public static double roundBallDamage;
     public static double heavyBoltDamage;
     public static double javelinDamage;
+    public static double smallCaliberDamage;
+    public static double mediumCaliberDamage;
+    public static double heavyCaliberDamage;
 
     public static double axeDamage;
     public static double knifeDamage;
@@ -167,5 +206,22 @@ public class Config
         armorPenetrationPercentage = ARMOR_PENETRATION_PERCENTAGE.get();
         mazeArmorPenetrationPercentage = MAZE_ARMOR_PENETRATION_PERCENTAGE.get();
         javelinDamage= JAVELIN_DAMAGE.get();
+
+        smallCaliberDamage = SMALL_CALIBER_DAMAGE.get();
+        mediumCaliberDamage = MEDIUM_CALIBER_DAMAGE.get();
+        heavyCaliberDamage = HEAVY_CALIBER_DAMAGE.get();
+
+        smallCaliberList = SMALL_CALIBER.get().stream()
+                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
+                .collect(Collectors.toList());
+
+        mediumCaliberList = MEDIUM_CALIBER.get().stream()
+                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
+                .collect(Collectors.toList());
+
+        heavyCaliberList = HEAVY_CALIBER.get().stream()
+                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
+                .collect(Collectors.toList());
+
     }
 }
