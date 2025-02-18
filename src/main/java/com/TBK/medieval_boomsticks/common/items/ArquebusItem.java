@@ -31,6 +31,8 @@ public class ArquebusItem extends RechargeItem {
         });
     }
 
+
+
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController(this,"controller",0, e->{

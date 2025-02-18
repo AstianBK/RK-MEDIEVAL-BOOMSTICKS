@@ -1,6 +1,7 @@
 package com.TBK.medieval_boomsticks.server.entity;
 
 import com.TBK.medieval_boomsticks.Config;
+import com.TBK.medieval_boomsticks.common.items.BullatItem;
 import com.TBK.medieval_boomsticks.common.registers.MBEntityType;
 import com.TBK.medieval_boomsticks.server.network.PacketHandler;
 import com.TBK.medieval_boomsticks.server.network.msg.PacketPosVec;
@@ -35,12 +36,15 @@ import java.util.Arrays;
 
 public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
     public final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
+    public final BullatItem.Caliber caliber;
     public RoundBallProjectile(EntityType<? extends RoundBallProjectile> p_37561_, Level p_37562_) {
         super(p_37561_, p_37562_);
+        this.caliber= BullatItem.Caliber.MEDIUM;
     }
 
     public RoundBallProjectile(Level p_37569_, LivingEntity p_37570_, ItemStack p_37571_) {
         super(MBEntityType.ROUND_BALL.get(), p_37570_, p_37569_);
+        this.caliber=p_37571_.getItem() instanceof BullatItem bullatItem ? bullatItem.getCaliber() : BullatItem.Caliber.HEAVY;
     }
 
     @Override
@@ -64,9 +68,13 @@ public class RoundBallProjectile extends AbstractArrow implements GeoEntity {
         }
     }
 
+    public double getDamageFinal(){
+        return this.caliber!=null ? this.caliber.getDamage() : Config.roundBallDamage;
+    }
+
     protected void onHitEntity(EntityHitResult p_36757_) {
         Entity entity = p_36757_.getEntity();
-        int damage= (int) Config.roundBallDamage;
+        int damage= (int) this.getDamageFinal();
         float penetrationPercentage = Config.armorPenetrationPercentage*0.01F;
         int d = (int)((float)damage*penetrationPercentage);
         int i = damage-d;

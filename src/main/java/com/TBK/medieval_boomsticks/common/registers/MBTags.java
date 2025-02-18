@@ -14,7 +14,6 @@ public class MBTags {
     public static final TagKey<Item> IS_HAMMER = tag("blacksmith_hammer");
 
 
-
     private static TagKey<Item> tag(String name) {
         return TagKey.create(Registries.ITEM, new ResourceLocation(RKMedievalBoomStick.MODID, name));
     }
