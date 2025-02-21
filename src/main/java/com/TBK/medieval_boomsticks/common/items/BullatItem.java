@@ -27,7 +27,7 @@ public class BullatItem extends ArrowItem {
     }
 
     public void appendHoverText(ItemStack p_40880_, @Nullable Level p_40881_, List<Component> p_40882_, TooltipFlag p_40883_) {
-        p_40882_.add(this.caliber.getCaliberName());
+        p_40882_.add(this.caliber.getCaliberName().withStyle(ChatFormatting.GRAY));
     }
 
 
@@ -53,7 +53,7 @@ public class BullatItem extends ArrowItem {
             }
             return 0.0D;
         }
-        public Component getCaliberName(){
+        public MutableComponent getCaliberName(){
             if(this==SMALL){
                 return Component.translatable("item.medieval_boomsticks.caliber.small_caliber");
             }else if(this==MEDIUM){
