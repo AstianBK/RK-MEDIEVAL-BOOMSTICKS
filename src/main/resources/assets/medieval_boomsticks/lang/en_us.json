@@ -1,4 +1,7 @@
 {
+  "item.medieval_boomsticks.morningstar_metal": "Metal Handle Morningstar",
+  "item.medieval_boomsticks.eveningstar_metal": "Metal Handle Eveningstar",
+  "item.medieval_boomsticks.gotheveningstar_metal": "Metal Handle Gothic Eveningstar",
   "item.medieval_boomsticks.morningstar": "Morningstar",
   "item.medieval_boomsticks.eveningstar": "Eveningstar",
   "item.medieval_boomsticks.gotheveningstar": "Gothic Eveningstar",
@@ -19,6 +22,8 @@
 
   "item.medieval_boomsticks.heavy_bolt": "Heavy Bolt",
   "item.medieval_boomsticks.round_ball": "Round Ball",
+  "item.medieval_boomsticks.round_ball_small": "Round Ball",
+  "item.medieval_boomsticks.round_ball_heavy": "Round Ball",
 
   "entity.medieval_boomsticks.heavy_bolt": "Heavy Bolt",
   "entity.medieval_boomsticks.round_ball": "Round Ball",
@@ -74,9 +79,8 @@
 
   "item.medieval_boomsticks.maze.passive": "Armor Pierce",
   "item.medieval_boomsticks.gunfire.passive": "Armor Pierce",
-  "item.medieval_boomsticks.caliber.all_caliber": "accept all caliber",
+  "item.medieval_boomsticks.caliber.all_caliber": "All",
   "item.medieval_boomsticks.caliber.small_caliber": "Small",
   "item.medieval_boomsticks.caliber.medium_caliber": "Medium",
-  "item.medieval_boomsticks.caliber": "Accept Caliber",
-  "item.medieval_boomsticks.caliber.heavy_caliber": "Heavy"
-}
+  "item.medieval_boomsticks.caliber.heavy_caliber": "Heavy",
+  "item.medieval_boomsticks.caliber": "Uses:"}
