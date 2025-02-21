@@ -1,6 +1,5 @@
 package com.TBK.medieval_boomsticks;
 
-import com.TBK.medieval_boomsticks.common.blocks.RKFurnace;
 import com.TBK.medieval_boomsticks.common.items.MazeItem;
 import com.TBK.medieval_boomsticks.common.items.MorningStarItem;
 import com.TBK.medieval_boomsticks.common.registers.MBItems;
@@ -11,10 +10,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 

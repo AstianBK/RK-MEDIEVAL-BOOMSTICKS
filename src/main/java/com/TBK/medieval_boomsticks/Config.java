@@ -115,14 +115,14 @@ public class Config
 
     private static final ForgeConfigSpec.DoubleValue SMALL_CALIBER_DAMAGE = BUILDER
             .comment("Arquebus Recharge Speed")
-            .defineInRange("small_caliber_damage", 10D, 0,  Double.MAX_VALUE);
+            .defineInRange("small_caliber_damage", 15D, 0,  Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue MEDIUM_CALIBER_DAMAGE = BUILDER
             .comment("Arquebus Recharge Speed")
-            .defineInRange("medium_caliber_damage", 15D, 0, Double.MAX_VALUE);
+            .defineInRange("medium_caliber_damage", 25D, 0, Double.MAX_VALUE);
     private static final ForgeConfigSpec.DoubleValue HEAVY_CALIBER_DAMAGE = BUILDER
             .comment("Arquebus Recharge Speed")
-            .defineInRange("heavy_caliber_damage", 20D, 0,  Double.MAX_VALUE);
+            .defineInRange("heavy_caliber_damage", 35D, 0,  Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> SMALL_CALIBER = BUILDER
             .comment("A blacklist for armors that can't be chainmailed")
@@ -130,7 +130,7 @@ public class Config
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> MEDIUM_CALIBER = BUILDER
             .comment("A blacklist for armors that can't be chainmailed")
-            .defineListAllowEmpty("medium_caliber", List.of("medieval_boomsticks:handgonne","medieval_boomsticks:spikehandgonne","medieval_boomsticks:arquebus"), Config::validateItemName);
+            .defineListAllowEmpty("medium_caliber", List.of("medieval_boomsticks:handgonne","medieval_boomsticks:spikedhandgonne","medieval_boomsticks:arquebus"), Config::validateItemName);
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> HEAVY_CALIBER = BUILDER
             .comment("A blacklist for armors that can't be chainmailed")

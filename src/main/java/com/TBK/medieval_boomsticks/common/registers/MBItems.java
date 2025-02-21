@@ -47,7 +47,7 @@ public class MBItems {
 
     public static final RegistryObject<Item> SMITHING_BELLOWS= ITEMS.register("smithing_bellows",()->new Item(new Item.Properties().stacksTo(1).durability(128)));
 
-    public static final RegistryObject<Item> SMITHING_HAMMER= ITEMS.register("smithing_hammer",()->new Item(new Item.Properties().stacksTo(1).durability(64)));
+    public static final RegistryObject<Item> SMITHING_HAMMER= ITEMS.register("smithing_hammer",()->new HammerItem(new Item.Properties().stacksTo(1).durability(64)));
 
     public static final RegistryObject<Item> SMITHING_TONGS= ITEMS.register("smithing_tongs",()->new Item(new Item.Properties().stacksTo(1).durability(32)));
 
@@ -93,12 +93,9 @@ public class MBItems {
 
     public static final RegistryObject<Item> HEAVY_BOLT= ITEMS.register("heavy_bolt",()->new ArrowItem(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> ROUND_BALL= ITEMS.register("round_ball",()->new BullatItem(new Item.Properties().stacksTo(16),BullatItem.Caliber.MEDIUM));
+    public static final RegistryObject<Item> ROUND_BALL_SMALL= ITEMS.register("round_ball_small",()->new BullatItem(new Item.Properties().stacksTo(16), BullatItem.Caliber.SMALL));
 
-    public static final RegistryObject<Item> ROUND_BALL_SMALL= ITEMS.register("round_ball_small",()->new ArrowItem(new Item.Properties().stacksTo(16)));
-
-    public static final RegistryObject<Item> ROUND_BALL_HEAVY= ITEMS.register("round_ball_heavy",()->new ArrowItem(new Item.Properties().stacksTo(16)));
-
-
+    public static final RegistryObject<Item> ROUND_BALL_HEAVY= ITEMS.register("round_ball_heavy",()->new BullatItem(new Item.Properties().stacksTo(16), BullatItem.Caliber.HEAVY));
 
     public static final RegistryObject<Item> IRON_THROWING_KNIFE= ITEMS.register("iron_throwing_knife",()->new ThrowingKnifeItem(new Item.Properties().stacksTo(1).durability(24)));
     public static final RegistryObject<Item> IRON_THROWING_AXE= ITEMS.register("iron_throwing_axe",()->new ThrowingAxeItem(new Item.Properties().stacksTo(1).durability(24)));
