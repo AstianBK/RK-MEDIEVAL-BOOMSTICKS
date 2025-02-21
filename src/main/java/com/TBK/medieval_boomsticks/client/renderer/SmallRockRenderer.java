@@ -14,7 +14,6 @@ public class SmallRockRenderer<T extends ThrowingItem> extends GeoItemRenderer<T
 
     @Override
     public void scaleModelForRender(float widthScale, float heightScale, PoseStack poseStack, T animatable, BakedGeoModel model, boolean isReRender, float partialTick, int packedLight, int packedOverlay) {
-        poseStack.scale(0.3F,0.3F,0.3F);
         super.scaleModelForRender(widthScale, heightScale, poseStack, animatable, model, isReRender, partialTick, packedLight, packedOverlay);
     }
 }
