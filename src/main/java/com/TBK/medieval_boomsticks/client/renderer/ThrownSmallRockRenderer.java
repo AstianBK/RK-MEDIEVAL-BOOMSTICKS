@@ -21,7 +21,6 @@ public class ThrownSmallRockRenderer<T extends ThrowableSmallRock> extends GeoEn
 
     @Override
     public void render(T entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
-        poseStack.scale(0.3F,0.3F,0.3F);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 
