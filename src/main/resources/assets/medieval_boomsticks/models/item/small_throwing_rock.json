@@ -1,18 +1,89 @@
 {
-  "parent": "minecraft:item/handheld",
-  "loader": "forge:separate_transforms",
-  "base": {
-    "parent": "medieval_boomsticks:item/rock_small_3d"
-  },
-  "perspectives": {
-    "gui": {
-      "parent": "medieval_boomsticks:item/rock_small_gui"
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    64,
+    64
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        42,
+        0,
+        0
+      ],
+      "scale": [
+        0.15,
+        0.15,
+        0.15
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        42,
+        0,
+        0
+      ],
+      "scale": [
+        0.15,
+        0.15,
+        0.15
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        42,
+        0,
+        0
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        42,
+        0,
+        0
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
     },
     "ground": {
-      "parent": "medieval_boomsticks:item/rock_small_gui"
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "gui": {
+      "rotation": [
+        5.6,
+        -62.83,
+        173.63
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
     },
     "fixed": {
-      "parent": "medieval_boomsticks:item/rock_small_gui"
+      "rotation": [
+        85.94,
+        37.17,
+        -177.52
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
     }
   }
 }
