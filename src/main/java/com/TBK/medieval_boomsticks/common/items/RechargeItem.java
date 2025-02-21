@@ -209,8 +209,8 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
             return false;
         } else {
             boolean isFireGun=isFireGun(p_40864_);
-            boolean flag = p_40867_ && ((isFireGun && p_40865_.is(MBItems.ROUND_BALL.get())) ||
-                    (!isFireGun && p_40865_.is(MBItems.HEAVY_BOLT.get()))) ;
+            boolean flag = p_40867_ && ((isFireGun && p_40865_.getItem() instanceof BullatItem)) ||
+                    (!isFireGun && p_40865_.is(MBItems.HEAVY_BOLT.get())) ;
             ItemStack itemstack;
             int i=(p_40864_.getItem() instanceof SpikedHandGonneItem) ? 3 : 1;
             for (int j=0;j<i;j++){
