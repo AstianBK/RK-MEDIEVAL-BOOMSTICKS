@@ -1,4 +1,7 @@
 {
+  "item.medieval_boomsticks.morningstar_metal": "Metal Handle Morningstar",
+  "item.medieval_boomsticks.eveningstar_metal": "Metal Handle Eveningstar",
+  "item.medieval_boomsticks.gotheveningstar_metal": "Metal Handle Gothic Eveningstar",
   "item.medieval_boomsticks.morningstar": "Morningstar",
   "item.medieval_boomsticks.eveningstar": "Eveningstar",
   "item.medieval_boomsticks.gotheveningstar": "Gothic Eveningstar",
