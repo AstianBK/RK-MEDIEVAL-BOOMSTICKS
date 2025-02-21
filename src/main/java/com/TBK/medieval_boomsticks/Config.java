@@ -30,21 +30,21 @@ public class Config
             .defineInRange("javelin_damage", 8.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue SMALL_ROCK_DAMAGE = BUILDER
-            .comment("Round Ball ammo damage value")
+            .comment("Small Rock Damage")
             .defineInRange("small_rock_damage", 4.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue WARDART_DAMAGE = BUILDER
-            .comment("Round Ball ammo damage value")
+            .comment("Wardart Damage")
             .defineInRange("wardart_damage", 10.0D, 0, Double.MAX_VALUE);
 
 
     private static final ForgeConfigSpec.DoubleValue THROWN_WARDART_DAMAGE = BUILDER
-            .comment("Round Ball ammo damage value")
+            .comment("Thrown Wardart Damage")
             .defineInRange("thrown_wardart_damage", 10.0D, 0, Double.MAX_VALUE);
 
 
     private static final ForgeConfigSpec.DoubleValue LARGE_ROCK_DAMAGE = BUILDER
-            .comment("Heavy Bolt ammo damage value")
+            .comment("Large Rock Damage")
             .defineInRange("large_rock_damage", 18.0D, 0, Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.DoubleValue THROWN_KNIFE_DAMAGE = BUILDER
@@ -125,15 +125,15 @@ public class Config
             .defineInRange("heavy_caliber_damage", 35D, 0,  Double.MAX_VALUE);
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> SMALL_CALIBER = BUILDER
-            .comment("A blacklist for armors that can't be chainmailed")
+            .comment("List of weapons that use small caliber")
             .defineListAllowEmpty("small_caliber", new ArrayList<>(), Config::validateItemName);
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> MEDIUM_CALIBER = BUILDER
-            .comment("A blacklist for armors that can't be chainmailed")
+            .comment("List of weapons that use medium caliber")
             .defineListAllowEmpty("medium_caliber", List.of("medieval_boomsticks:handgonne","medieval_boomsticks:spikedhandgonne","medieval_boomsticks:arquebus"), Config::validateItemName);
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> HEAVY_CALIBER = BUILDER
-            .comment("A blacklist for armors that can't be chainmailed")
+            .comment("List of weapons that use heavy caliber")
             .defineListAllowEmpty("heavy_caliber", new ArrayList<>(), Config::validateItemName);
 
     private static boolean validateItemName(final Object obj) {
