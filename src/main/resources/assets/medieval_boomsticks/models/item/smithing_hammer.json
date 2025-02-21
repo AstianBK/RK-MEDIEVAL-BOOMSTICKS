@@ -1,6 +1,18 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "medieval_boomsticks:item/smithing_hammer"
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "medieval_boomsticks:item/smithing_hammer_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "medieval_boomsticks:item/smithing_hammer_gui"
+    },
+    "ground": {
+      "parent": "medieval_boomsticks:item/smithing_hammer_gui"
+    },
+    "fixed": {
+      "parent": "medieval_boomsticks:item/smithing_hammer_gui"
+    }
   }
 }

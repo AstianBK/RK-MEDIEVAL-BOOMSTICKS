@@ -10,13 +10,13 @@
     "item": "medieval_boomsticks:dziwer_bar"
   },
   "tool1": {
-    "tag": "#medieval_boomsticks:blacksmith_hammer"
+    "tag": "medieval_boomsticks:blacksmith_hammer"
   },
   "tool2": {
-    "tag": "#medieval_boomsticks:blacksmith_tongs"
+    "tag": "medieval_boomsticks:blacksmith_tongs"
   },
   "tool3": {
-    "tag": "#medieval_boomsticks:blacksmith_bellows"
+    "tag": "medieval_boomsticks:blacksmith_bellows"
   },
   "experience": 10,
   "cooking_time":800,

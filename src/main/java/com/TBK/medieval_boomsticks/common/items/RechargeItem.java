@@ -15,6 +15,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -492,6 +493,25 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
         }
         p_40882_.add(Component.literal("+"+Config.armorPenetrationPercentage+"% ").append(Component.translatable("item.medieval_boomsticks.gunfire.passive")).withStyle(ChatFormatting.GREEN));
 
+        p_40882_.add(Component.translatable("item.medieval_boomsticks.caliber").append(this.getCalibers()));
+    }
+
+    public Component getCalibers(){
+        if(Config.heavyCaliberList.contains(this) && Config.smallCaliberList.contains(this) && Config.mediumCaliberList.contains(this)){
+            return Component.translatable("item.medieval_boomsticks.caliber.all_caliber");
+        }
+        MutableComponent component = Component.empty();
+        if(Config.smallCaliberList.contains(this)){
+            component.append(Component.literal(" ").append(Component.translatable("item.medieval_boomsticks.caliber.small_caliber")));
+        }
+        if(Config.mediumCaliberList.contains(this)){
+            component.append(Component.literal(" ").append(Component.translatable("item.medieval_boomsticks.caliber.medium_caliber")));
+        }
+        if(Config.heavyCaliberList.contains(this)){
+            component.append(Component.literal(" ").append(Component.translatable("item.medieval_boomsticks.caliber.heavy_caliber")));
+        }
+
+        return component;
     }
 
     public boolean useOnRelease(ItemStack p_150801_) {

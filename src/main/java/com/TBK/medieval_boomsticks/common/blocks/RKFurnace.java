@@ -119,7 +119,6 @@ public class RKFurnace extends AbstractFurnaceBlock {
 
     protected void openContainer(Level p_49777_, BlockPos p_49778_, Player p_49779_) {
         BlockState state=p_49777_.getBlockState(p_49778_);
-        RKMedievalBoomStick.LOGGER.debug("La direccion es :"+state.getValue(FACING));
         BlockEntity blockentity = p_49777_.getBlockEntity(state.getValue(HALF)==DoubleBlockHalf.LOWER ? p_49778_ : p_49778_.below());
         if (blockentity instanceof RKFurnaceEntity) {
             p_49779_.openMenu((MenuProvider)blockentity);
