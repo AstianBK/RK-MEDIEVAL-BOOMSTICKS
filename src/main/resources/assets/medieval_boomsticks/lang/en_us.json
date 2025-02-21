@@ -19,6 +19,8 @@
 
   "item.medieval_boomsticks.heavy_bolt": "Heavy Bolt",
   "item.medieval_boomsticks.round_ball": "Round Ball",
+  "item.medieval_boomsticks.round_ball_small": "Round Ball",
+  "item.medieval_boomsticks.round_ball_heavy": "Round Ball",
 
   "entity.medieval_boomsticks.heavy_bolt": "Heavy Bolt",
   "entity.medieval_boomsticks.round_ball": "Round Ball",
@@ -74,10 +76,10 @@
 
   "item.medieval_boomsticks.maze.passive": "Armor Pierce",
   "item.medieval_boomsticks.gunfire.passive": "Armor Pierce",
-  "item.medieval_boomsticks.caliber.all_caliber": "accept all caliber",
+  "item.medieval_boomsticks.caliber.all_caliber": "All",
   "item.medieval_boomsticks.caliber.small_caliber": "Small",
   "item.medieval_boomsticks.caliber.medium_caliber": "Medium",
-  "item.medieval_boomsticks.heavy_caliber": "Heavy",
-  "item.medieval_boomsticks.caliber": "Accept Caliber",
-  "item.medieval_boomsticks.caliber.heavy_caliber": "Heavy"
+  "item.medieval_boomsticks.caliber.heavy_caliber": "Heavy",
+  "item.medieval_boomsticks.caliber": "Uses:"
+
 }
