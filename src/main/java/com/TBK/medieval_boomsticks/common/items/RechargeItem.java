@@ -493,10 +493,10 @@ public class RechargeItem extends CrossbowItem implements GeoItem {
         }
         p_40882_.add(Component.literal("+"+Config.armorPenetrationPercentage+"% ").append(Component.translatable("item.medieval_boomsticks.gunfire.passive")).withStyle(ChatFormatting.GREEN));
 
-        p_40882_.add(Component.translatable("item.medieval_boomsticks.caliber").append(this.getCalibers()));
+        p_40882_.add(Component.translatable("item.medieval_boomsticks.caliber").append(this.getCalibers()).withStyle(ChatFormatting.GRAY));
     }
 
-    public Component getCalibers(){
+    public MutableComponent getCalibers(){
         if(Config.heavyCaliberList.contains(this) && Config.smallCaliberList.contains(this) && Config.mediumCaliberList.contains(this)){
             return Component.translatable("item.medieval_boomsticks.caliber.all_caliber");
         }
